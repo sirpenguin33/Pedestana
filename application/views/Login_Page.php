@@ -9,12 +9,13 @@
 	</head>
 	<body>
 	<div class="jumbotron" style="height:694px;">
-		<h1 class="display-1" style="color:white;text-align:center;"> Pedestana</h1>
+		<h1 class="display-1" style="color:white;text-align:center;">PEDESTANA</h1>
 	</div>
 	<div class="container-fluid">
 		<table>
 			<tr>
-			<td>tes<td>
+			<td>tes</td>
+			<td>tes 2</td>
 			</tr>
 		</table>
 	</div>
