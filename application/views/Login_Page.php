@@ -8,8 +8,15 @@
 
 	</head>
 	<body>
-	<div class="fullscreen-blue">
-	<h1 class="display-1">Welcome to <br> Pedestana</h1>
+	<div class="jumbotron" style="height:694px;">
+		<h1 class="display-1" style="color:white;text-align:center;"> Pedestana</h1>
+	</div>
+	<div class="container-fluid">
+		<table>
+			<tr>
+			<td>tes<td>
+			</tr>
+		</table>
 	</div>
 	
 	</body>

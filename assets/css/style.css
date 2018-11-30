@@ -1,9 +1,7 @@
 .fullscreen-blue{
-text-align:center;
 background-color: #0099CC;
 color:white;
-background-size:cover;
 width:auto;
-height:695px;
-vertical-align:middle;
+height:700px;
+position:relative;
 }
