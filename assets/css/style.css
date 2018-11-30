@@ -1,7 +1,18 @@
-.fullscreen-blue{
-background-color: #0099CC;
-color:white;
-width:auto;
-height:700px;
+.left-side{
+	height:100%;
+	background-color:#001A57;
+	text-align:center;
+}
+.left-side h1{
+	color:white;
+	position:relative;
+	top:10%;
+}
+.right-side{
+height:100%;
+width:100%;	
+}
+.form-login{
 position:relative;
+top:23%;
 }
