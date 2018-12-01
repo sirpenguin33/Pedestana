@@ -13,6 +13,6 @@ class Login extends CI_Controller {
     }
 	public function index()
 	{
-		$this->load->view('Login_Page');
+		$this->load->view('Login/Login_Page');
 	}
 }
