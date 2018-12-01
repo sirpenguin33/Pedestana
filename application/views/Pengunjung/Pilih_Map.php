@@ -9,12 +9,12 @@
 	<script type="text/javascript" src="<?php echo base_url('assets/js/indonesia/jsmaps/jsmaps-panzoom.js')?>" ></script>
 	<script type="text/javascript" src="<?php echo base_url('assets/js/indonesia/jsmaps/jsmaps.min.js')?>" ></script>
 	<script type="text/javascript" src="<?php echo base_url('assets/js/indonesia/maps/indonesia.js')?>" ></script>
-			<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap.css')?>" >
-		<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/style.css')?>" >
-		<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap.min.css')?>" >
-		<script src="<?php echo base_url('assets/js/jsquery-3.1.1.min.js')?>"></script>
-		<script type="text/javascript" src="<?php echo base_url('assets/js/bootstrap.min.js')?>" ></script>
-		<script type="text/javascript" src="<?php echo base_url('assets/js/bootstrap.js')?>" ></script>
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap.css')?>" >
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/style.css')?>" >
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap.min.css')?>" >
+	<script src="<?php echo base_url('assets/js/jsquery-3.1.1.min.js')?>"></script>
+	<script type="text/javascript" src="<?php echo base_url('assets/js/bootstrap.min.js')?>" ></script>
+	<script type="text/javascript" src="<?php echo base_url('assets/js/bootstrap.js')?>" ></script>
   </head>
   <body>
 	<div class="jsmaps-wrapper" id="indonesia-map"></div>
