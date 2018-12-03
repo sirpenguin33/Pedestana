@@ -3,7 +3,7 @@
 			<table class="table table-bordered table-responsive">	
 				<thead>
 					<tr>
-						<td>ID Desa</td>
+						<th>ID Desa</th>
 						<th>Nama</th>
 						<th>Lokasi</th>
 						<th>Laporan</th>
@@ -15,7 +15,7 @@
 						<td>Kaliurang</td>
 						<td>Yogjakarta</td>
 						<td>
-							<a href="" class="btn btn-info">Isi Laporan</a>
+							<a href="<?php echo base_url('Fasilitator/Fasilitator2'); ?>" class="btn btn-info">Isi Laporan</a>
 						</td>
 					</tr>
 		</tbody>
