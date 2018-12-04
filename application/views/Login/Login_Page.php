@@ -56,17 +56,17 @@
 			</td>
 			<td>
 				<div class="container-fluid right-side">
-					<form class="form-horizontal form-login" action="/action_page.php">
+					<form class="form-horizontal form-login" action="<?php echo base_url()?>index.php/Login/aksi_login" method="post"> 
 						<div class="form-group">
-							<label class="control-label col-sm-2" for="email">Username:</label>
+							<label class="control-label col-sm-2" for="username">Username:</label>
 							<div class="col-sm-10">
-								<input type="email" class="form-control" id="email" placeholder=" Enter Username">
+								<input type="email" name="username" class="form-control" id="email" placeholder=" Enter Username">
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="control-label col-sm-2" for="pwd">Password:</label>
 							<div class="col-sm-10"> 
-								<input type="password" class="form-control" id="pwd" placeholder="Enter password">
+								<input type="password" name="password" class="form-control" id="pwd" placeholder="Enter password">
 							</div>
 						</div>
 				<div class="form-group"> 
@@ -78,9 +78,9 @@
 				</div>
 				<div class="form-group"> 
 					<div class="col-sm-offset-2 col-sm-10">
-						<button type="submit" class="btn btn-default" style="background-color:#00A868;color:white;">Login</button>
+						<input type="submit" class="btn btn-default" value="Login" style="background-color:#00A868;color:white;"></button>
 						atau
-						<a href="#">masuk sebagai pengunjung</a>
+						<a href="<?php echo base_url() ?>index.php/Pengunjung/">masuk sebagai pengunjung</a>
 					</div>
 				</div>
 					</form>
