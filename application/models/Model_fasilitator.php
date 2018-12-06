@@ -7,7 +7,7 @@ class model_fasilitator extends CI_model{
     {
         $query = $this->db->select("*")
                  ->from('fasilitator')
-                 ->order_by('ID', 'ASCD')
+                 ->order_by('ID_fasilitator', 'ASCD')
                  ->get();
         return $query->result();
     }
@@ -24,6 +24,18 @@ class model_fasilitator extends CI_model{
         }
 
     }
+	
+	public function search($keyword){
+		$query=$this->db->select('*')
+			    ->from('Fasilitator')
+				->like('Nama',$keyword)
+				->or_like('No_HP')
+				->or_like('Umur')
+				->or_like('Pendidikan')
+				->get();
+		return $query->result();
+		
+	}
 
     public function edit($ID)
     {

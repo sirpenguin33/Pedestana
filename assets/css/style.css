@@ -31,4 +31,14 @@ top:27%;
 .button-tambah{
 	margin:0 0 1% 0;
 }
+#table1{
+	display:table;
+}
+#table2{
+	display:none;
+}
+#table3{
+	display:none;
+}
+
 

@@ -7,7 +7,7 @@ class model_bnpb extends CI_model{
     {
         $query = $this->db->select("*")
                  ->from('bnpb')
-                 ->order_by('ID', 'ASCD')
+                 ->order_by('ID_bnpb', 'ASCD')
                  ->get();
         return $query->result();
     }

@@ -5,9 +5,11 @@ class model_desa extends CI_model{
 
     public function get_all()
     {
-        $query = $this->db->select("*")
+        $query = $this->db->select("*",'bnpb.Nama_bnpb','fasilitator.Nama_fasilitator')
                  ->from('desa')
-                 ->order_by('ID', 'ASCD')
+                 ->order_by('ID_desa', 'ASCD')
+				 ->join('bnpb','bnpb.ID_bnpb=desa.ID_bnpb')
+				 ->join('fasilitator','fasilitator.ID_fasilitator=desa.ID_fasilitator')
                  ->get();
         return $query->result();
     }
