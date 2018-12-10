@@ -24,20 +24,35 @@ top:27%;
     overflow: hidden;
     outline:none;
 	color:white;
+	margin:12% 0 5% 0;
+	color:white;
+	font-weight:bold;
+	width:100%;}
+.dipilih{
+		background-color:#FFC600;
 }
-#form-tambah{
+#form-tambah,#form-fasilitator,#form-bnpb,#form-akun{
 	display:none;
 	
 }
+
+.tombol:hover{
+	background-color:#FFC600;
+}
+.side{
+	background-color:white;
+}
+
 	
 .nav-bg{
 	background-color:#001A57;
-	
 }
+
 .bg-nav{
 	background-color:#001A57;
 	color:white;
 }
+
 
 .bg-nav > a{
 	position:absolute;
@@ -47,6 +62,9 @@ top:27%;
 }
 .button-tambah{
 	margin:0 0 1% 0;
+}
+#form-fasilitator{
+	display:none;
 }
 #table1{
 	display:none;

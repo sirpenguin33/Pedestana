@@ -32,8 +32,9 @@ class Admin extends CI_Controller {
 	public function search(){
 	$keyword=$this->input->post('keyword');
 	$data=$this->model_fasilitator->search($keyword);
-	redirect("/ADMIN",$data);
+	redirect("/Admin",$data);
 	
 		
 	}
+	
 }

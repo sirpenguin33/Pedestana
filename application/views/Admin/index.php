@@ -16,7 +16,6 @@
 	<script src="<?php echo base_url('assets/js/jquery.min.js')?>"></script>
 	<script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js')?>"></script>
 	<script src="<?php echo base_url('assets/js/jquery.easing.min.js')?>"></script>
-	<script src="<?php echo base_url('assets/js/jquery.dataTables.js')?>"></script>
 	<script src="<?php echo base_url('assets/js/sb-admin.min.js')?>"></script>
 	<script src="<?php echo base_url('assets/js/datatables-demo.js')?>"></script>
 	
@@ -27,22 +26,19 @@
     <nav class="navbar navbar-expand navbar-dark bg-nav">
 
      <h1 style="color:white;">Pedestana</h1>
-
+	<img >
     </nav>
 
     <div id="wrapper">
 
       <!-- Sidebar -->
-      <ul class="sidebar navbar-nav">
+      <ul class="sidebar navbar-nav side">
         <li class="nav-item active">
-        <button type="button" class="btn tombol" id="overview">Overview</button>
+        <button type="button" class="btn tombol dipilih" id="overview">Overview</button>
 		</li>
 		
 		<li class="nav-item">
 		<button type="button" class="btn tombol" id="tb1">Fasilitator</button>
-        </li>
-        <li class="nav-item dropdown">
-          <button type="button" class="btn tombol" id="tb3">Desa</button>
         </li>
         <li class="nav-item">
         <button type="button" class="btn tombol" id="tb2">BNPB</button>
@@ -73,7 +69,6 @@
 		</tr>
 	</table>
 		<div class="table-responsive" id="table1">
-		<button type="button" class="btn btn-success button-tambah">Tambah</button>
 		<table class="table-dark table-striped" style="width:100%;text-align:center;">
 		<thead>
 		<tr>
@@ -115,7 +110,7 @@
 	
 	
 		<div class="table-responsive" id="table2">
-		<button type="button" class="btn btn-success button-tambah">Tambah</button>
+	
 		<table class="table-dark table-striped" style="width:100%;text-align:center;">
 		<thead>
 		<tr>
@@ -154,7 +149,6 @@
 		</div>
 
 		<div class="table-responsive" id="table3">
-		<button type="button" class="btn btn-success button-tambah">Tambah</button>
 		<table class="table-dark table-striped" style="width:100%;text-align:center;">
 		<thead>
 		<tr>
@@ -192,30 +186,28 @@
 		</table>
 		</div>
 		
-		<div class="container-fluid" id="form-tambah">
-		<table style="width:100%;">
+		<table style="width:100%;" id="form-tambah">
 		<tr>
-			<td><button type="button" class="btn btn-primary btn-block" id="form-fasilitator">Fasilitator</button></td>
-			<td><button type="button" class="btn btn-primary btn-block" id="form-desa">Desa</button></td>
-			<td><button type="button" class="btn btn-primary btn-block" id="form-bnpb">BNPB</button></td>
-			<td><button type="button" class="btn btn-primary btn-block" id="form-akun">Akun</button></td>
+			<td><button type="button" class="btn btn-primary btn-block" id="btn-fasilitator">Fasilitator</button></td>
+			<td><button type="button" class="btn btn-primary btn-block" id="btn-bnpb">BNPB</button></td>
+			<td><button type="button" class="btn btn-primary btn-block" id="btn-akun">Akun</button></td>
 		</tr>
-		<form action="<?php echo base_url() ?>index.php/Fasilitator/simpan" method="post">
-		<tr>
-		<td><label for="name">Nama : </label> </td>
-		<td><input type="text" class="form-control" name="Nama_fasilitator" placeholder="Masukkan nama"> </td>
-		</tr>
-		<tr >
-		<td><label for="birthday">Tanggal Lahir : </label> </td>
-		<td><input type="date" class="form-control" name="Tanggal_Lahir"> </td>
-		</tr>
-		<tr>
-		<td><label for="age">Umur : </label> </td>
-		<td><input type="number" class="form-control" name="Umur" placeholder="Masukkan umur"> </td>
-		</tr>
-		<tr>
-		<td><label for="education">Pendidikan : </label> </td>
-		<td> 
+		</table>
+		<form action="<?php echo base_url() ?>index.php/Fasilitator/simpan" method="post" id="form-fasilitator" >
+		<div class="form-group">
+		<label for="name">Nama : </label>
+		<input type="text" class="form-control" name="Nama_fasilitator" placeholder="Masukkan nama">
+		</div>
+		<div class="form-group">
+		<label for="birthday">Tanggal Lahir : </label>
+		<input type="date" class="form-control" name="Tanggal_Lahir">
+		</div>
+		<div class="form-group">
+		<label for="age">Umur : </label> 
+		<input type="number" class="form-control" name="Umur" placeholder="Masukkan umur">
+		</div>
+		<div class="form-group">
+		<label for="education">Pendidikan : </label>
 		<select name="Pendidikan" >
 				<option value="SD">SD</option>
 				<option value="SMP">SMP</option>
@@ -225,40 +217,103 @@
 				<option value="S2">S2</option>
 				<option value="S3">S3</option>
 		</select>
-		</td>
-		</tr>
-		<tr>
-		<td><label for="telephone">Nomer Hp : </label> </td>
-		<td><input type="number" class="form-control" name="No_Hp" placeholder="Masukkan nomer telepon"> </td>
-		</tr>
-		<tr>
-		<td>
+		</div>
+		<div class="form-group">
+		<label for="telephone">Nomer Hp : </label> 
+		<input type="number" class="form-control" name="No_Hp" placeholder="Masukkan nomer telepon"> </td>
+		</div>
 		<button type="submit" class="btn btn-md btn-success">Simpan</button>
-		</td>
-		</tr>
 		
 		</form>
-		</table>
+		<form action="<?php echo base_url() ?>index.php/BNPB/simpan" method="post" id="form-bnpb">
+		<div class="form-group">
+		<label for="name">Nama : </label>
+		<input type="text" class="form-control" name="Nama_bnpb" placeholder="Masukkan nama">
+		</div>
+		<div class="form-group">
+		<label for="birthday">Tanggal Lahir : </label>
+		<input type="date" class="form-control" name="Tanggal_Lahir">
+		</div>
+		<div class="form-group">
+		<label for="age">Umur : </label>
+		<input type="number" class="form-control" name="Umur" placeholder="Masukkan umur">
+		</div>
+		<div class="form-group">
+		<label for="education">Pendidikan : </label> 
+		<select name="Pendidikan" >
+				<option value="SD">SD</option>
+				<option value="SMP">SMP</option>
+				<option value="SMA">SMA</option>
+				<option value="D3">D3</option>
+				<option value="S1">S1</option>
+				<option value="S2">S2</option>
+				<option value="S3">S3</option>
+		</select>
+		</div>
+		<div class="form-group">
+		<label for="telephone">Nomer Hp : </label>
+		<input type="number" class="form-control" name="No_Hp" placeholder="Masukkan nomer telepon">
+		</div>
+		<button type="submit" class="btn btn-md btn-success">Simpan</button>
 		
+		</form>
+		
+		<form action="<?php echo base_url() ?>index.php/Login/simpan" method="post" id="form-akun">
+		<div class="form-group">
+		<label for="name">Username : </label> 
+		<input type="text" class="form-control" name="user" placeholder="Masukkan nama">
+		</div>
+		<div class="form-group">
+		<label for="password">Password : </label> 
+		<input type="password" class="form-control" name="password" placeholder="Masukkan Password">
+		</div>
+		<div class="form-group">
+		<label for="education">Job : </label>  
+		<select name="job" >
+				<option value="fasilitator">Fasilitator</option>
+				<option value="bnpb">BNPB</option>
+		</select>
+		</div>
+		<button type="submit" class="btn btn-md btn-success">Simpan</button>
+		
+		</form>
 		</div>
 	</div>
 		<script>
 		$(document).ready(function(){
     $("#tb1").click(function(){
         $("#table1").show();
+		$("#tb1").css("background-color","#FFC600");
+		$("#overview").css("background-color","");
+		$("#overview").removeClass('dipilih');
+		$("#tb2").css("background-color","");
+		$("#tb3").css("background-color","");
+		$("#tambah").css("background-color","");
 		$("#table2").hide();
 		$("#table3").hide();
 		$("#form-tambah").hide();
+		$("#form-fasilitator").hide();
+		$("#form-bnpb").hide();
+		$("#form-akun").hide();
 		$('.keterangan').text('Fasilitator');
-		
     });
 	
      $("#tb2").click(function(){
         $("#table1").hide();
 		$("#table2").show();
 		$("#table3").hide();
+		$(".form-bnpb").show();
 		$("#form-tambah").hide();
 		$('.keterangan').text('BNPB');
+		$("#form-tambah").hide();
+		$("#form-fasilitator").hide();
+		$("#form-bnpb").hide();
+		$("#form-akun").hide();
+		$("#tb2").css("background-color","#FFC600");
+		$("#overview").css("background-color","");
+		$("#tb1").css("background-color","");
+		$("#tb3").css("background-color","");
+		$("#tambah").css("background-color","");
 		
     });
 	
@@ -268,27 +323,70 @@
 		$("#table3").show();
 		$("#form-tambah").hide();
 		$('.keterangan').text('Desa');
+		$("#tb3").css("background-color","#FFC600");
+		$("#overview").css("background-color","");
+		$("#tb2").css("background-color","");
+		$("#tb1").css("background-color","");
+		$("#tambah").css("background-color","");
 		
     });
 	
-		  $("#overview").click(function(){
+		$("#overview").click(function(){
         $("#table1").hide();
 		$("#table2").hide();
 		$("#table3").hide();
-		$("#overview").show();
+		$("#overview-page").show();
 		$("#form-tambah").hide();
+		$("#form-fasilitator").hide();
+		$("#form-bnpb").hide();
+		$("#form-akun").hide();
 		$('.keterangan').text('Overview');
+		$("#overview").css("background-color","#FFC600");
+		$("#tb1").css("background-color","");
+		$("#tb2").css("background-color","");
+		$("#tb3").css("background-color","");
+		$("#tambah").css("background-color","");
 		
     });
 	$("#tambah").click(function(){
         $("#table1").hide();
 		$("#table2").hide();
 		$("#table3").hide();
-		$("#overview").hide();
+		$("#overview-page").hide();
+		$("#form-bnpb").hide();
+		$("#form-fasilitator").show();
+		$("#form-akun").hide();
 		$("#form-tambah").show();
 		$('.keterangan').text('Tambah');
+		$("#tambah").css("background-color","#FFC600");
+		$("#tb1").css("background-color","");
+		$("#tb2").css("background-color","");
+		$("#tb3").css("background-color","");
+		$("#overview").css("background-color","");
 		
     });
+	$("#btn-bnpb").click(function(){
+		$("#form-bnpb").show();
+		$("#form-fasilitator").hide();
+		$("#form-akun").hide();
+		
+		
+	});
+	
+		$("#btn-fasilitator").click(function(){
+		$("#form-bnpb").hide();
+		$("#form-fasilitator").show();
+		$("#form-akun").hide();
+		
+		
+	});
+		$("#btn-akun").click(function(){
+		$("#form-bnpb").hide();
+		$("#form-fasilitator").hide();
+		$("#form-akun").show();
+		
+		
+	});
 	
 });
 		</script>
@@ -298,6 +396,7 @@
         <!-- /.container-fluid -->
 
         <!-- Sticky Footer -->
+		
         <footer class="sticky-footer">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
@@ -317,24 +416,7 @@
       <i class="fas fa-angle-up"></i>
     </a>
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-          <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="login.html">Logout</a>
-          </div>
-        </div>
-      </div>
-    </div>
+
 
 	</body>
 </html>

@@ -52,5 +52,28 @@ class Login extends CI_Controller {
 	$this->session->sess_destroy();
 	redirect(base_url('index.php/Login'));
 }
+
+    public function simpan()
+    {
+        $user=$this->input->post("user");
+		$job=$this->input->post("job");
+		$user=$user."@".$job;
+		$data = array(
+
+            'username'       => $user,
+            'password'         => md5($this->input->post("password")),
+            'job'    => $this->input->post("job"),
+			);
+
+        $this->model_login->simpan($data);
+
+        $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible"> Success! data berhasil disimpan didatabase.
+                                                </div>');
+
+        //redirect
+        redirect('Admin/');
+
+    }
+
 	
 }
