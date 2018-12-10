@@ -53,4 +53,63 @@ class Fasilitator extends CI_Controller
         redirect('Admin/');
 
     }
+		 public function edit($ID_fasilitator){
+        $ID_fasilitator = $this->uri->segment(3);
+
+        $data_edit = array(
+
+            'title'     => 'Edit Data Pegawai',
+            'data_pegawai' => $this->model_fasilitator->edit($ID_fasilitator),
+
+        );
+
+        $this->load->view('Admin/index.php', $data_edit);
+    }
+	
+	    public function update()
+    {
+        $this->load->model("model_pegawai");
+		$id = $this->input->post("id_pegawai");
+		
+        $data = array(
+
+            'nama_depan'           => $this->input->post("nama_depan"),
+            'nama_belakang'         => $this->input->post("nama_belakang"),
+            'tanggal_lahir'    => $this->input->post("tanggal_lahir"),
+            'jenis_kelamin'         => $this->input->post("jenis_kelamin"),
+			'alamat'         => $this->input->post("alamat"),
+            'gaji'    => $this->input->post("gaji"),
+            'supervisor'         => $this->input->post("supervisor"),
+			'departemen' => $this->input->post("departemen"));
+
+     $save=$this->model_pegawai->update($data, $id);
+	 if($save){
+		 
+		 $this->session->set_flashdata('msg_success',"berhasil");
+	 }
+	 else{
+		 $this->session->set_flashdata('msg_error',"gagal");
+	 }
+			
+
+        $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible"> Success! data berhasil diupdate didatabase.
+                                                </div>');
+
+        //redirect
+        redirect('pegawai/');
+
+    }
+
+    public function hapus($id_fasilitator)
+    {
+        $id['id_fasilitator'] = $this->uri->segment(3);
+
+        $this->model_fasilitator->hapus($id);
+
+        //redirect
+        redirect('Admin/');
+
+    }
+	
+	
 }

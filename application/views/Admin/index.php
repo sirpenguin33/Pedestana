@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 	
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/style.css')?>" >
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/js/script.js')?>" >
+	<script href="<?php echo base_url('assets/js/script.js')?>"></script>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/sb-admin.css')?>" >
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/all.min.css')?>" >
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap.min.css')?>" >
@@ -17,7 +17,6 @@
 	<script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js')?>"></script>
 	<script src="<?php echo base_url('assets/js/jquery.easing.min.js')?>"></script>
 	<script src="<?php echo base_url('assets/js/sb-admin.min.js')?>"></script>
-	<script src="<?php echo base_url('assets/js/datatables-demo.js')?>"></script>
 	
 	
 	</head>
@@ -26,7 +25,6 @@
     <nav class="navbar navbar-expand navbar-dark bg-nav">
 
      <h1 style="color:white;">Pedestana</h1>
-	<img >
     </nav>
 
     <div id="wrapper">
@@ -56,18 +54,11 @@
           <!-- Breadcrumbs-->
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <a href="#">Dashboard</a>
+              <a href="#">Admin</a>
             </li>
             <li class="breadcrumb-item keterangan">Overview</li>
           </ol>
-
-          <!-- DataTables Example -->
-		<table style="width:100%;margin:0 0 2% 0;">
-		<tr >
-			
-			
-		</tr>
-	</table>
+		  
 		<div class="table-responsive" id="table1">
 		<table class="table-dark table-striped" style="width:100%;text-align:center;">
 		<thead>
@@ -81,8 +72,9 @@
 		</tr>
 		</thead>
 	     <tbody>
-
+		
                 <?php
+					$edit_id=0;
                     $no = 1; 
                     foreach($data_fasilitator as $hasil){ 
                 ?>
@@ -95,13 +87,12 @@
 					<td><?php echo $hasil->Pendidikan ?></td>
                     <td><?php echo $hasil->No_Hp ?></td>
                     <td>
-                        <a href="<?php echo base_url() ?>index.php/Admin" class="btn btn-sm btn-success">Edit</a>
-                        <a href="<?php echo base_url() ?>index.php/Admin" class="btn btn-sm btn-danger">Hapus</a>
+                        <button class="btn btn-sm btn-success" id="edit_fasilitator" onclick=<?php $edit_id=$hasil->ID_fasilitator;?> >Edit</button>
+                        <a href="<?php echo base_url() ?>index.php/Fasilitator/hapus/<?php echo $hasil->ID_fasilitator?>" class="btn btn-sm btn-danger">Hapus</a>
                     </td>
                   </tr>
 
                 <?php } ?>
-
                 </tbody>
 		</table>
 		</div>
@@ -137,8 +128,8 @@
 					<td><?php echo $hasil->Pendidikan ?></td>
 					<td><?php echo $hasil->No_Hp ?></td>
 					<td>
-                        <a href="<?php echo base_url() ?>index.php/Admin" class="btn btn-sm btn-success">Edit</a>
-                        <a href="<?php echo base_url() ?>index.php/Admin" class="btn btn-sm btn-danger">Hapus</a>
+                        <a href="<?php echo base_url() ?>index.php/BNPB/edit/<?php echo $hasil->ID_bnpb?>" class="btn btn-sm btn-success">Edit</a>
+                        <a href="<?php echo base_url() ?>index.php/BNPB/hapus/<?php echo $hasil->ID_bnpb?>" class="btn btn-sm btn-danger">Hapus</a>
                     </td>
                   </tr>
 
@@ -175,8 +166,8 @@
 					<td><?php echo $hasil->Nama_bnpb ?></td>
 					<td><?php echo $hasil->Nama_fasilitator ?></td>
 					<td>
-                        <a href="<?php echo base_url() ?>index.php/Admin" class="btn btn-sm btn-success">Edit</a>
-                        <a href="<?php echo base_url() ?>index.php/Admin" class="btn btn-sm btn-danger">Hapus</a>
+                        <a href="<?php echo base_url() ?>index.php/Desa/edit/<?php echo $hasil->ID_desa?>" class="btn btn-sm btn-success">Edit</a>
+                        <a href="<?php echo base_url() ?>index.php/Desa/hapus/<?php echo $hasil->ID_desa?>" class="btn btn-sm btn-danger">Hapus</a>
                     </td>
                   </tr>
 
@@ -389,32 +380,32 @@
 	});
 	
 });
+		
 		</script>
-
 
         </div>
         <!-- /.container-fluid -->
-
-        <!-- Sticky Footer -->
-		
-        <footer class="sticky-footer">
+	<!--
+	<footer class="sticky-footer">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
               <span>Copyright © Your Website 2018</span>
             </div>
           </div>
         </footer>
+	-->
+		
 
       </div>
       <!-- /.content-wrapper -->
 
     </div>
-    <!-- /#wrapper -->
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fas fa-angle-up"></i>
     </a>
+	
 
 
 

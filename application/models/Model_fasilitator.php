@@ -40,7 +40,7 @@ class model_fasilitator extends CI_model{
     public function edit($ID)
     {
 
-        $query = $this->db->where("ID", $ID)
+        $query = $this->db->where("ID_fasilitator", $ID)
                 ->get("fasilitator");
 
         if($query){
