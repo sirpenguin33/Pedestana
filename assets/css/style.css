@@ -16,6 +16,13 @@ width:100%;
 position:relative;
 top:27%;
 }
+#tambah-laporan{
+	display:none;
+	
+}
+#tambah-laporan table{
+	height:70%;
+}
 .tombol{
     background-color: Transparent;
     background-repeat:no-repeat;
