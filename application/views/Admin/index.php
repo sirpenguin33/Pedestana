@@ -41,6 +41,9 @@
         <li class="nav-item">
         <button type="button" class="btn tombol" id="tb2">BNPB</button>
         </li>
+		        <li class="nav-item">
+        <button type="button" class="btn tombol" id="tb3">Desa</button>
+        </li>
 		<li class="nav-item">
         <button type="button" class="btn tombol" id="tambah">Tambah</button>
         </li>
@@ -87,7 +90,7 @@
 					<td><?php echo $hasil->Pendidikan ?></td>
                     <td><?php echo $hasil->No_Hp ?></td>
                     <td>
-                        <button class="btn btn-sm btn-success" id="edit_fasilitator" onclick=<?php $edit_id=$hasil->ID_fasilitator;?> >Edit</button>
+                        <a class="btn btn-sm btn-success" id="edit_fasilitator" href="<?php echo base_url() ?>index.php/Fasilitator/edit/<?php echo $hasil->ID_fasilitator?>" >Edit</a>
                         <a href="<?php echo base_url() ?>index.php/Fasilitator/hapus/<?php echo $hasil->ID_fasilitator?>" class="btn btn-sm btn-danger">Hapus</a>
                     </td>
                   </tr>
@@ -147,8 +150,6 @@
 		<th>Nama Desa</th>
 		<th>Lokasi</th>
 		<th>Kategori</th>
-		<th>BNPB</th>
-		<th>Fasilitator</th>
 		</tr>
 		</thead>
 	     <tbody>
@@ -163,8 +164,6 @@
                     <td><?php echo $hasil->Nama_desa ?></td>
                     <td><?php echo $hasil->Lokasi ?></td>
 					<td><?php echo $hasil->Kategori ?></td>
-					<td><?php echo $hasil->Nama_bnpb ?></td>
-					<td><?php echo $hasil->Nama_fasilitator ?></td>
 					<td>
                         <a href="<?php echo base_url() ?>index.php/Desa/edit/<?php echo $hasil->ID_desa?>" class="btn btn-sm btn-success">Edit</a>
                         <a href="<?php echo base_url() ?>index.php/Desa/hapus/<?php echo $hasil->ID_desa?>" class="btn btn-sm btn-danger">Hapus</a>
@@ -181,7 +180,7 @@
 		<tr>
 			<td><button type="button" class="btn btn-primary btn-block" id="btn-fasilitator">Fasilitator</button></td>
 			<td><button type="button" class="btn btn-primary btn-block" id="btn-bnpb">BNPB</button></td>
-			<td><button type="button" class="btn btn-primary btn-block" id="btn-akun">Akun</button></td>
+			<td><button type="button" class="btn btn-primary btn-block" id="btn-akun">Desa</button></td>
 		</tr>
 		</table>
 		<form action="<?php echo base_url() ?>index.php/Fasilitator/simpan" method="post" id="form-fasilitator" >
@@ -249,21 +248,30 @@
 		
 		</form>
 		
-		<form action="<?php echo base_url() ?>index.php/Login/simpan" method="post" id="form-akun">
+		<form action="<?php echo base_url() ?>index.php/Desa/simpan" method="post" id="form-akun">
 		<div class="form-group">
-		<label for="name">Username : </label> 
-		<input type="text" class="form-control" name="user" placeholder="Masukkan nama">
+		<label for="name">Nama desa : </label> 
+		<input type="text" class="form-control" name="Nama_desa" placeholder="Masukkan nama">
 		</div>
 		<div class="form-group">
-		<label for="password">Password : </label> 
-		<input type="password" class="form-control" name="password" placeholder="Masukkan Password">
-		</div>
-		<div class="form-group">
-		<label for="education">Job : </label>  
-		<select name="job" >
-				<option value="fasilitator">Fasilitator</option>
-				<option value="bnpb">BNPB</option>
+		<label for="Location">Lokasi : </label> 
+		<select name="Lokasi" >
+				<option value="SD">SD</option>
+				<option value="SMP">SMP</option>
+				<option value="SMA">SMA</option>
+				<option value="D3">D3</option>
+				<option value="S1">S1</option>
+				<option value="S2">S2</option>
+				<option value="S3">S3</option>
 		</select>
+		</div>
+		<div class="form-group">
+		<label for="Category">Kategori : </label>
+		<select name="Kategori" >
+				<option value="Belum">Belum</option>
+				<option value="Bagus">Bagus</option>
+				<option value="Jelek">Jelek</option>
+		</select>		
 		</div>
 		<button type="submit" class="btn btn-md btn-success">Simpan</button>
 		
@@ -312,7 +320,11 @@
         $("#table1").hide();
 		$("#table2").hide();
 		$("#table3").show();
+		$("#overview").removeClass('dipilih');
 		$("#form-tambah").hide();
+		$("#form-fasilitator").hide();
+		$("#form-bnpb").hide();
+		$("#form-akun").hide();
 		$('.keterangan').text('Desa');
 		$("#tb3").css("background-color","#FFC600");
 		$("#overview").css("background-color","");

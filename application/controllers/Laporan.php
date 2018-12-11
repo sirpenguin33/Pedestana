@@ -25,7 +25,7 @@ class Laporan extends CI_Controller
 	}
 
 
-    public function simpan($id)
+    public function simpan()
     {
         $jawaban="";
 		for($x=1;$x<=60;$x++){
@@ -37,7 +37,6 @@ class Laporan extends CI_Controller
 
             'Indikator'    => $jawaban,
 			'Status' => 'Waiting',
-			'ID_FASILITATOR' => $id,
 			'ID_DESA' =>$this->input->post('ID_DESA'),
 			
 			);

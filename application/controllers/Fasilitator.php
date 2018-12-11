@@ -15,6 +15,8 @@ class Fasilitator extends CI_Controller
 		$this->load->model('model_bnpb');
 		$this->load->model('model_laporan');
 		$this->load->model('model_desa');
+		$this->load->model('model_login');
+		$this->load->helper('form');
 
     }
 	
@@ -47,8 +49,17 @@ class Fasilitator extends CI_Controller
             'Pendidikan'         => $this->input->post("Pendidikan"),
 			'No_Hp' => $this->input->post("No_Hp"),
 			);
+			
+		$id_fasilitator=$this->model_fasilitator->simpan($data);
+		$data2=array(
+		'username' => $data['Nama_fasilitator']."@"."fasilitator",
+		'password' => md5("fasilitator"),
+		'job' => "fasilitator",
+		'ID_fasilitator' => $id_fasilitator,
+		);
 
-        $this->model_fasilitator->simpan($data);
+        
+		$this->model_login->simpan($data2);
 
         $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible"> Success! data berhasil disimpan didatabase.
                                                 </div>');
@@ -63,44 +74,34 @@ class Fasilitator extends CI_Controller
         $data_edit = array(
 
             'title'     => 'Edit Data Pegawai',
-            'data_pegawai' => $this->model_fasilitator->edit($ID_fasilitator),
+            'data_fasilitator' => $this->model_fasilitator->edit($ID_fasilitator),
 
         );
 
-        $this->load->view('Admin/index.php', $data_edit);
+        $this->load->view('Admin/edit_fasilitator.php', $data_edit);
     }
 	
 	    public function update()
     {
-        $this->load->model("model_pegawai");
-		$id = $this->input->post("id_pegawai");
+		$id = $this->input->post("id_fasilitator");
 		
         $data = array(
 
-            'nama_depan'           => $this->input->post("nama_depan"),
-            'nama_belakang'         => $this->input->post("nama_belakang"),
-            'tanggal_lahir'    => $this->input->post("tanggal_lahir"),
-            'jenis_kelamin'         => $this->input->post("jenis_kelamin"),
-			'alamat'         => $this->input->post("alamat"),
-            'gaji'    => $this->input->post("gaji"),
-            'supervisor'         => $this->input->post("supervisor"),
-			'departemen' => $this->input->post("departemen"));
+            'Nama_fasilitator'       => $this->input->post("Nama_fasilitator"),
+            'Tanggal_Lahir'         => $this->input->post("Tanggal_Lahir"),
+            'Umur'    => $this->input->post("Umur"),
+            'Pendidikan'         => $this->input->post("Pendidikan"),
+			'No_Hp' => $this->input->post("No_Hp"),);
 
-     $save=$this->model_pegawai->update($data, $id);
-	 if($save){
-		 
-		 $this->session->set_flashdata('msg_success',"berhasil");
-	 }
-	 else{
-		 $this->session->set_flashdata('msg_error',"gagal");
-	 }
+     $save=$this->model_fasilitator->update($data, $id);
+
 			
 
         $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible"> Success! data berhasil diupdate didatabase.
                                                 </div>');
 
         //redirect
-        redirect('pegawai/');
+        redirect('Admin/');
 
     }
 

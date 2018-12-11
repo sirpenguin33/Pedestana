@@ -28,7 +28,7 @@ class model_bnpb extends CI_model{
     public function edit($ID)
     {
 
-        $query = $this->db->where("ID", $ID)
+        $query = $this->db->where("ID_bnpb", $ID)
                 ->get("bnpb");
 
         if($query){
@@ -42,7 +42,7 @@ class model_bnpb extends CI_model{
     public function update($data, $ID)
     {
 
-        $query = $this->db->where('ID',$ID)->update("bnpb", $data);
+        $query = $this->db->where('ID_bnpb',$ID)->update("bnpb", $data);
 
         if($query){
             return true;

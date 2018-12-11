@@ -15,13 +15,14 @@ class model_fasilitator extends CI_model{
     public function simpan($data)
     {
 
-        $query = $this->db->insert("fasilitator", $data);
+        $this->db->insert("fasilitator", $data);
+		$id_fasilitator=$this->db->insert_id();
 
-        if($query){
-            return true;
-        }else{
-            return false;
-        }
+       
+            return $id_fasilitator;
+       
+          
+       
 
     }
 	
@@ -54,7 +55,7 @@ class model_fasilitator extends CI_model{
     public function update($data, $ID)
     {
 
-        $query = $this->db->where('ID',$ID)->update("fasilitator", $data);
+        $query = $this->db->where('ID_fasilitator',$ID)->update("fasilitator", $data);
 
         if($query){
             return true;

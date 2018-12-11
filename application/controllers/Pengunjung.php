@@ -13,6 +13,6 @@ class Pengunjung extends CI_Controller {
     }
 	public function index()
 	{
-		$this->load->view('Pengunjung/Pilih_Map');
+		$this->load->view('Pengunjung/index');
 	}
 }
