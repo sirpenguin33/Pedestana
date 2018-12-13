@@ -36,7 +36,14 @@ class model_login extends CI_Model{
 		return $query->result();
 		
 	}
-
+	public function find_id($username){
+		$query=$this->db->select('*')
+					->from('login')
+					->where('username',$username)
+					->get();
+		return $query->row();
+		
+	}
     public function edit($ID)
     {
 

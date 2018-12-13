@@ -11,10 +11,12 @@ class Laporan extends CI_Controller
 
         //load model 
 		$this->load->helper('url');
+		$this->load->helper('form');
 		$this->load->model('model_fasilitator');
 		$this->load->model('model_bnpb');
 		$this->load->model('model_laporan');
 		$this->load->model('model_desa');
+		$this->load->model('model_login');
 
     }
 	
@@ -27,8 +29,9 @@ class Laporan extends CI_Controller
 
     public function simpan()
     {
+		$id_fasilitator = $this->uri->segment(3);
         $jawaban="";
-		for($x=1;$x<=60;$x++){
+		for($x=1;$x<=5;$x++){
 			$jawaban=$jawaban.$this->input->post((string)$x);
 			
 		} 
@@ -38,6 +41,8 @@ class Laporan extends CI_Controller
             'Indikator'    => $jawaban,
 			'Status' => 'Waiting',
 			'ID_DESA' =>$this->input->post('ID_DESA'),
+			'ID_FASILITATOR'=>$id_fasilitator,
+			'ID_BNPB' =>'0'
 			
 			);
 
@@ -63,10 +68,37 @@ class Laporan extends CI_Controller
 
         $this->load->view('Admin/index.php', $data_edit);
     }
+	public function verifikasi(){
+		$ID_bnpb=$this->input->post("ID_bnpb");
+		$ID_laporan=$this->input->post("ID_laporan");
+		$data=array(
+		'Status' => 'Verified',
+		'ID_bnpb' => $ID_bnpb, 
+		);
+		$save=$this->model_laporan->update($data,$ID_laporan);
+			 if($save){
+		 
+		 $this->session->set_flashdata('msg_success',"berhasil");
+		 
+	 }
+	 else{
+		 $this->session->set_flashdata('msg_error',"gagal");
+	 }
+			
+
+        $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible"> Success! data berhasil diupdate didatabase.
+                                                </div>');
+
+        //redirect
+       redirect('BNPB/');
+		
+		
+		
+	}
 	
 	    public function update()
     {
-        $this->load->model("model_pegawai");
+        
 		$id = $this->input->post("id_pegawai");
 		
         $data = array(

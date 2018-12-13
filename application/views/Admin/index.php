@@ -25,6 +25,7 @@
     <nav class="navbar navbar-expand navbar-dark bg-nav">
 
      <h1 style="color:white;">Pedestana</h1>
+	 <a href="<?php echo base_url() ?>index.php/Login/logout/" class="btn btn-sm btn-success">Logout</a>
     </nav>
 
     <div id="wrapper">
@@ -61,6 +62,38 @@
             </li>
             <li class="breadcrumb-item keterangan">Overview</li>
           </ol>
+		  <div id="overview-page" class="container-fluid">
+		  
+		  <?php
+		  
+		  if(isset($this->session->userdata['nama'])){
+			  $username=($this->session->userdata('nama'));			  
+		  }else{
+			 redirect('/Login');
+		  } 
+		  ?>
+		  <div class="row">
+		  <div class="col-lg-6">
+		  <table style="width:100%;">
+		  <tr style="text-align:center;" colspan=2 >
+		  <th> Data Akun</th>
+		  </tr>
+		  <tr style="text-align:left;">
+		  <td>Username : <?php echo $username ?></td>
+		  </tr>
+		  </table>
+		  
+		  </div>
+		   <div class="col-lg-6">
+		  </div>
+		  
+		  
+		  </div>
+		  
+		  
+		 
+		  </div>
+		  
 		  
 		<div class="table-responsive" id="table1">
 		<table class="table-dark table-striped" style="width:100%;text-align:center;">

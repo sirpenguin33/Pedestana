@@ -67,9 +67,8 @@
 		<input type="number" class="form-control" name="No_Hp" placeholder="Masukkan nomer telepon" value="<?php echo $data_fasilitator->No_Hp ?>"> </td>
 		</div>
 		<button type="submit" class="btn btn-md btn-success">Simpan</button>
+		<a  class="btn btn-md btn-success" href="<?php echo base_url() ?>index.php/Admin">Kembali</a>
 		
-		
-
 		
 		<?php echo form_close()?>
 		  

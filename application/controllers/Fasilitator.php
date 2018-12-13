@@ -27,6 +27,7 @@ class Fasilitator extends CI_Controller
             
             'data_fasilitator' => $this->model_fasilitator->get_all(),
 			'data_desa' => $this->model_desa->get_all(),
+			'data_indikator'=>$this->model_laporan->get_indikator()
 
         );
 		$this->load->view('Fasilitator/index',$data);

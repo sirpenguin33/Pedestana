@@ -12,7 +12,7 @@
 				<tbody>
 					<tr>
 						<td>Legislasi</td>
-						<td>1. Apakah telah ada upaya-upaya awal untuk menyusun kebijakan PRB di tingkat desa atau kelurahan? <br>
+						<td>1. Apakah telah ada upaya-upaya awal untuk menyusun kebijakan PRB di tingkat desa atau kelurahan? 
 						(Bila ‘Tidak’ lanjutkan ke pertanyaan no. 4, bila ‘Ya’ lanjutkan ke pertanyaan selanjutnya)</td>
 						<td><input type="radio" value="indikator"></td>
 					</tr>
@@ -20,7 +20,7 @@
 					<tr>
 						<td></td>
 						<td>2. Apakah kebijakan PRB di tingkat desa atau kelurahan telah tersusun secara konsultatif dan
-						melibatkan seluruh pemangku kepentingan? <br> (Bila ‘Tidak’ lanjutkan ke pertanyaan no. 4, bila ‘Ya’ lanjutkan ke pertanyaan selanjutnya)</td>
+						melibatkan seluruh pemangku kepentingan? (Bila ‘Tidak’ lanjutkan ke pertanyaan no. 4, bila ‘Ya’ lanjutkan ke pertanyaan selanjutnya)</td>
 						<td><input type="radio"></td>
 						<td><input type="radio"></td>
 					</tr>
@@ -43,7 +43,7 @@
 					<tr>
 						<td></td>
 						<td>5. Apakah dokumen perencanaan penanggulangan bencana seperti Rencana Penanggulangan Bencana,
-						Rencana Aksi PRB atau Rencana Kontinjensi telah tersusun? <br>
+						Rencana Aksi PRB atau Rencana Kontinjensi telah tersusun? 
 						(Bila ‘Tidak’ lanjutkan ke pertanyaan no. 7, bila ‘Ya’ lanjutkan ke pertanyaan selanjutnya)</td>
 						<td><input type="radio"></td>
 						<td><input type="radio"></td>

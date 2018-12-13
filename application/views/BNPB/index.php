@@ -22,12 +22,27 @@
 	</head>
 	<body >
     <nav class="navbar navbar-expand navbar-dark bg-nav">
-
+	
      <h1 style="color:white;">Pedestana</h1>
+	<a href="<?php echo base_url() ?>index.php/Login/logout/" class="btn btn-sm btn-success">Logout</a>
+
     </nav>
+		  <?php
 
-    <div id="wrapper">
-
+		  if(isset($this->session->userdata['nama'])){
+			  $username=($this->session->userdata('nama'));
+			 
+			  $data_bnpb=($this->session->userdata('data_bnpb'));
+			  $id_bnpb=($this->session->userdata('id_bnpb'));
+			  
+		  }else{
+			 redirect('/Login');
+		  }
+		
+		  ?>
+    
+	<div id="wrapper">
+	
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav side">
         <li class="nav-item active">
@@ -35,7 +50,7 @@
 		</li>
 		
 		<li class="nav-item">
-		<button type="button" class="btn tombol" id="Laporan">Laporan</button>
+		<button type="button" class="btn tombol" id="laporan">Laporan</button>
         </li>
         <li class="nav-item">
         <button type="button" class="btn tombol" id="desa">Peta Desa</button>
@@ -54,17 +69,102 @@
             </li>
             <li class="breadcrumb-item keterangan">Overview</li>
           </ol>
+		  <div id="overview-page">
+		  <div class="row">
+		  <div class="col-lg-6">
 		  
+		  </div>
+		   <div class="col-lg-6">
+		  <h1>Laporan yang belum diverif <?php echo $jumlah_laporan ?></h1>
+		  </div>
+		  </div>
+		</div>
 		
+		<div id="laporan-page" style="display:none;">
+		<div class="table-responsive">
+		<table class="table">
+		<thead>
+		<tr>
+		<th>No</th>
+		<th>Laporan Desa</th>
+		<th>Oleh(Fasilitator)</th>
+		<th>Diperiksa oleh</th>
+		<th>Status</th>
+		</tr>
+		</thead>
+	     <tbody>
 
-		
-		
-		
+
+                <?php
+                    $no = 1; 
+                    foreach($data_laporan as $hasil){ 
+                ?>
+
+                  <tr>
+                    <td><?php echo $no++ ?></td>
+                    <td><?php echo $hasil->Nama_desa ?></td>
+                    <td><?php echo $hasil->Nama_fasilitator?></td>
+					<td><?php echo $hasil->Nama_bnpb ?></td>
+					<td><?php echo $hasil->Status ?></td>
+					<td>
+                    <a href="<?php echo base_url() ?>index.php/BNPB/verif/<?php echo $hasil->ID?>/<?php echo $id_bnpb?>" class="btn btn-sm btn-success">Verif</a>                    </td>
+                  </tr>
+
+                <?php } ?>
+
+                </tbody>
+		</table>
+		</div>
 		</div>
 	</div>
 		
 
         </div>
+<script>
+		$(document).ready(function(){
+    $("#laporan").click(function(){
+        $("#laporan-page").show();
+		$("#overview-page").hide();
+		$("#desa-page").hide();
+		$("#laporan").css("background-color","#FFC600");
+		$("#desa").css("background-color","");
+		$("#overview").css("background-color","");
+		$("#overview").removeClass('dipilih');
+	
+		
+    });
+	
+     $("#overview").click(function(){
+		$("#laporan-page").hide();
+		$("#overview-page").show();
+		$("#desa-page").hide();
+		$("#overview").css("background-color","#FFC600");
+		$("#laporan").css("background-color","");
+		$("#desa").css("background-color","");
+		
+		
+    });
+	    
+		$("#desa").click(function(){
+		$("#laporan-page").hide();
+		$("#overview-page").hide();
+		$("#desa-page").show();
+		$("#desa").css("background-color","#FFC600");
+		$("#overview").css("background-color","");
+		$("#laporan").css("background-color","");
+		$("#overview").removeClass('dipilih');
+		
+		
+    });
+	
+	 
+	
+});
+		
+		</script>
+
+
+		
         <!-- /.container-fluid -->
 	<!--
 	<footer class="sticky-footer">
@@ -77,16 +177,13 @@
 	-->
 		
 
-      </div>
+    
       <!-- /.content-wrapper -->
 
-    </div>
+ 
 
     <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-      <i class="fas fa-angle-up"></i>
-    </a>
-	
+
 
 
 

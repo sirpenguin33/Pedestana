@@ -21,10 +21,16 @@ class model_fasilitator extends CI_model{
        
             return $id_fasilitator;
        
-          
-       
 
     }
+	         	public function get_user($id){
+		$query=$this->db->select("*")
+				->from('fasilitator')
+				->where('ID_fasilitator',$id)
+				->get();
+		return $query;
+		
+	} 
 	
 	public function search($keyword){
 		$query=$this->db->select('*')

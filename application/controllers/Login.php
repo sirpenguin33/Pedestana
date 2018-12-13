@@ -9,6 +9,11 @@ class Login extends CI_Controller {
 
         //load model 
 		$this->load->model('model_login');
+		$this->load->model('model_fasilitator');
+		$this->load->model('model_bnpb');
+		$this->load->model('model_desa');
+		$this->load->model('model_laporan');
+		
 		$this->load->helper('url');
 		
 
@@ -19,6 +24,7 @@ class Login extends CI_Controller {
 	}
 	
 	public function aksi_login(){
+		session_start();
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
 		$where = array(
@@ -26,24 +32,38 @@ class Login extends CI_Controller {
 			'password' => md5($password)
 			);
 		$cek = $this->model_login->cek_login("login",$where)->num_rows();
-		$data=$this->model_login->cek_login("login",$where)->row();
+		$data['data_login']= $this->model_login->cek_login("login",$where)->row();
+		$jumlah_laporan=$this->model_laporan->get_new()->jumlah;
+		$data_bnpb=$this->model_bnpb->get_user($data['data_login']->ID_bnpb);
+		$data_fasilitator=$this->model_fasilitator->get_user($data['data_login']->ID_fasilitator)->row();
+		
 		if($cek > 0){
  
 			$data_session = array(
 				'nama' => $username,
-				'status' => "login"
+				'status' => "haloo",
+				'data_laporan' => $this->model_laporan->get_all()
 				);
  
+			$id_fasilitator=$data['data_login']->ID_fasilitator;
+			
+			if($data['data_login']->job=='bnpb'){
+			$data_session['data_bnpb']=$data_bnpb;
+			$data_session['id_bnpb']=$data['data_login']->ID_bnpb;
+			
 			$this->session->set_userdata($data_session);
-			if($data->job=='bnpb'){
-			redirect("/BNPB",$data);
-			}else if($data->job=='fasilitator'){
-				redirect("/FASILITATOR",$data);
+			 redirect("/BNPB");
+			}else if($data['data_login']->job=='fasilitator'){
+				$data_session['data_fasilitator']=$data_fasilitator;
+				$data_session['id_fasilitator']=$data['data_login']->ID_fasilitator;
+				$this->session->set_userdata($data_session);
+				redirect("/Fasilitator");
 			}else{
-				redirect("/ADMIN",$data);
+				$this->session->set_userdata($data_session);
+				redirect('/Admin');
 			}
 		}else{
-			redirect("Pengunjung/");
+			redirect("/Pengunjung");
 		}
 		
 	}

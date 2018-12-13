@@ -12,12 +12,30 @@ class BNPB extends CI_Controller {
 		$this->load->model('model_bnpb');
 		$this->load->model('model_desa');
 		$this->load->model('model_login');
+		$this->load->model('model_laporan');
 		$this->load->helper('form');
     }
 	public function index()
 	{
-		$this->load->view('BNPB/index');
+		$jumlah_laporan=$this->model_laporan->get_new()->jumlah;
+		$data=array(
+		'data_laporan' => $this->model_laporan->get_all(),
+		'jumlah_laporan' => $jumlah_laporan,
+		);
+		$this->load->view('BNPB/index',$data);
 		 
+	}
+	public function verif(){
+		$ID_bnpb = $this->uri->segment(4);
+		$ID_laporan=$this->uri->segment(3);
+		$data=array(
+		'data_laporan' =>$this->model_laporan->edit($ID_laporan), 
+		'ID_bnpb' => $ID_bnpb
+		);
+		
+		
+		$this->load->view('BNPB/verif',$data);
+		
 	}
 	
 	    public function simpan()
@@ -30,13 +48,15 @@ class BNPB extends CI_Controller {
             'Pendidikan'         => $this->input->post("Pendidikan"),
 			'No_Hp' => $this->input->post("No_Hp"),
 			);
+		$id_bnpb=$this->model_bnpb->simpan($data);
 		$data2=array(
 		'username' => $data['Nama_bnpb']."@"."bnpb",
 		'password' => md5("bnpb"),
 		'job' => "bnpb",
+		'ID_bnpb'=>$id_bnpb,
 		);
 
-        $this->model_bnpb->simpan($data);
+        
 		$this->model_login->simpan($data2);
 
         $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible"> Success! data berhasil disimpan didatabase.

@@ -65,6 +65,7 @@
 		</select>		
 		</div>
 		<button type="submit" class="btn btn-md btn-success">Simpan</button>
+		<a  class="btn btn-md btn-success" href="<?php echo base_url() ?>index.php/Admin">Kembali</a>
 		
 		<?php echo form_close()?>
 		  

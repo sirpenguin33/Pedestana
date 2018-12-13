@@ -11,17 +11,22 @@ class model_bnpb extends CI_model{
                  ->get();
         return $query->result();
     }
+	public function get_user($id){
+		$query=$this->db->select("*")
+				->from('bnpb')
+				->where('ID_bnpb',$id)
+				->get();
+		return $query->row();
+		
+	}
 
     public function simpan($data)
     {
 
         $query = $this->db->insert("bnpb", $data);
-
-        if($query){
-            return true;
-        }else{
-            return false;
-        }
+		$id_bnpb=$this->db->insert_id();
+        
+            return $id_bnpb;
 
     }
 

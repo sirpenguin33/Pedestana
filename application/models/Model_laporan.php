@@ -5,12 +5,22 @@ class model_laporan extends CI_model{
 
     public function get_all()
     {
-        $query = $this->db->select("*")
+        $query = $this->db->select("*",'bnpb.Nama_bnpb','fasilitator.Nama_fasilitator','desa.Nama_desa')
                  ->from('laporan')
-                 ->order_by('ID', 'ASCD')
+                 ->order_by('ID', 'DESC')
+				 ->join('bnpb','bnpb.ID_bnpb=laporan.ID_BNPB')
+				 ->join('fasilitator','fasilitator.ID_fasilitator=laporan.ID_FASILITATOR')
+				 ->join('desa','desa.ID_desa=laporan.ID_DESA') 
                  ->get();
         return $query->result();
     }
+	public function get_indikator(){
+		$query=$this->db->select("*")
+				->from('indikator')
+				->get();
+		return $query->result();
+		
+	}
 
     public function simpan($data)
     {
@@ -24,6 +34,14 @@ class model_laporan extends CI_model{
         }
 
     }
+	public function get_new(){
+		$query=$this->db->select('COUNT(Status) AS jumlah')
+					->from('laporan')
+					->where('Status','Waiting')
+					->get();
+		return $query->row();
+		
+	}
 
     public function edit($ID)
     {
