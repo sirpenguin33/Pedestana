@@ -71,11 +71,17 @@ class Laporan extends CI_Controller
 	public function verifikasi(){
 		$ID_bnpb=$this->input->post("ID_bnpb");
 		$ID_laporan=$this->input->post("ID_laporan");
+		$ID_desa=$this->input->post("ID_desa");
 		$data=array(
 		'Status' => 'Verified',
-		'ID_bnpb' => $ID_bnpb, 
+		'ID_bnpb' => $ID_bnpb,
+		
 		);
-		$save=$this->model_laporan->update($data,$ID_laporan);
+		$data_desa=array(
+		'Kategori' => $this->input->post("Kategori"),);
+		$save=$this->model_desa->update($data_desa, $ID_desa);
+		$this->model_laporan->update($data,$ID_laporan);
+		
 			 if($save){
 		 
 		 $this->session->set_flashdata('msg_success',"berhasil");

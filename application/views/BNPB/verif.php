@@ -34,6 +34,7 @@
 	<?php echo form_open('Laporan/verifikasi') ?>
 	<input type="text" name="ID_bnpb" value="<?php echo $ID_bnpb?>" style="display:none;"> </input>
 	<input type="text" name="ID_laporan" value="<?php echo $id_laporan?>" style="display:none;"> </input>
+	<input type="text" name="ID_desa" value="<?php echo $ID_desa?>" style="display:none;"> </input>
 	<table class="table">
 		<tr>
 	<th>Indikator</th>
@@ -52,7 +53,16 @@
 	</tr>
 	<?php }?>
 	</table>
+	<div class="form-group">
+	<label for="Category">Kategori : </label>
+			<select name="Kategori">
+				<option value="Bagus">Bagus</option>
+				<option value="Jelek">Jelek</option>
+		</select>
+	</div>
+	<a  class="btn btn-md btn-success" href="<?php echo base_url() ?>index.php/BNPB">Kembali</a>
 	<button type="submit" class="btn btn-md btn-success">Verifikasi</button>
+	
 	<?php echo form_close()?>
 	
 	</div>

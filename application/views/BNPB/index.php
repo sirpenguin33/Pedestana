@@ -70,19 +70,24 @@
             <li class="breadcrumb-item keterangan">Overview</li>
           </ol>
 		  <div id="overview-page">
+		  <?php if($jumlah_laporan==0){?>
+		   <div class="alert alert-success" style="text-align:center">Semua Laporan telah Diverifikasi</div>
+		  <?php }else{ ?>
+		  <div class="alert alert-danger" style="text-align:center">Terdapat <strong><?php echo $jumlah_laporan?></strong> yang belum diverifikasi</div>
+		  <?php } ?>
 		  <div class="row">
 		  <div class="col-lg-6">
 		  
 		  </div>
 		   <div class="col-lg-6">
-		  <h1>Laporan yang belum diverif <?php echo $jumlah_laporan ?></h1>
+		  
 		  </div>
 		  </div>
 		</div>
-		
 		<div id="laporan-page" style="display:none;">
-		<div class="table-responsive">
 		<table class="table">
+		<div class="table-responsive">
+		
 		<thead>
 		<tr>
 		<th>No</th>
@@ -105,9 +110,15 @@
                     <td><?php echo $hasil->Nama_desa ?></td>
                     <td><?php echo $hasil->Nama_fasilitator?></td>
 					<td><?php echo $hasil->Nama_bnpb ?></td>
-					<td><?php echo $hasil->Status ?></td>
+					<?php if($hasil->Status=="Verified"){ ?>
+					<td class="alert alert-success" style="text-align:center;"><?php echo $hasil->Status ?></td>
+					<?php } else{ ?>
+					<td class="alert alert-danger" style="text-align:center;"><?php echo $hasil->Status ?></td>
 					<td>
-                    <a href="<?php echo base_url() ?>index.php/BNPB/verif/<?php echo $hasil->ID?>/<?php echo $id_bnpb?>" class="btn btn-sm btn-success">Verif</a>                    </td>
+                    <a href="<?php echo base_url() ?>index.php/BNPB/verif/<?php echo $hasil->ID?>/<?php echo $id_bnpb?>/<?php echo $hasil->ID_DESA?>" class="btn btn-sm btn-success">Verif</a>
+                    </td>
+					
+					<?php } ?>
                   </tr>
 
                 <?php } ?>
@@ -130,6 +141,7 @@
 		$("#desa").css("background-color","");
 		$("#overview").css("background-color","");
 		$("#overview").removeClass('dipilih');
+		$('.keterangan').text('Laporan');
 	
 		
     });
@@ -141,6 +153,7 @@
 		$("#overview").css("background-color","#FFC600");
 		$("#laporan").css("background-color","");
 		$("#desa").css("background-color","");
+		$('.keterangan').text('Overview');
 		
 		
     });
@@ -153,6 +166,7 @@
 		$("#overview").css("background-color","");
 		$("#laporan").css("background-color","");
 		$("#overview").removeClass('dipilih');
+		$('.keterangan').text('Peta Desa');
 		
 		
     });

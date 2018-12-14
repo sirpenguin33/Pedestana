@@ -38,7 +38,10 @@ class Desa extends CI_Controller
 
             'Nama_desa'       => $this->input->post("Nama_desa"),
             'Lokasi'         => $this->input->post("Lokasi"),
-            'Kategori'    => $this->input->post("Kategori"),
+            'Kategori'    => "Belum",
+			'ID_BNPB'    => "0",
+			'ID_FASILITATOR'    => "0",
+			
 			);
 			
 
@@ -72,7 +75,7 @@ class Desa extends CI_Controller
 
             'Nama_desa'           => $this->input->post("Nama_desa"),
             'Lokasi'         => $this->input->post("Lokasi"),
-            'Kategori'    => $this->input->post("Kategori"),);
+			);
      
 	 
 	 $save=$this->model_desa->update($data, $id);

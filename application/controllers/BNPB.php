@@ -26,12 +26,15 @@ class BNPB extends CI_Controller {
 		 
 	}
 	public function verif(){
+		$ID_desa = $this->uri->segment(5);
 		$ID_bnpb = $this->uri->segment(4);
 		$ID_laporan=$this->uri->segment(3);
 		$data=array(
 		'data_laporan' =>$this->model_laporan->edit($ID_laporan), 
-		'ID_bnpb' => $ID_bnpb
+		'ID_bnpb' => $ID_bnpb,
+		'ID_desa' => $ID_desa,
 		);
+		
 		
 		
 		$this->load->view('BNPB/verif',$data);

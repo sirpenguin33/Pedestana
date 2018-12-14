@@ -57,12 +57,7 @@
 		</select>
 		</div>
 		<div class="form-group">
-		<label for="Category">Kategori : </label>
-		<select name="Kategori"  value="<?php echo $data_desa->Kategori?>">
-				<option value="Belum">Belum</option>
-				<option value="Bagus">Bagus</option>
-				<option value="Jelek">Jelek</option>
-		</select>		
+		<label for="Category">Kategori : </label>		
 		</div>
 		<button type="submit" class="btn btn-md btn-success">Simpan</button>
 		<a  class="btn btn-md btn-success" href="<?php echo base_url() ?>index.php/Admin">Kembali</a>

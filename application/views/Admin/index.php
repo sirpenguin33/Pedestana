@@ -72,14 +72,17 @@
 			 redirect('/Login');
 		  } 
 		  ?>
-		  <div class="row">
+		  <div class="row table-responsive">
 		  <div class="col-lg-6">
-		  <table style="width:100%;">
-		  <tr style="text-align:center;" colspan=2 >
+		  <table style="width:100%;" class="table">
+		  <tr style="text-align:center;border:10px;" class="table" colspan=2 >
 		  <th> Data Akun</th>
 		  </tr>
 		  <tr style="text-align:left;">
 		  <td>Username : <?php echo $username ?></td>
+		  </tr>
+		  <tr style="text-align:left;">
+		  <td>Job : Admin</td>
 		  </tr>
 		  </table>
 		  
@@ -114,7 +117,9 @@
                     $no = 1; 
                     foreach($data_fasilitator as $hasil){ 
                 ?>
-
+				<?php if($hasil->ID_fasilitator=="0"){
+				}else{?>
+			
                   <tr>
                     <td><?php echo $no++ ?></td>
                     <td><?php echo $hasil->Nama_fasilitator ?></td>
@@ -127,6 +132,7 @@
                         <a href="<?php echo base_url() ?>index.php/Fasilitator/hapus/<?php echo $hasil->ID_fasilitator?>" class="btn btn-sm btn-danger">Hapus</a>
                     </td>
                   </tr>
+				<?php }?>
 
                 <?php } ?>
                 </tbody>
@@ -155,7 +161,9 @@
                     $no = 1; 
                     foreach($data_bnpb as $hasil){ 
                 ?>
-
+				
+				<?php if($hasil->ID_bnpb=="0"){
+				}else{?>
                   <tr>
                     <td><?php echo $no++ ?></td>
                     <td><?php echo $hasil->Nama_bnpb ?></td>
@@ -170,6 +178,7 @@
                   </tr>
 
                 <?php } ?>
+				<?php } ?>
 
                 </tbody>
 		</table>
@@ -298,14 +307,7 @@
 				<option value="S3">S3</option>
 		</select>
 		</div>
-		<div class="form-group">
-		<label for="Category">Kategori : </label>
-		<select name="Kategori" >
-				<option value="Belum">Belum</option>
-				<option value="Bagus">Bagus</option>
-				<option value="Jelek">Jelek</option>
-		</select>		
-		</div>
+	
 		<button type="submit" class="btn btn-md btn-success">Simpan</button>
 		
 		</form>
@@ -324,6 +326,7 @@
 		$("#table2").hide();
 		$("#table3").hide();
 		$("#form-tambah").hide();
+		$("#overview-page").hide();
 		$("#form-fasilitator").hide();
 		$("#form-bnpb").hide();
 		$("#form-akun").hide();
@@ -334,6 +337,7 @@
         $("#table1").hide();
 		$("#table2").show();
 		$("#table3").hide();
+		$("#overview-page").hide();
 		$(".form-bnpb").show();
 		$("#form-tambah").hide();
 		$('.keterangan').text('BNPB');
@@ -353,6 +357,7 @@
         $("#table1").hide();
 		$("#table2").hide();
 		$("#table3").show();
+		$("#overview-page").hide();
 		$("#overview").removeClass('dipilih');
 		$("#form-tambah").hide();
 		$("#form-fasilitator").hide();
@@ -382,6 +387,7 @@
 		$("#tb2").css("background-color","");
 		$("#tb3").css("background-color","");
 		$("#tambah").css("background-color","");
+		$("#overview-page").show();
 		
     });
 	$("#tambah").click(function(){
