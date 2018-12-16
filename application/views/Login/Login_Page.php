@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html style="height: 100%;">
 	<head>
-		<meta charset="UTF-8">
+	  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+		
 		<title> Login Page</title>
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap.css')?>" >
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/style.css')?>" >
@@ -13,9 +15,14 @@
 	<body style="height: 100%;">
 		<table style="height: 100%; width:100%;"> 
 			<tr>
-			<td style="width:60%;">
-				<div class="container-fluid left-side">
-					<h1 class="display-3">Pedestana</h1>
+			
+			<td style="width:40%;">
+			<div class="container-fluid left-side ">
+				
+					<h1 class="display-3" style="margin:35% 0 0 0;font-size:8vw;">Pedestana</h1>
+					
+				
+					
 	<!--<div id="myCarousel" class="carousel slide" data-ride="carousel">
 
     <ol class="carousel-indicators">
@@ -52,8 +59,10 @@
       <span class="sr-only">Next</span>
     </a>
   </div>-->
-				</div>
+				
+			</div>
 			</td>
+			
 			<td>
 				<div class="container-fluid right-side">
 					<form class="form-horizontal form-login" action="<?php echo base_url()?>index.php/Login/aksi_login" method="post"> 

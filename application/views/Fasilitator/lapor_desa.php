@@ -1,5 +1,6 @@
 <html>
-<head>
+	<head>
+	<title>Pedestana</title>
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
@@ -16,61 +17,58 @@
 	<script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js')?>"></script>
 	<script src="<?php echo base_url('assets/js/jquery.easing.min.js')?>"></script>
 	<script src="<?php echo base_url('assets/js/sb-admin.min.js')?>"></script>
-</head>
-<body>
-<?php $s=$data_laporan->Indikator;
-	$id_laporan=$data_laporan->ID;
-	$array=str_split($s);?>
-    <nav class="navbar navbar-expand navbar-dark bg-nav">
 	
-     <h1 style="color:white;">Pedestana</h1>
-	<a href="<?php echo base_url() ?>index.php/Login/logout/" class="btn btn-sm btn-success">Logout</a>
+	
+	</head>
+	<body>
+	    <nav class="navbar navbar-expand navbar-dark bg-nav">
 
+     <h1 style="color:white;">Pedestana</h1>
+	<a href="<?php echo base_url() ?>index.php/Login/logout/" class="btn btn-sm btn-success">Logout</a> 
     </nav>
-	
 	<div id="wrapper">
-	<div class="container-fluid" >
-	<div class="table-responsive">
-	<?php echo form_open('Laporan/verifikasi') ?>
-	<input type="text" name="ID_bnpb" value="<?php echo $ID_bnpb?>" style="display:none;"> </input>
-	<input type="text" name="ID_laporan" value="<?php echo $id_laporan?>" style="display:none;"> </input>
-	<input type="text" name="ID_desa" value="<?php echo $ID_desa?>" style="display:none;"> </input>
-	<table class="table">
-		<tr>
-	<th>Indikator</th>
-	<th>Jawaban</th>
-	</tr>
-	<?php foreach($array as $hasil){ ?>
-	<tr>
-	<td> soal </td>
-	<td><?php 
-	if($hasil=="1"){
-		echo " ";
-	}else if($hasil=="2"){
-		echo "Ya";
-	}else{
-		
-		echo "Tidak";
-	}
-	?></td>
-	</tr>
-	<?php }?>
+	<div id="content-wrapper">
+	<div class="container-fluid">
+	          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="#">Admin</a>
+            </li>
+            <li class="breadcrumb-item keterangan">Lapor Desa</li>
+          </ol>
+		  <h1>Laporan <?php echo $data_desa->Nama_desa ?></h1>
+		  <?php echo form_open('Laporan/lapor')?>
+		<input type="text" name="ID" value="<?php echo $ID ?>" style="display:none;"></input>
+		<table class="table table-bordered table-responsive" style="height:50%;">	
+		<thead>
+			<tr>
+				<th>No</th>
+				<th>Indikator</th>
+				<th>Jawaban</th>
+			</tr>
+		</thead>
+				<tbody>
+				<?php foreach($data_indikator as $hasil){ ?>
+					<tr>
+					<td> <?php echo $hasil->No ?></td>
+						<td><?php echo $hasil->Deskripsi ?></td>
+						<td><select name="<?php echo $hasil->No ?>" >
+				<option value="1">  </option>
+				<option value="2">Ya</option>
+				<option value="3">Tidak</option>
+				
+				</select>
+		        </td>
+					</tr>
+				<?php } ?>
+
+			</tbody>
 	</table>
-	<div class="form-group">
-	<label for="Category">Kategori : </label>
-			<select name="Kategori">
-				<option value="Utama">Bagus</option>
-				<option value="Madya">Jelek</option>
-				<option value="Pratama">Jelek</option>
-		</select>
-	</div>
-	<a  class="btn btn-md btn-success" href="<?php echo base_url() ?>index.php/BNPB">Kembali</a>
-	<button type="submit" class="btn btn-md btn-success">Verifikasi</button>
-	
+	<a  class="btn btn-md btn-success" href="<?php echo base_url() ?>index.php/Fasilitator">Kembali</a>
+	<button type="submit" class="btn btn-md btn-success">Simpan</button>
 	<?php echo form_close()?>
 	
 	</div>
 	</div>
 	</div>
-</body>
+	</body>
 </html>

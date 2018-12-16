@@ -17,20 +17,50 @@
 	<script type="text/javascript" src="<?php echo base_url('assets/js/bootstrap.js')?>" ></script>
   </head>
   <body>
-	<div class="jsmaps-wrapper" id="indonesia-map"></div>
-	  <script type="text/javascript">
 
+	<select id="indonesia-map-select">
+   <option selected>Choose an option</option>
+   <option value="none">none </option>
+   <option value="Aceh">Aceh</option>
+   <option value="Kalimantan Timur">Kalimantan Timur</option>
+  </select>
+	  <div class="container-fluid">
+	  <div class="jsmaps-wrapper "  id="indonesia-map"></div>
+	  <div id="table-page">
+	  <h1 id="table-Aceh" style="display:none;">TES1</h1>
+	  <h1 id="table-KalimantanTimur" style="display:none;">TES2</h1>
+	</div>
+	</div>
+
+	  <script type="text/javascript">
+		
     $(function() {
 
       $('#indonesia-map').JSMaps({
         map: 'indonesia',
-
         textAreaWidth: 0,
-        strokeWidth: 0.5
+	  strokeWidth: 0.5,
+	   onReady: function() {
+		 $('#indonesia-map-select').on('change', function() {
+        $('#indonesia-map').trigger('stateClick', this.value);
+      }); 
+	   $('#reset-button').on('click', function() {
+        $('#indonesia-map').trigger('stateUnClick');
+		$('#indonesia-map-select').trigger('stateUnClick',"none");
       });
-
-    });
+	},
+	  onStateClick: function(data) {
+      if (event.type == 'click') {
+	  $('#indonesia-map-select').val(data.name);
+	  $('#table-'+data.name.replace(/\s/g, "")).show();
+	  $('#table-page').children().not('#table-'+data.name.replace(/\s/g, "")).hide();
+	  }
+	  
+	  }
+	  
+	  });
+	  });
     
-  </script>
+  </script> 
   </body>
 </html>

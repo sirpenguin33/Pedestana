@@ -617,8 +617,8 @@
               'height': mapHeight + 'px'
             });
             textArea.css({
-              'width': winWidth >= 767 ? config.textAreaWidth + 'px' : mapWidth + 'px',
-              'height': winWidth >= 767 ? mapHeight + 'px' : config.textAreaHeight,
+              'width': winWidth >= 0 ? config.textAreaWidth + 'px' : mapWidth + 'px',
+              'height': winWidth >= 0 ? mapHeight + 'px' : config.textAreaHeight,
               'display': 'inline',
               'float': winWidth >= 767 ? config.textPosition : 'none',
               'marginTop': winWidth >= 767 ? 0 : mapHeight + 'px'

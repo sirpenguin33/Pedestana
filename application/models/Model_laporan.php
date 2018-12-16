@@ -21,6 +21,15 @@ class model_laporan extends CI_model{
 		return $query->result();
 		
 	}
+	public function get_laporan($ID_FASILITATOR){
+		$query=$this->db->select("*",'desa.Nama_desa')
+					->from('laporan')
+					->order_by('ID','DESC')
+					->where('laporan.ID_FASILITATOR',$ID_FASILITATOR)
+					->join('desa','desa.ID_desa=laporan.ID_DESA') 
+					->get();
+		return $query->result();
+	}
 
     public function simpan($data)
     {
@@ -42,6 +51,18 @@ class model_laporan extends CI_model{
 		return $query->row();
 		
 	}
+	public function get_proses($ID_fasilitator){
+		$array=array(
+		'Status'=> "Proses Pelaporan",
+		'ID_FASILITATOR'=>$ID_FASILITATOR,
+		);
+		
+		$query=$this->db->select('COUNT(Status) AS jumlah')
+					->from('laporan')
+					->where('ID_FASILITATOR',$ID_fasilitator)
+					->get();
+		return $query->row();
+		}
 
     public function edit($ID)
     {

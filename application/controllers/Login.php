@@ -24,7 +24,6 @@ class Login extends CI_Controller {
 	}
 	
 	public function aksi_login(){
-		session_start();
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
 		$where = array(
@@ -55,7 +54,8 @@ class Login extends CI_Controller {
 			 redirect("/BNPB");
 			}else if($data['data_login']->job=='fasilitator'){
 				$data_session['data_fasilitator']=$data_fasilitator;
-				$data_session['id_fasilitator']=$data['data_login']->ID_fasilitator;
+				$data_session['laporan_fasilitator']=$this->model_laporan->get_laporan($data_fasilitator->ID_fasilitator);
+				$data_session['jumlah_laporan']=$this->model_laporan->get_proses($data_fasilitator->ID_fasilitator);
 				$this->session->set_userdata($data_session);
 				redirect("/Fasilitator");
 			}else{

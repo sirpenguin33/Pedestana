@@ -53,7 +53,7 @@
 						<td></td>
 						<td>6. Apakah dokumen perencanaan penanggulangan bencana seperti Rencana Penanggulangan Bencana
 						dan Rencana Aksi PRB yang tersusun telah dipadukan ke dalam Rencana Pembangunan Desa atau
-						Kelurahan? <br>
+						Kelurahan? 
 						(Lanjutkan ke pertanyaan selanjutnya)</td>
 						<td><input type="radio"></td>
 						<td><input type="radio"></td>
@@ -61,7 +61,7 @@
 
 					<tr>
 						<td></td>
-						<td>7. Apakah telah ada upaya-upaya awal untuk membentuk forum PRB? <br>
+						<td>7. Apakah telah ada upaya-upaya awal untuk membentuk forum PRB? 
 						(Bila ‘Tidak’ lanjutkan ke pertanyaan no. 10, bila ‘Ya’ lanjutkan ke pertanyaan selanjutnya) </td>
 						<td></td>
 						<td></td>
@@ -69,7 +69,7 @@
 
 					<tr>
 						<td></td>
-						<td>8. Apakah forum PRB yang beranggotakan wakil-wakil dari masyarakat dan pemerintah, termasuk kelompok perempuan dan kelompok rentan telah terbentuk dan mulai berfungsi walau belum terlalu aktif?  <br>
+						<td>8. Apakah forum PRB yang beranggotakan wakil-wakil dari masyarakat dan pemerintah, termasuk kelompok perempuan dan kelompok rentan telah terbentuk dan mulai berfungsi walau belum terlalu aktif? 
 						(Bila ‘Tidak’ lanjutkan ke pertanyaan no. 10, bila ‘Ya’ lanjutkan ke pertanyaan selanjutnya) </td>
 						<td></td>
 						<td></td>
@@ -77,7 +77,7 @@
 
 					<tr>
 						<td></td>
-						<td>9. Apakah forum PRB yang terbentuk telah berfungsi aktif dengan program-program pengurangan risiko yang terencana dan diimplementasikan dengan baik? <br>
+						<td>9. Apakah forum PRB yang terbentuk telah berfungsi aktif dengan program-program pengurangan risiko yang terencana dan diimplementasikan dengan baik? 
 						(Lanjutkan ke pertanyaan selanjutnya) </td>
 						<td></td>
 						<td></td>
@@ -85,7 +85,7 @@
 
 					<tr>
 						<td></td>
-						<td>10. Apakah telah ada upaya-upaya awal untuk membentuk tim relawan/siaga PB Desa/Kelurahan yang terutama akan terlibat dalam tanggap darurat bencana, PRB dan pendidikan kebencanaan? <br>
+						<td>10. Apakah telah ada upaya-upaya awal untuk membentuk tim relawan/siaga PB Desa/Kelurahan yang terutama akan terlibat dalam tanggap darurat bencana, PRB dan pendidikan kebencanaan? 
 						(Bila ‘Tidak’ lanjutkan ke pertanyaan no. 13, bila ‘Ya’ lanjutkan ke pertanyaan selanjutnya) </td>
 						<td></td>
 						<td></td>

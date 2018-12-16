@@ -34,12 +34,8 @@
         <li class="nav-item active">
         <button type="button" class="btn tombol dipilih" id="overview">Overview</button>
 		</li>
-		
-		<li class="nav-item">
-		<button type="button" class="btn tombol" id="tambah">Tambah</button>
-        </li>
         <li class="nav-item">
-        <button type="button" class="btn tombol" id="histori">Riwayat</button>
+        <button type="button" class="btn tombol" id="histori">Laporan</button>
         </li>
 
       </ul>
@@ -49,14 +45,15 @@
 			  $username=$this->session->userdata('nama');
 			  $data_fasilitator=$this->session->userdata('data_fasilitator');
 			  $id_fasilitator=$this->session->userdata('id_fasilitator');
-			  
+			  $data_laporan=$this->session->userdata('laporan_fasilitator');
+			  $jumlah_laporan=$this->session->userdata('jumlah_laporan')->jumlah;
 			
 		  }else{
 			 redirect('/Login');
 		  } 
 		  ?>
+		 
       <div id="content-wrapper">
-
         <div class="container-fluid">
 
           <!-- Breadcrumbs-->
@@ -66,7 +63,45 @@
             </li>
             <li class="breadcrumb-item keterangan">Overview</li>
           </ol>
+		  <div id="overview-page">
+		  </div>
 		  
+		  <div id="histori-page" class="table-responsive" style="display:none;">
+		<table class="table-dark table-striped" style="width:100%;text-align:center;">
+		<thead>
+		<tr>
+		<th>No</th>
+		<th>Nama Desa</th>
+		<th>Status</th>
+		</tr>
+		</thead>
+	     <tbody>
+
+                <?php
+                    $no = 1; 
+                    foreach($data_laporan as $hasil){ 
+                ?>
+
+                  <tr>
+                    <td><?php echo $no++ ?></td>
+                    <td><?php echo $hasil->Nama_desa ?></td>
+                    <td><?php echo $hasil->Status ?></td>
+					<?php if($hasil->Status=='Proses Pelaporan'){?>
+					<td>
+					
+                        <a href="<?php echo base_url() ?>index.php/Laporan/lapor_desa/<?php echo $hasil->ID?>/<?php echo $hasil->ID_DESA?>" class="btn btn-sm btn-success">Lapor</a>
+						</td>
+					<?php } else {?>
+					<?php } ?>
+					
+                  </tr>
+
+                <?php } ?>
+
+                </tbody>
+		</table>
+		  </div>
+		<!--  
 		<div id="tambah-laporan" >
 			<?php echo form_open('Laporan/simpan/'.$id_fasilitator)?>
 				<select name="ID_DESA" >
@@ -100,6 +135,7 @@
 	<input type="submit" value="submit">
 	<?php echo form_close()?>
 	</div>
+	-->
 
 		
 		

@@ -23,7 +23,6 @@
 	</head>
 	<body >
     <nav class="navbar navbar-expand navbar-dark bg-nav">
-
      <h1 style="color:white;">Pedestana</h1>
 	 <a href="<?php echo base_url() ?>index.php/Login/logout/" class="btn btn-sm btn-success">Logout</a>
     </nav>
@@ -105,7 +104,6 @@
 		<th>No</th>
 		<th>Nama</th>
 		<th>Tanggal Lahir</th>
-		<th>Umur</th>
 		<th>Pendidikan</th>
 		<th>Nomer Telepon</th>
 		</tr>
@@ -124,7 +122,6 @@
                     <td><?php echo $no++ ?></td>
                     <td><?php echo $hasil->Nama_fasilitator ?></td>
                     <td><?php echo $hasil->Tanggal_Lahir ?></td>
-					<td><?php echo $hasil->Umur ?></td>
 					<td><?php echo $hasil->Pendidikan ?></td>
                     <td><?php echo $hasil->No_Hp ?></td>
                     <td>
@@ -223,6 +220,7 @@
 			<td><button type="button" class="btn btn-primary btn-block" id="btn-fasilitator">Fasilitator</button></td>
 			<td><button type="button" class="btn btn-primary btn-block" id="btn-bnpb">BNPB</button></td>
 			<td><button type="button" class="btn btn-primary btn-block" id="btn-akun">Desa</button></td>
+			<td><button type="button" class="btn btn-primary btn-block" id="btn-laporan">Laporan</button></td>
 		</tr>
 		</table>
 		<form action="<?php echo base_url() ?>index.php/Fasilitator/simpan" method="post" id="form-fasilitator" >
@@ -311,8 +309,31 @@
 		<button type="submit" class="btn btn-md btn-success">Simpan</button>
 		
 		</form>
+		
+				<form action="<?php echo base_url() ?>index.php/Laporan/simpan" method="post" id="form-laporan" style="display:none;">
+		<div class="form-group">
+		<label for="Location">Nama Desa : </label> 
+			<select name="ID_DESA" >
+			<?php foreach($data_desa as $hasil){ ?>
+			<option value="<?php echo $hasil->ID_desa?>"><?php echo $hasil->Nama_desa?></option>
+			<?php } ?>
+			</select>
+		</div>
+		<div class="form-group">
+		<label for="Fasilitator">Kepada Fasilitator : </label> 
+		<select name="ID_FASILITATOR" >
+		<?php foreach($data_fasilitator as $hasil){ ?>
+		<option value="<?php echo $hasil->ID_fasilitator?>"><?php echo $hasil->Nama_fasilitator?></option>
+		<?php } ?>
+				</select>
+		</div>
+	
+		<button type="submit" class="btn btn-md btn-success">Simpan</button>
+		
+		</form>
 		</div>
 	</div>
+	
 		<script>
 		$(document).ready(function(){
     $("#tb1").click(function(){
@@ -331,6 +352,7 @@
 		$("#form-bnpb").hide();
 		$("#form-akun").hide();
 		$('.keterangan').text('Fasilitator');
+		$("#form-laporan").hide();
     });
 	
      $("#tb2").click(function(){
@@ -350,6 +372,7 @@
 		$("#tb1").css("background-color","");
 		$("#tb3").css("background-color","");
 		$("#tambah").css("background-color","");
+		$("#form-laporan").hide();
 		
     });
 	
@@ -369,6 +392,7 @@
 		$("#tb2").css("background-color","");
 		$("#tb1").css("background-color","");
 		$("#tambah").css("background-color","");
+		$("#form-laporan").hide();
 		
     });
 	
@@ -388,6 +412,7 @@
 		$("#tb3").css("background-color","");
 		$("#tambah").css("background-color","");
 		$("#overview-page").show();
+		$("#form-laporan").hide();
 		
     });
 	$("#tambah").click(function(){
@@ -398,6 +423,7 @@
 		$("#form-bnpb").hide();
 		$("#form-fasilitator").show();
 		$("#form-akun").hide();
+		$("#form-laporan").hide();
 		$("#form-tambah").show();
 		$('.keterangan').text('Tambah');
 		$("#tambah").css("background-color","#FFC600");
@@ -405,28 +431,34 @@
 		$("#tb2").css("background-color","");
 		$("#tb3").css("background-color","");
 		$("#overview").css("background-color","");
+		$("#overview").removeClass('dipilih');
 		
     });
 	$("#btn-bnpb").click(function(){
 		$("#form-bnpb").show();
 		$("#form-fasilitator").hide();
 		$("#form-akun").hide();
-		
-		
-	});
+		$("#form-laporan").hide();
+		});
 	
 		$("#btn-fasilitator").click(function(){
 		$("#form-bnpb").hide();
 		$("#form-fasilitator").show();
 		$("#form-akun").hide();
-		
-		
-	});
+		$("#form-laporan").hide();
+		});
 		$("#btn-akun").click(function(){
 		$("#form-bnpb").hide();
 		$("#form-fasilitator").hide();
 		$("#form-akun").show();
+		$("#form-laporan").hide();
 		
+	});
+		$("#btn-laporan").click(function(){
+		$("#form-bnpb").hide();
+		$("#form-fasilitator").hide();
+		$("#form-akun").hide();
+		$("#form-laporan").show();
 		
 	});
 	

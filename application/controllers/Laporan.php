@@ -26,12 +26,22 @@ class Laporan extends CI_Controller
 
 	}
 
-
-    public function simpan()
-    {
-		$id_fasilitator = $this->uri->segment(3);
-        $jawaban="";
-		for($x=1;$x<=5;$x++){
+	public function lapor_desa(){
+		$ID=$this->uri->segment(3);
+		$id_desa=$this->uri->segment(4);
+		
+		$data=array(
+		'ID'=> $ID,
+		'data_indikator' => $this->model_laporan->get_indikator(),
+		'data_laporan'=> $this->model_laporan->edit($ID),
+		'data_desa' => $this->model_desa->edit($id_desa)
+		);
+		$this->load->view('Fasilitator/lapor_desa',$data);
+	}
+	public function lapor(){
+        $ID=$this->input->post('ID');
+		$jawaban="";
+		for($x=1;$x<=10;$x++){
 			$jawaban=$jawaban.$this->input->post((string)$x);
 			
 		} 
@@ -40,9 +50,35 @@ class Laporan extends CI_Controller
 
             'Indikator'    => $jawaban,
 			'Status' => 'Waiting',
+			'ID_BNPB' =>'0',
+			
+			);
+
+        $this->model_laporan->update($data,$ID);
+
+      			$data_session['data_fasilitator']=$data_fasilitator;
+				$data_session['laporan_fasilitator']=$this->model_laporan->get_laporan($data_fasilitator->ID_fasilitator);
+				$data_session['jumlah_laporan']=$this->model_laporan->get_proses($data_fasilitator->ID_fasilitator);
+				$this->session->set_userdata($data_session);
+
+        //redirect
+        redirect('Fasilitator/');
+		
+	}
+
+
+    public function simpan()
+    {
+		$id_fasilitator = $this->input->post('ID_FASILITATOR');
+		
+		$data = array(
+
+            
+			'Status' => 'Proses Pelaporan',
 			'ID_DESA' =>$this->input->post('ID_DESA'),
 			'ID_FASILITATOR'=>$id_fasilitator,
-			'ID_BNPB' =>'0'
+			'ID_BNPB' =>'0',
+			'Indikator' => "",
 			
 			);
 
@@ -52,7 +88,7 @@ class Laporan extends CI_Controller
                                                 </div>');
 
         //redirect
-        redirect('Fasilitator/');
+        redirect('Admin/');
 
     }
 	

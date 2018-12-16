@@ -4,6 +4,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url('assets/js/indonesia/jsmaps/jsmaps-libs.js')?>" ></script>
+	<script type="text/javascript" src="<?php echo base_url('assets/js/indonesia/jsmaps/jsmaps-panzoom.js')?>" ></script>
+	<script type="text/javascript" src="<?php echo base_url('assets/js/indonesia/jsmaps/jsmaps.min.js')?>" ></script>
+	<script type="text/javascript" src="<?php echo base_url('assets/js/indonesia/maps/indonesia.js')?>" ></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 	
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/style.css')?>" >
@@ -85,8 +89,9 @@
 		  </div>
 		</div>
 		<div id="laporan-page" style="display:none;">
-		<table class="table">
 		<div class="table-responsive">
+		<table class="table">
+		
 		
 		<thead>
 		<tr>
@@ -112,21 +117,67 @@
 					<td><?php echo $hasil->Nama_bnpb ?></td>
 					<?php if($hasil->Status=="Verified"){ ?>
 					<td class="alert alert-success" style="text-align:center;"><?php echo $hasil->Status ?></td>
-					<?php } else{ ?>
+					<td> </td>
+					<?php } else if($hasil->Status=="Waiting"){ ?>
+					
 					<td class="alert alert-danger" style="text-align:center;"><?php echo $hasil->Status ?></td>
 					<td>
                     <a href="<?php echo base_url() ?>index.php/BNPB/verif/<?php echo $hasil->ID?>/<?php echo $id_bnpb?>/<?php echo $hasil->ID_DESA?>" class="btn btn-sm btn-success">Verif</a>
                     </td>
-					
+					<?php } else {?>
+					<td class="alert alert-info" style="text-align:center;"><?php echo $hasil->Status ?></td>
+					<td></td>
 					<?php } ?>
+					
                   </tr>
-
-                <?php } ?>
+				<?php } ?>
+   
 
                 </tbody>
 		</table>
 		</div>
 		</div>
+		
+		<div id="desa-page" class="container-fluid" style="display:none;width:100%;">
+		
+	  
+	  <div class="jsmaps-wrapper" id="indonesia-map" style="padding:10px;"></div>
+	  <div id="table-page">
+	  <h1 id="table-Aceh" style="display:none;">TES1</h1>
+	  <h1 id="table-KalimantanTimur" style="display:none;">TES2</h1>
+	</div>
+ <script type="text/javascript">
+		
+    $(function() {
+		jQuery.noConflict();
+      $('#indonesia-map').JSMaps({
+		map: 'indonesia',
+        textAreaWidth: 0,
+	  strokeWidth: 0.5,
+	   onReady: function() {
+		 $('#indonesia-map-select').on('change', function() {
+        $('#indonesia-map').trigger('stateClick', this.value);
+      }); 
+	   $('#reset-button').on('click', function() {
+        $('#indonesia-map').trigger('stateUnClick');
+		$('#indonesia-map-select').trigger('stateUnClick',"none");
+      });
+	},
+	  onStateClick: function(data) {
+      if (event.type == 'click') {
+	  $('#indonesia-map-select').val(data.name);
+	  $('#table-'+data.name.replace(/\s/g, "")).show();
+	  $('#table-page').children().not('#table-'+data.name.replace(/\s/g, "")).hide();
+	  }
+	  
+	  }
+	  
+	  });
+	  });
+    
+  </script> 
+					
+			</div>
 	</div>
 		
 
@@ -169,10 +220,7 @@
 		$('.keterangan').text('Peta Desa');
 		
 		
-    });
-	
-	 
-	
+    });	
 });
 		
 		</script>
