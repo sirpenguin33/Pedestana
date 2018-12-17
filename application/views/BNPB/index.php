@@ -143,8 +143,468 @@
 	  
 	  <div class="jsmaps-wrapper" id="indonesia-map" style="padding:10px;"></div>
 	  <div id="table-page">
-	  <h1 id="table-Aceh" style="display:none;">TES1</h1>
-	  <h1 id="table-KalimantanTimur" style="display:none;">TES2</h1>
+	  <table id="table-KalimantanTimur" class="table table-responsive" style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Kaltim as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-KalimantanTengah" class="table table-responsive" style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Kalteng as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  <table id="table-KalimantanSelatan" class="table table-responsive" style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Kalsel as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	<table id="table-Aceh" class="table table-responsive" style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Aceh as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-SumateraUtara" class="table table-responsive" style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Sumut as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-Riau" class="table table-responsive" style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Riau as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-SumateraBarat" class="table table-responsive" style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Sumbar as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-Jambi" class="table table-responsive" style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Jambi as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-Bengkulu" class="table table-responsive" style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Bengkulu as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-SumateraSelatan" class="table table-responsive" style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Sumsel as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-Lampung" class="table table-responsive" style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Lampung as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-Bangka-Belitung" class="table table-responsive" style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Babel as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-JawaBarat" class="table table-responsive" style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Jabar as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-JawaTengah" class="table table-responsive" style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Jateng as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-Semarang" class="table table-responsive" style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Semarang as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-Yogyakarta" class="table table-responsive" style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Yogyakarta as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-JawaTimur" class="table table-responsive" style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Jatim as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-Bali" class="table table-responsive" style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Bali as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-NusaTenggaraBarat" class="table table-responsive" style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_NTB as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-Banten" class="table table-responsive" style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Banten as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-NusaTenggaraTimur" class="table table-responsive" style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_NTT as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-KalimantanSelatan" class="table table-responsive" style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Maluku as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-Papua" class="table table-responsive" style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Papua as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-IrianJayaBarat" class="table table-responsive" style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_IrianJayaBarat as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-MalukuUtara" class="table table-responsive" style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_MalukuUtara as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	 <table id="table-SulawesiUtara" class="table table-responsive" style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Sulut as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-Gorontalo" class="table table-responsive" style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Gorontalo as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-SulawesiTengah" class="table table-responsive" style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Sulteng as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  <table id="table-SulawesiSelatan" class="table table-responsive" style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Sulsel as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  <table id="table-SulawesiBarat" class="table table-responsive" style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Sulbar as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  <table id="table-KalimantanTimur" class="table table-responsive" style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Kaltim as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-KalimantanSelatan" class="table table-responsive" style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Kalsel as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-KalimantanTengah" class="table table-responsive" style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Kalteng as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
 	</div>
  <script type="text/javascript">
 		

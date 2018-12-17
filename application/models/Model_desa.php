@@ -51,6 +51,15 @@ class model_desa extends CI_model{
         }
 
     }
+	public function get_Daerah($nama_daerah){
+		$query=$this->db->select('*')
+					->from('desa')
+					->where('Daerah',$nama_daerah)
+					->get();
+		return $query->result();
+		
+	}
+	
 
     public function hapus($ID)
     {

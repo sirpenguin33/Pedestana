@@ -50,6 +50,7 @@ class Login extends CI_Controller {
 			$data_session['data_bnpb']=$data_bnpb;
 			$data_session['id_bnpb']=$data['data_login']->ID_bnpb;
 			
+			
 			$this->session->set_userdata($data_session);
 			 redirect("/BNPB");
 			}else if($data['data_login']->job=='fasilitator'){

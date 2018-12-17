@@ -5,10 +5,8 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
-    <title>Freelancer - Start Bootstrap Theme</title>
+    <title>Pedestana</title>
 
     <!-- Bootstrap core CSS -->
     <link href="<?php echo base_url('assets/pengunjung/vendor/bootstrap/css/bootstrap.min.css')?>" rel="stylesheet">
@@ -28,7 +26,7 @@
   <body id="page-top">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
+    <nav class="navbar navbar-expand-lg  fixed-top text-uppercase" id="mainNav" style="background-color:#001A57;">
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="#page-top">Pedestana</a>
         <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,13 +36,13 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Portfolio</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Cari Desa</a>
             </li>
             <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">About</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Apa itu Pedestana?</a>
             </li>
             <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Meet the Team</a>
             </li>
           </ul>
         </div>
@@ -55,9 +53,7 @@
     <header class="masthead bg-primary text-white text-center">
       <div class="container">
         <img class="img-fluid mb-5 d-block mx-auto" src="img/profile.png" alt="">
-        <h1 class="text-uppercase mb-0">Start Bootstrap</h1>
-        <hr class="star-light">
-        <h2 class="font-weight-light mb-0">Web Developer - Graphic Artist - User Experience Designer</h2>
+        <h1 class="text-uppercase mb-0">Apa Itu Pedestana?</h1>
       </div>
     </header>
 

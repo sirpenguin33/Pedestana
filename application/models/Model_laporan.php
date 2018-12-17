@@ -94,7 +94,7 @@ class model_laporan extends CI_model{
     public function hapus($ID)
     {
 
-        $query = $this->db->delete("laporan", $ID);
+        $query = $this->db->delete("laporan",$ID);
 
         if($query){
             return true;

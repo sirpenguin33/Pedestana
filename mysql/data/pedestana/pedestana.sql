@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 14 Des 2018 pada 04.35
+-- Waktu pembuatan: 17 Des 2018 pada 02.07
 -- Versi server: 10.1.35-MariaDB
 -- Versi PHP: 7.2.9
 
@@ -59,7 +59,7 @@ INSERT INTO `bnpb` (`ID_bnpb`, `Nama_bnpb`, `Tanggal_Lahir`, `Umur`, `Pendidikan
 CREATE TABLE `desa` (
   `ID_desa` int(11) NOT NULL,
   `Nama_desa` varchar(50) DEFAULT NULL,
-  `Lokasi` varchar(50) DEFAULT NULL,
+  `Daerah` varchar(50) DEFAULT NULL,
   `Kategori` varchar(50) DEFAULT NULL,
   `ID_BNPB` int(100) DEFAULT NULL,
   `ID_FASILITATOR` int(100) DEFAULT NULL
@@ -69,11 +69,9 @@ CREATE TABLE `desa` (
 -- Dumping data untuk tabel `desa`
 --
 
-INSERT INTO `desa` (`ID_desa`, `Nama_desa`, `Lokasi`, `Kategori`, `ID_BNPB`, `ID_FASILITATOR`) VALUES
-(2, 'Desa Sukrawetan', 'SD', 'Bagus', 2, 2),
-(3, 'Desa manalagi', 'SD', 'Belum', 3, 3),
+INSERT INTO `desa` (`ID_desa`, `Nama_desa`, `Daerah`, `Kategori`, `ID_BNPB`, `ID_FASILITATOR`) VALUES
 (4, 'Desa Sukrawetan', 'SMA', 'Belum', 0, 9),
-(5, 'desa baciro', 'SD', 'Bagus', 0, 0);
+(5, 'desa baciro', 'SD', 'Utama', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -85,7 +83,6 @@ CREATE TABLE `fasilitator` (
   `ID_fasilitator` int(11) NOT NULL,
   `Nama_fasilitator` varchar(50) DEFAULT NULL,
   `Tanggal_Lahir` date DEFAULT NULL,
-  `Umur` int(100) DEFAULT NULL,
   `Pendidikan` varchar(50) DEFAULT NULL,
   `No_Hp` int(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -94,17 +91,16 @@ CREATE TABLE `fasilitator` (
 -- Dumping data untuk tabel `fasilitator`
 --
 
-INSERT INTO `fasilitator` (`ID_fasilitator`, `Nama_fasilitator`, `Tanggal_Lahir`, `Umur`, `Pendidikan`, `No_Hp`) VALUES
-(0, 'Belum', '0007-07-07', 7, 'SD', 72),
-(1, 'bambang', '2000-12-27', 30, 'D3', 33333335),
-(2, 'James', '1997-11-27', 20, 'S2', 777777),
-(3, 'Bebe', '1990-12-27', 193, 'SD', 333333332),
-(5, 'Bambang', '2007-12-15', 20, 'SMA', 71878),
-(6, 'tes', '1945-08-17', 100, 'SD', 212),
-(7, 'bambang', '1945-08-17', 70, 'SMA', 2662626),
-(8, 'bagus', '1945-08-17', 0, 'SMA', 787878),
-(9, 'tes', '7888-12-27', 6, 'SD', 788),
-(10, 'bagus', '1990-09-27', 18, 'S1', 21312);
+INSERT INTO `fasilitator` (`ID_fasilitator`, `Nama_fasilitator`, `Tanggal_Lahir`, `Pendidikan`, `No_Hp`) VALUES
+(0, 'Belum', '0007-07-07', 'SD', 72),
+(1, 'bambang', '2000-12-27', 'D3', 33333335),
+(2, 'James', '1997-11-27', 'S2', 777777),
+(3, 'Bebe', '1990-12-27', 'SD', 333333332),
+(5, 'Bambang', '2007-12-15', 'SMA', 71878),
+(6, 'tes', '1945-08-17', 'SD', 212),
+(8, 'bagus', '1945-08-17', 'SMA', 787878),
+(9, 'tes', '7888-12-27', 'SD', 788),
+(10, 'matamu', '1990-09-27', 'S1', 21312);
 
 -- --------------------------------------------------------
 
@@ -126,7 +122,12 @@ INSERT INTO `indikator` (`No`, `Deskripsi`) VALUES
 (2, 'Apakah kebijakan PRB di tingkat desa atau kelurahan telah tersusun secara konsultatif dan					melibatkan seluruh pemangku kepentingan?\r\n \r\n(Bila ‘Tidak’ lanjutkan ke pertanyaan no. 4, bila ‘Ya’ lanjutkan ke pertanyaan selanjutnya)'),
 (3, 'Apakah kebijakan PRB di tingkat desa atau kelurahan telah dilegalkan dalam bentuk Perdes atau perangkat hukum serupa di kelurahan? (Lanjutkan ke pertanyaan selanjutnya)'),
 (4, ' Apakah telah ada upaya-upaya awal untuk menyusun dokumen perencanaan penanggulangan bencana\r\n						seperti Rencana Penanggulangan Bencana, Rencana Aksi PRB atau Rencana Kontinjensi? (Bila ‘Tidak’ lanjutkan ke pertanyaan no. 7, bila ‘Ya’ lanjutkan ke pertanyaan selanjutnya)'),
-(5, 'Apakah dokumen perencanaan penanggulangan bencana seperti Rencana Penanggulangan Bencana,\r\n						Rencana Aksi PRB atau Rencana Kontinjensi telah tersusun? \r\n						(Bila ‘Tidak’ lanjutkan ke pertanyaan no. 7, bila ‘Ya’ lanjutkan ke pertanyaan selanjutnya)');
+(5, 'Apakah dokumen perencanaan penanggulangan bencana seperti Rencana Penanggulangan Bencana,\r\n						Rencana Aksi PRB atau Rencana Kontinjensi telah tersusun? \r\n						(Bila ‘Tidak’ lanjutkan ke pertanyaan no. 7, bila ‘Ya’ lanjutkan ke pertanyaan selanjutnya)'),
+(6, 'Apakah dokumen perencanaan penanggulangan bencana seperti Rencana Penanggulangan Bencana\r\n						dan Rencana Aksi PRB yang tersusun telah dipadukan ke dalam Rencana Pembangunan Desa atau\r\n						Kelurahan? \r\n						(Lanjutkan ke pertanyaan selanjutnya)'),
+(7, 'Apakah telah ada upaya-upaya awal untuk membentuk forum PRB? \r\n						(Bila ‘Tidak’ lanjutkan ke pertanyaan no. 10, bila ‘Ya’ lanjutkan ke pertanyaan selanjutnya)'),
+(8, 'Apakah forum PRB yang beranggotakan wakil-wakil dari masyarakat dan pemerintah, termasuk kelompok perempuan dan kelompok rentan telah terbentuk dan mulai berfungsi walau belum terlalu aktif? \r\n						(Bila ‘Tidak’ lanjutkan ke pertanyaan no. 10, bila ‘Ya’ lanjutkan ke pertanyaan selanjutnya)'),
+(9, 'Apakah forum PRB yang terbentuk telah berfungsi aktif dengan program-program pengurangan risiko yang terencana dan diimplementasikan dengan baik? \r\n						(Lanjutkan ke pertanyaan selanjutnya)'),
+(10, 'Apakah telah ada upaya-upaya awal untuk membentuk tim relawan/siaga PB Desa/Kelurahan yang terutama akan terlibat dalam tanggap darurat bencana, PRB dan pendidikan kebencanaan? \r\n						(Bila ‘Tidak’ lanjutkan ke pertanyaan no. 13, bila ‘Ya’ lanjutkan ke pertanyaan selanjutnya)');
 
 -- --------------------------------------------------------
 
@@ -148,11 +149,10 @@ CREATE TABLE `laporan` (
 --
 
 INSERT INTO `laporan` (`ID`, `Indikator`, `ID_FASILITATOR`, `ID_BNPB`, `Status`, `ID_DESA`) VALUES
-(1, '21111111111111111111111111111111111111111111111111', 5, 7, 'Verified', 3),
-(2, '11111', 8, 7, 'Verified', 2),
-(3, '11111', 8, 7, 'Verified', 2),
 (5, '22121', 8, 7, 'Verified', 5),
-(6, '21211', 8, 7, 'Verified', 5);
+(6, '21211', 8, 7, 'Verified', 5),
+(8, '', 1, 0, 'Proses Pelaporan', 5),
+(10, '3223232323', 10, 7, 'Verified', 5);
 
 -- --------------------------------------------------------
 
@@ -184,7 +184,7 @@ INSERT INTO `login` (`id`, `username`, `password`, `job`, `ID_fasilitator`, `ID_
 (8, 'tes@bnpb', '7d3321956445b711dfd223656704e9fc', 'bnpb', 0, 0),
 (9, 'ya@fasilitator', '0de61e6b6e6df728c456b59604c89029', 'fasilitator', 10, 0),
 (10, 'oke@bnpb', '7d3321956445b711dfd223656704e9fc', 'bnpb', 0, 7),
-(11, 'bagus@fasilitator', '0de61e6b6e6df728c456b59604c89029', 'fasilitator', 10, 0);
+(11, 'matamu@fasilitator', '0de61e6b6e6df728c456b59604c89029', 'fasilitator', 10, 0);
 
 --
 -- Indexes for dumped tables
@@ -256,7 +256,7 @@ ALTER TABLE `fasilitator`
 -- AUTO_INCREMENT untuk tabel `laporan`
 --
 ALTER TABLE `laporan`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `login`

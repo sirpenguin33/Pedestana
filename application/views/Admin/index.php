@@ -45,6 +45,9 @@
         <button type="button" class="btn tombol" id="tb3">Desa</button>
         </li>
 		<li class="nav-item">
+        <button type="button" class="btn tombol" id="tb4">Laporan</button>
+        </li>
+		<li class="nav-item">
         <button type="button" class="btn tombol" id="tambah">Tambah</button>
         </li>
 
@@ -201,7 +204,7 @@
                   <tr>
                     <td><?php echo $no++ ?></td>
                     <td><?php echo $hasil->Nama_desa ?></td>
-                    <td><?php echo $hasil->Lokasi ?></td>
+                    <td><?php echo $hasil->Daerah	 ?></td>
 					<td><?php echo $hasil->Kategori ?></td>
 					<td>
                         <a href="<?php echo base_url() ?>index.php/Desa/edit/<?php echo $hasil->ID_desa?>" class="btn btn-sm btn-success">Edit</a>
@@ -215,9 +218,57 @@
 		</table>
 		</div>
 		
-		<table style="width:100%;" id="form-tambah">
+		<div class="table-responsive" id="table4" style="display:none;">
+		<table class="table">
+		
+		
+		<thead>
+		<tr style="text-align:center;">
+		<th>No</th>
+		<th>Laporan Desa</th>
+		<th>Oleh(Fasilitator)</th>
+		<th>Diperiksa oleh(BNPB)</th>
+		<th>Status</th>
+		</tr>
+		</thead>
+	     <tbody>
+
+
+                <?php
+                    $no = 1; 
+                    foreach($data_laporan as $hasil){ 
+                ?>
+
+                  <tr style="text-align:center;">
+                    <td><?php echo $no++ ?></td>
+                    <td><?php echo $hasil->Nama_desa ?></td>
+                    <td><?php echo $hasil->Nama_fasilitator?></td>
+					<td><?php echo $hasil->Nama_bnpb ?></td>
+					<?php if($hasil->Status=="Verified"){ ?>
+					<td class="alert alert-success" style="text-align:center;"><?php echo $hasil->Status ?></td>
+					<td> </td>
+					<?php } else if($hasil->Status=="Waiting"){ ?>
+					<td class="alert alert-danger" style="text-align:center;"><?php echo $hasil->Status ?></td>
+					<td> </td>
+					<?php } else {?>
+					<td class="alert alert-info" style="text-align:center;"><?php echo $hasil->Status ?></td>
+					<td></td>
+					<?php } ?>
+					<td>
+                    <a href="<?php echo base_url() ?>index.php/Laporan/hapus/<?php echo $hasil->ID?>" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+					
+                  </tr>
+				<?php } ?>
+   
+
+                </tbody>
+		</table>
+		</div>
+		
+		<table style="width:100%;" id="form-tambah" style="margin:0 0 2% 0;">
 		<tr>
-			<td><button type="button" class="btn btn-primary btn-block" id="btn-fasilitator">Fasilitator</button></td>
+			<td><button type="button" class="btn btn-primary btn-block" id="btn-fasilitator" style="background-color:#FFC600;">Fasilitator</button></td>
 			<td><button type="button" class="btn btn-primary btn-block" id="btn-bnpb">BNPB</button></td>
 			<td><button type="button" class="btn btn-primary btn-block" id="btn-akun">Desa</button></td>
 			<td><button type="button" class="btn btn-primary btn-block" id="btn-laporan">Laporan</button></td>
@@ -343,9 +394,11 @@
 		$("#overview").removeClass('dipilih');
 		$("#tb2").css("background-color","");
 		$("#tb3").css("background-color","");
+		$("#tb4").css("background-color","");
 		$("#tambah").css("background-color","");
 		$("#table2").hide();
 		$("#table3").hide();
+		$("#table4").hide();
 		$("#form-tambah").hide();
 		$("#overview-page").hide();
 		$("#form-fasilitator").hide();
@@ -359,6 +412,7 @@
         $("#table1").hide();
 		$("#table2").show();
 		$("#table3").hide();
+		$("#table4").hide();
 		$("#overview-page").hide();
 		$(".form-bnpb").show();
 		$("#form-tambah").hide();
@@ -371,6 +425,7 @@
 		$("#overview").css("background-color","");
 		$("#tb1").css("background-color","");
 		$("#tb3").css("background-color","");
+		$("#tb4").css("background-color","");
 		$("#tambah").css("background-color","");
 		$("#form-laporan").hide();
 		
@@ -380,6 +435,7 @@
         $("#table1").hide();
 		$("#table2").hide();
 		$("#table3").show();
+		$("#table4").hide();
 		$("#overview-page").hide();
 		$("#overview").removeClass('dipilih');
 		$("#form-tambah").hide();
@@ -391,6 +447,29 @@
 		$("#overview").css("background-color","");
 		$("#tb2").css("background-color","");
 		$("#tb1").css("background-color","");
+		$("#tb4").css("background-color","");
+		$("#tambah").css("background-color","");
+		$("#form-laporan").hide();
+		
+    });
+	
+		  $("#tb4").click(function(){
+        $("#table1").hide();
+		$("#table2").hide();
+		$("#table3").hide();
+		$("#table4").show();
+		$("#overview-page").hide();
+		$("#overview").removeClass('dipilih');
+		$("#form-tambah").hide();
+		$("#form-fasilitator").hide();
+		$("#form-bnpb").hide();
+		$("#form-akun").hide();
+		$('.keterangan').text('Desa');
+		$("#tb4").css("background-color","#FFC600");
+		$("#overview").css("background-color","");
+		$("#tb2").css("background-color","");
+		$("#tb1").css("background-color","");
+		$("#tb3").css("background-color","");
 		$("#tambah").css("background-color","");
 		$("#form-laporan").hide();
 		
@@ -400,6 +479,7 @@
         $("#table1").hide();
 		$("#table2").hide();
 		$("#table3").hide();
+		$("#table4").hide();
 		$("#overview-page").show();
 		$("#form-tambah").hide();
 		$("#form-fasilitator").hide();
@@ -410,6 +490,7 @@
 		$("#tb1").css("background-color","");
 		$("#tb2").css("background-color","");
 		$("#tb3").css("background-color","");
+		$("#tb4").css("background-color","");
 		$("#tambah").css("background-color","");
 		$("#overview-page").show();
 		$("#form-laporan").hide();
@@ -419,6 +500,7 @@
         $("#table1").hide();
 		$("#table2").hide();
 		$("#table3").hide();
+		$("#table4").hide();
 		$("#overview-page").hide();
 		$("#form-bnpb").hide();
 		$("#form-fasilitator").show();
@@ -430,6 +512,7 @@
 		$("#tb1").css("background-color","");
 		$("#tb2").css("background-color","");
 		$("#tb3").css("background-color","");
+		$("#tb4").css("background-color","");
 		$("#overview").css("background-color","");
 		$("#overview").removeClass('dipilih');
 		

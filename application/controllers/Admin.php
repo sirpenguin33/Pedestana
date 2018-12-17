@@ -24,6 +24,7 @@ class Admin extends CI_Controller {
             'data_fasilitator' => $this->model_fasilitator->get_all(),
 			'data_desa' => $this->model_desa->get_all(),
 			'data_bnpb' => $this -> model_bnpb->get_all(),
+			'data_laporan' => $this -> model_laporan->get_all(),
 
         );
 

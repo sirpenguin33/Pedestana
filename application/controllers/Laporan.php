@@ -172,11 +172,11 @@ class Laporan extends CI_Controller
 
     }
 
-    public function hapus($id_fasilitator)
+    public function hapus()
     {
-        $id['id_fasilitator'] = $this->uri->segment(3);
+        $id['ID']= $this->uri->segment(3);
 
-        $this->model_fasilitator->hapus($id);
+        $this->model_laporan->hapus($id);
 
         //redirect
         redirect('Admin/');
