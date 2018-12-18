@@ -49,7 +49,7 @@
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Apa itu Pedestana?</a>
             </li>
             <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Meet the Team</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">The Team</a>
             </li>
           </ul>
         </div>
@@ -685,14 +685,15 @@
     <!-- About Section -->
     <section class="bg-primary text-white mb-0" id="about">
       <div class="container">
-        <h2 class="text-center text-uppercase text-white">About</h2>
+        <h2 class="text-center text-uppercase text-white">PEDESTANA</h2>
         <hr class="star-light mb-5">
+
         <div class="row">
           <div class="col-lg-4 ml-auto">
-            <p class="lead">Portal Evaluasi Desa Tangguh Bencana adalah suatu sistem perangkat lunak untuk mempermudah petugas fasilitator agar dapat melaporkan perkembangan pembentukan desa tangguh bencana.</p>
+            <p class="lead">Merupakan Portal Evaluasi Desa Tangguh Bencana untuk mempermudah petugas fasilitator BNPB agar dapat melaporkan perkembangan desa tangguh bencana.</p>
           </div>
           <div class="col-lg-4 mr-auto">
-            <p class="lead">Laporan yang kirim oleh petugas fasilitator nantinya akan dievaluasi oleh BNPB untuk menentukan kategori yang tepat untuk desa tersebut.</p>
+            <p class="lead">Laporan yang dikirim oleh petugas fasilitator nantinya akan dievaluasi oleh BNPB untuk menentukan kategori yang tepat untuk desa tersebut.</p>
           </div>
         </div>
         
@@ -704,7 +705,16 @@
       <div class="container">
         <h2 class="text-center text-uppercase text-secondary mb-0">RADIUM</h2>
         <hr class="star-dark mb-5">
-        
+
+        <div class="row">
+          <div class="col-lg-4 ml-auto">
+            <p class="lead">Merupakan kelompok matakuliah pengembangan aplikasi berbasis web dan sistem jaringan komputer</p>
+          </div>
+          <div class="col-lg-4 mr-auto">
+            <p class="lead">Yang beranggotakan tiga orang yaitu: Rohmat yuhdi, RB Yudha, Axel Cristiant <a href="<?php echo base_url('Welcome/about'); ?>">Meet The Team</a>.</p>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -749,9 +759,9 @@
             </ul>
           </div>
           <div class="col-md-4">
-            <h4 class="text-uppercase mb-4">About Freelancer</h4>
-            <p class="lead mb-0">Freelance is a free to use, open source Bootstrap theme created by
-              <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+            <h4 class="text-uppercase mb-4">Informatics UII</h4>
+            <p class="lead mb-0">Go ahead sign-up to Informatic UII and become part of the family, one for all, all for one.
+              <a href="https://pmb.uii.ac.id/">Daftar UII</a>.</p>
           </div>
         </div>
       </div>
@@ -759,7 +769,7 @@
 
     <div class="copyright py-4 text-center text-white">
       <div class="container">
-        <small>Copyright &copy; Your Website 2018</small>
+        <small>Copyright &copy; PEDESTANA 2018</small>
       </div>
     </div>
 

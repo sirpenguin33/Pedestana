@@ -13,13 +13,13 @@
     <header>
       <div class="container">
         <div id="branding">
-          <h1><span class="highlight">PEDESTANA</span> Portal</h1>
+          <h1><span class="highlight">PEDESTANA</span> Team</h1>
         </div>
         <nav>
           <ul>
             <li class="Nav"><a href="<?php echo base_url('Welcome/index'); ?>">Home</a></li>
             <li><a href="<?php echo base_url('Welcome/about'); ?>">About</a></li>
-            <li><a href="<?php echo base_url('Welcome/services'); ?>">Services</a></li>
+            <li><a href="<?php echo base_url('Welcome/services'); ?>">Courses</a></li>
           </ul>
         </nav>
       </div>
@@ -27,11 +27,7 @@
 
     <section id="newsletter">
       <div class="container">
-        <h1>Subscribe To Our Newsletter</h1>
-        <form>
-          <input type="email" placeholder="Enter Email...">
-          <button type="submit" class="button_1">Subscribe</button>
-        </form>
+        <h1>Hi we are RADIUM!</h1>
       </div>
     </section>
 

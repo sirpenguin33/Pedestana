@@ -6,20 +6,20 @@
     <meta name="description" content="Affordable and professional web design">
     <meta name="keywords" content="Pedestana">
     <meta name="author" content="Yudha">
-    <title>Pedestana | Services</title>
+    <title>Informatics | Courses</title>
      <link href="<?php echo base_url('assets/welcome/style.css')?>" rel="stylesheet">
   </head>
   <body>
     <header>
       <div class="container">
         <div id="branding">
-          <h1><span class="highlight">Pedestana</span> </h1>
+          <h1><span class="highlight">Informatics</span> | Courses</h1>
         </div>
         <nav>
           <ul>
            <li class="Nav"><a href="<?php echo base_url('Welcome/index'); ?>">Home</a></li>
             <li><a href="<?php echo base_url('Welcome/about'); ?>">About</a></li>
-            <li><a href="<?php echo base_url('Welcome/services'); ?>">Services</a></li>
+            <li><a href="<?php echo base_url('Welcome/services'); ?>">Courses</a></li>
           </ul>
         </nav>
       </div>
@@ -27,18 +27,14 @@
 
     <section id="newsletter">
       <div class="container">
-        <h1>Subscribe To Our Newsletter</h1>
-        <form>
-          <input type="email" placeholder="Enter Email...">
-          <button type="submit" class="button_1">Subscribe</button>
-        </form>
+        <h1>We saw, We Came, We learned!</h1>
       </div>
     </section>
 
     <section id="main">
       <div class="container">
         <article id="main-col">
-          <h1 class="page-title">Services</h1>
+          <h1 class="page-title">Courses</h1>
           <ul id="services">
             <li>
               <h3>Website Design</h3>
@@ -76,6 +72,26 @@
   						</div>
   						<button class="button_1" type="submit">Send</button>
 					</form>
+          </div>
+        </aside>
+        <aside id="sidebar">
+          <div class="dark">
+            <h3>Get A Quote</h3>
+            <form class="quote">
+              <div>
+                <label>Name</label><br>
+                <input type="text" placeholder="Name">
+              </div>
+              <div>
+                <label>Email</label><br>
+                <input type="email" placeholder="Emial Address">
+              </div>
+              <div>
+                <label>Message</label><br>
+                <textarea placeholder="Message"></textarea>
+              </div>
+              <button class="button_1" type="submit">Send</button>
+          </form>
           </div>
         </aside>
       </div>

@@ -19,7 +19,7 @@
           <ul>
             <li class="Nav"><a href="<?php echo base_url('Welcome/index'); ?>">Home</a></li>
             <li><a href="<?php echo base_url('Welcome/about'); ?>">About</a></li>
-            <li><a href="<?php echo base_url('Welcome/services'); ?>">Services</a></li>
+            <li><a href="<?php echo base_url('Welcome/services'); ?>">Courses</a></li>
           </ul>
         </nav>
       </div>
