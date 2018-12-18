@@ -52,9 +52,10 @@
           	<br>PHP yang menggunakan pola desain (design pattern) 
           	<br>MVC (Model View Controller)</div>
         <div class="box">
-          <img src="assets/img/lg.png">
-          <h3>HTML & JS &CSS</h3>
-          <p>Komponen web PEDESTANA</div>
+          <img src="assets/img/l0.png">
+          <h3>Bootstrap</h3>
+          <p>Bootstrap merupakan framework untuk membangun
+          	<br>desain web secara responsif dan cepat.</div>
         <div class="box">
           <img src="assets/img/l3.png">
           <h3>Ubuntu</h3>
