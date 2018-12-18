@@ -46,17 +46,19 @@
     <section id="boxes">
       <div class="container">
         <div class="box">
-          <img src="assets/img/img1.jpg">
-          <h3>Axel</h3>
-          <p>Gay shit</div>
+          <img src="assets/img/l2.png">
+          <h3>Codeigniter</h3>
+          <p>Codeigniter merupakan sebuah framework 
+          	<br>PHP yang menggunakan pola desain (design pattern) 
+          	<br>MVC (Model View Controller)</div>
         <div class="box">
-          <img src="assets/img/logo_css.png">
-          <h3>Yudha</h3>
-          <p>Not gay</div>
+          <img src="assets/img/lg.png">
+          <h3>HTML & JS &CSS</h3>
+          <p>Komponen web PEDESTANA</div>
         <div class="box">
-          <img src="assets/img/logo_brush.png">
-          <h3>Rohmat</h3>
-          <p>Gay</div>
+          <img src="assets/img/l3.png">
+          <h3>Ubuntu</h3>
+          <p>adalah ubuntu yang didesain untuk di install di server.</div>
       </div>
     </section>
 
