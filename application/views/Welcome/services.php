@@ -37,26 +37,21 @@
           <h1 class="page-title">Courses</h1>
           <ul id="services">
             <li>
-              <h3>Website Design</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mi augue, viverra sit amet ultricies at, vulputate id lorem. Nulla facilisi.</p>
-						  <p>Pricing: $1,000 - $3,000</p>
+              <h3>Pengembangan Aplikasi Berbasis Web</h3>
+              <p>Pengembangan aplikasi Web adalah sebuah penciptaan dan pemeliharaan aplikasi perangkat lunak untuk digunakan pada World Wide Web. Hal ini biasa dilakukan oleh para programmer, yang sudah akrab dengan coding untuk membentuk sebuah halaman web, seperti HTML, XML, Flash, Perl, CSS, PHP, JSP, ASP, dan lain-lain. Masing-masing aplikasi tersebut memiliki fungsi tertentu dan menciptakan beragam hasil yang bervariasi. Para programmer Web harus profisien di salah satu atau lebih pada bahasa untuk beberapa derajat. Pengembangan aplikasi ini dapat bervariasi atau spesifik, tergantung pada kebutuhan halaman Web yang terlibat.</p>
+						
             </li>
             <li>
-              <h3>Website Maintenance</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mi augue, viverra sit amet ultricies at, vulputate id lorem. Nulla facilisi.</p>
-						  <p>Pricing: $250 per month</p>
-            </li>
-            <li>
-              <h3>Website Hosting</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mi augue, viverra sit amet ultricies at, vulputate id lorem. Nulla facilisi.</p>
-						  <p>Pricing: $25 per month</p>
+              <h3>Sistem Jaringan Komputer</h3>
+              <p>sekumpulan aturan dan peralatan sebagai satu kesatuan yang terdiri terdiri atas komputer-komputer yang didesain untuk dapat berbagi sumber daya, untuk berkomunikasi dan dapat mengakses informasi secara bersama.</p>
+				
             </li>
           </ul>
         </article>
 
         <aside id="sidebar">
           <div class="dark">
-            <h3>Get A Quote</h3>
+            <h3>Hari Setiaji</h3>
             <form class="quote">
   						<div>
   							<label>Name</label><br>
@@ -96,7 +91,6 @@
         </aside>
       </div>
     </section>
-
      <footer>
       <p>Informatics UII, Copyright &copy; 2018</p>
     </footer>
