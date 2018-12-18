@@ -41,7 +41,7 @@
         <aside id="sidebar">
           <div class="dark">
             <h3>Special Thanks To..</h3>
-            <p> All praise to Allah SWT for all the blessing. Our teacher's Mr.Hari Setiaji and Mr.Moh Idris for all the knowledge and share their experience with us and all the online tutorial's that guide us for making this web application.</p>
+            <p> Our teacher's Mr.Hari Setiaji and Mr.Moh Idris for all the knowledge and share their experience with us and all the online tutorial's that guide us for making this web application.</p>
           </div>
         </aside>
       </div>
