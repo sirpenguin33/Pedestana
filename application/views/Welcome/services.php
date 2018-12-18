@@ -53,13 +53,13 @@
     <section id="boxes">
       <div class="container">
         <div class="box">
-          <img src="assets/img/l2.png">
+          <img src="<?php echo base_url('assets/img/hr.jpeg')?>">
           <h3>Mr.Hari Setiaji</h3>
-          <p>PABW Mentor</div>
+          <p>Dosen PABW</div>
         <div class="box">
-          <img src="assets/img/lg.png">
+          <img src="<?php echo base_url('assets/img/idr.jpeg')?>">
           <h3>Mr.Moh Idris</h3>
-          <p>SJK Mentor</div>
+          <p>Dosen SJK</div>
     </section>
      <footer>
       <p>Informatics UII, Copyright &copy; 2018</p>

@@ -28,7 +28,7 @@
     <section id="showcase">
       <div class="container">
         <h1>Portal Desa Tangguh Bencana</h1>
-        <p></p>
+        <p>Untuk Indonesia lebih baik</p>
       </div>
     </section>
 
@@ -36,8 +36,7 @@
       <div class="container">
         <h1>Web Developer Team: RADIUM</h1>
         <form>
-          <a href="<?php echo base_url('Login'); ?>"><button type="button" class="button_1">Login as BNPB</button></a>
-          <a href="<?php echo base_url('Login'); ?>"><button type="button" class="button_1">Login as Fasilitator</button></a>
+          <a href="<?php echo base_url('Login'); ?>"><button type="button" class="button_1">Login</button></a>
           <a href="<?php echo base_url('Pengunjung'); ?>"><button type="button" class="button_1">Look Village's</button></a>
         </form>
       </div>

@@ -42,10 +42,6 @@
           <div class="dark">
             <h3>Special Thanks To..</h3>
             <p> All praise to Allah SWT for all the blessing. Our teacher's Mr.Hari Setiaji and Mr.Moh Idris for all the knowledge and share their experience with us and all the online tutorial's that guide us for making this web application.</p>
-            <ul>
-            <li><a href="https://www.w3schools.com/">w3school</a></li>
-            <li><a href="https://stackoverflow.com/">stackOverflow</a></li>
-          </ul>
           </div>
         </aside>
       </div>
@@ -54,17 +50,23 @@
     <section id="boxes">
       <div class="container">
         <div class="box">
-          <img src="<?php echo base_url('assets/img/yd.png')?>">
+          <img src="<?php echo base_url('assets/img/yd.png')?>" height="100" width="100">
           <h3>Rohmat Yuhdi</h3>
-          <p>Gay shit</div>
+          <h4>17523198</h4>
+          <p>Designer</p>
+          </div>
         <div class="box">
-          <img src="<?php echo base_url('assets/img/yda.png')?>">
+          <img src="<?php echo base_url('assets/img/yda.png')?>" height="100" width="100">
           <h3>RB Yudha Rangga</h3>
-          <p>Normal Person</div>
+          <h4>17523200</h4>
+          <p>Leader</p>
+          </div>
         <div class="box">
-          <img src="<?php echo base_url('assets/img/ax.png')?>">
+          <img src="<?php echo base_url('assets/img/ax.png')?>" height="100" width="100">
           <h3>Axel Cristiant</h3>
-          <p>Gay Shit</div>
+          <h4>175232</h4>
+          <p>Code Enginer</p>
+          </div>
       </div>
     </section>
 
