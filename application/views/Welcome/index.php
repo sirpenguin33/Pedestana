@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <meta name="description" content="Affordable and professional web design">
+    <meta name="description" content="Portal Desa Tangguh Bencana">
     <meta name="keywords" content="Pedestana">
     <meta name="author" content="Yudha">
     <title>Pedestana | Welcome</title>

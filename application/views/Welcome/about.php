@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <meta name="description" content="Affordable and professional web design">
+    <meta name="description" content="Portal Desa Tangguh Bencana">
     <meta name="keywords" content="Pedestana">
     <meta name="author" content="Yudha">
     <title>Pedestana | About Us</title>
@@ -13,7 +13,7 @@
     <header>
       <div class="container">
         <div id="branding">
-          <h1><span class="highlight">PEDESTANA</span> Team</h1>
+          <h1><span class="highlight">PEDESTANA</span> | Team</h1>
         </div>
         <nav>
           <ul>
@@ -35,20 +35,36 @@
       <div class="container">
         <article id="main-col">
           <h1 class="page-title">About Us</h1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius auctor lacus nec feugiat. Phasellus sit amet ex ipsum. Praesent pharetra tincidunt tempor. Etiam velit eros, dapibus eget porta in, lacinia et magna. Nam eget eros non orci consectetur congue at ac augue. Proin eget arcu in enim feugiat ultricies. Curabitur maximus metus nec metus pretium viverra at et orci. Integer hendrerit ante ut placerat cursus.
-          </p>
-          <p class="dark">
-Aliquam eget pharetra diam. Nulla placerat lorem at turpis tempor, vel ultrices dui tincidunt. Proin quis egestas lorem. Mauris vehicula lectus odio, sit amet dictum justo feugiat a. Praesent id dictum lacus. Sed ullamcorper id erat ut dictum. Fusce porttitor lorem sapien, in aliquet sapien convallis et. Donec nec mauris nulla. Curabitur cursus semper odio, et hendrerit ante. Nunc at cursus ante. Maecenas gravida ligula ut efficitur suscipit. Nulla id turpis varius, pretium nunc sed, fermentum sem. Sed lacinia nunc non interdum pellentesque.
-          </p>
+          <p class="dark">Hi! We are Radium Team, three individuals with a passion for creativity — creativity makes us happy. We truly believe in the transformative power of illustration and design and their ability to simplify communications, elevate experiences, engage and inspire people everywhere. Good design and good relationships. </p>
         </article>
 
         <aside id="sidebar">
           <div class="dark">
-            <h3>What We Do</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius auctor lacus nec feugiat. Phasellus sit amet ex ipsum. Praesent pharetra tincidunt tempor. Etiam velit eros, dapibus eget porta in, lacinia et magna</p>
+            <h3>Special Thanks To..</h3>
+            <p> All praise to Allah SWT for all the blessing. Our teacher's Mr.Hari Setiaji and Mr.Moh Idris for all the knowledge and share their experience with us and all the online tutorial's that guide us for making this web application.</p>
+            <ul>
+            <li>w3school</li>
+            <li>stackOverflow</li>
+          </ul>
           </div>
         </aside>
+      </div>
+    </section>
+
+    <section id="boxes">
+      <div class="container">
+        <div class="box">
+          <img src="assets/img/l2.png">
+          <h3>Rohmat Yuhdi</h3>
+          <p>Gay shit</div>
+        <div class="box">
+          <img src="assets/img/lg.png">
+          <h3>RB Yudha Rangga</h3>
+          <p>Normal Person</div>
+        <div class="box">
+          <img src="assets/img/l3.png">
+          <h3>Axel Cristiant</h3>
+          <p>Gay Shit</div>
       </div>
     </section>
 
