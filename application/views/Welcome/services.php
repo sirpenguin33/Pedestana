@@ -38,13 +38,12 @@
           <ul id="services">
             <li>
               <h3>Pengembangan Aplikasi Berbasis Web</h3>
-              <p>Pengembangan aplikasi Web adalah sebuah penciptaan dan pemeliharaan aplikasi perangkat lunak untuk digunakan pada World Wide Web. Hal ini biasa dilakukan oleh para programmer, yang sudah akrab dengan coding untuk membentuk sebuah halaman web, seperti HTML, XML, Flash, Perl, CSS, PHP, JSP, ASP, dan lain-lain. Masing-masing aplikasi tersebut memiliki fungsi tertentu dan menciptakan beragam hasil yang bervariasi. Para programmer Web harus profisien di salah satu atau lebih pada bahasa untuk beberapa derajat. Pengembangan aplikasi ini dapat bervariasi atau spesifik, tergantung pada kebutuhan halaman Web yang terlibat.</p>
+              <p>Dalam Matakuliah ini kami belajar bagaimana cara membuat Applikasi yang berbasis web</p>
 						
             </li>
             <li>
               <h3>Sistem Jaringan Komputer</h3>
-              <p>sekumpulan aturan dan peralatan sebagai satu kesatuan yang terdiri terdiri atas komputer-komputer yang didesain untuk dapat berbagi sumber daya, untuk berkomunikasi dan dapat mengakses informasi secara bersama.</p>
-				
+              <p>Matakuliah ini mengajarkan kami bagaimana komputer dapat saling berbagi resource melalui jaringan (Network)</p>
             </li>
           </ul>
         </article>
