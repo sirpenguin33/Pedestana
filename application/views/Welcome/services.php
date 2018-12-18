@@ -48,48 +48,18 @@
             </li>
           </ul>
         </article>
-
-        <aside id="sidebar">
-          <div class="dark">
-            <h3>Hari Setiaji</h3>
-            <form class="quote">
-  						<div>
-  							<label>Name</label><br>
-  							<input type="text" placeholder="Name">
-  						</div>
-  						<div>
-  							<label>Email</label><br>
-  							<input type="email" placeholder="Emial Address">
-  						</div>
-  						<div>
-  							<label>Message</label><br>
-  							<textarea placeholder="Message"></textarea>
-  						</div>
-  						<button class="button_1" type="submit">Send</button>
-					</form>
-          </div>
-        </aside>
-        <aside id="sidebar">
-          <div class="dark">
-            <h3>Get A Quote</h3>
-            <form class="quote">
-              <div>
-                <label>Name</label><br>
-                <input type="text" placeholder="Name">
-              </div>
-              <div>
-                <label>Email</label><br>
-                <input type="email" placeholder="Emial Address">
-              </div>
-              <div>
-                <label>Message</label><br>
-                <textarea placeholder="Message"></textarea>
-              </div>
-              <button class="button_1" type="submit">Send</button>
-          </form>
-          </div>
-        </aside>
       </div>
+    </section>
+    <section id="boxes">
+      <div class="container">
+        <div class="box">
+          <img src="assets/img/l2.png">
+          <h3>Mr.Hari Setiaji</h3>
+          <p>PABW Mentor</div>
+        <div class="box">
+          <img src="assets/img/lg.png">
+          <h3>Mr.Moh Idris</h3>
+          <p>SJK Mentor</div>
     </section>
      <footer>
       <p>Informatics UII, Copyright &copy; 2018</p>
