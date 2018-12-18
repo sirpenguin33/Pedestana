@@ -43,8 +43,8 @@
             <h3>Special Thanks To..</h3>
             <p> All praise to Allah SWT for all the blessing. Our teacher's Mr.Hari Setiaji and Mr.Moh Idris for all the knowledge and share their experience with us and all the online tutorial's that guide us for making this web application.</p>
             <ul>
-            <li>w3school</li>
-            <li>stackOverflow</li>
+            <li><a href="https://www.w3schools.com/">w3school</a></li>
+            <li><a href="https://stackoverflow.com/">stackOverflow</a></li>
           </ul>
           </div>
         </aside>
@@ -54,15 +54,15 @@
     <section id="boxes">
       <div class="container">
         <div class="box">
-          <img src="assets/img/l2.png">
+          <img src="<?php echo base_url('assets/img/yd.png')?>">
           <h3>Rohmat Yuhdi</h3>
           <p>Gay shit</div>
         <div class="box">
-          <img src="assets/img/lg.png">
+          <img src="<?php echo base_url('assets/img/yda.png')?>">
           <h3>RB Yudha Rangga</h3>
           <p>Normal Person</div>
         <div class="box">
-          <img src="assets/img/l3.png">
+          <img src="<?php echo base_url('assets/img/ax.png')?>">
           <h3>Axel Cristiant</h3>
           <p>Gay Shit</div>
       </div>
