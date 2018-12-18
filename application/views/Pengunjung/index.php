@@ -14,7 +14,14 @@
     <link href="<?php echo base_url('assets/pengunjung/vendor/fontawesome-free/css/all.min.css')?>" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url('assets/js/indonesia/jsmaps/jsmaps-libs.js')?>" ></script>
+	<script type="text/javascript" src="<?php echo base_url('assets/js/indonesia/jsmaps/jsmaps-panzoom.js')?>" ></script>
+	<script type="text/javascript" src="<?php echo base_url('assets/js/indonesia/jsmaps/jsmaps.min.js')?>" ></script>
+	<script type="text/javascript" src="<?php echo base_url('assets/js/indonesia/maps/indonesia.js')?>" ></script>
     <!-- Plugin CSS -->
     <link href="<?php echo base_url('assets/pengunjung/vendor/magnific-popup/magnific-popup.css')?>" rel="stylesheet" type="text/css">
 
@@ -52,80 +59,595 @@
     <!-- Header -->
     <header class="masthead bg-primary text-white text-center">
       <div class="container">
-        <img class="img-fluid mb-5 d-block mx-auto" src="img/profile.png" alt="">
-        <h1 class="text-uppercase mb-0">Apa Itu Pedestana?</h1>
-      </div>
+		<img width=400 height=400 class="img-fluid mb-5 d-block mx-auto" src="<?php echo base_url('assets/img/home.png')?>" alt="">
+              <h1 class="text-uppercase mb-0">Pendataan Desa Tangguh Bencana</h1>
+
+	  </div>
     </header>
 
     <!-- Portfolio Grid Section -->
     <section class="portfolio" id="portfolio">
-      <div class="container">
-        <h2 class="text-center text-uppercase text-secondary mb-0">Portfolio</h2>
-        <hr class="star-dark mb-5">
-        <div class="row">
-          <div class="col-md-6 col-lg-4">
-            <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-1">
-              <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-                <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                  <i class="fas fa-search-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/cabin.png" alt="">
-            </a>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-2">
-              <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-                <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                  <i class="fas fa-search-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/cake.png" alt="">
-            </a>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-3">
-              <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-                <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                  <i class="fas fa-search-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/circus.png" alt="">
-            </a>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-4">
-              <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-                <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                  <i class="fas fa-search-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/game.png" alt="">
-            </a>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-5">
-              <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-                <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                  <i class="fas fa-search-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/safe.png" alt="">
-            </a>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-6">
-              <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-                <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                  <i class="fas fa-search-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/submarine.png" alt="">
-            </a>
-          </div>
-        </div>
-      </div>
+      	<div class="container-fluid">
+<select id="indonesia-map-select"  style="overflow-y:auto;" >
+   <option selected>Pilih Daerah</option>
+   <option value="Aceh">Aceh</option>
+   <option value="Kalimantan Timur">Kalimantan Timur</option>
+  </select>
+
+	  
+	  <div class="jsmaps-wrapper" id="indonesia-map" style="padding:10px;"></div>
+	  
+	  <div id="table-page" class="container-fluid table-responsive">
+	  <table id="table-KalimantanTimur" class="table" style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Kaltim as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-KalimantanTengah" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Kalteng as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  <table id="table-KalimantanBarat" class="table" style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Kalbar as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-KalimantanTengah" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Kalteng as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  <table id="table-KalimantanSelatan" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Kalsel as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	<table id="table-Aceh" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Aceh as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-SumateraUtara" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Sumut as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-Riau" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Riau as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-SumateraBarat" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Sumbar as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-Jambi" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Jambi as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-Bengkulu" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Bengkulu as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-SumateraSelatan" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Sumsel as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-Lampung" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Lampung as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-Bangka-Belitung" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Babel as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-JawaBarat" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Jabar as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-JawaTengah" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Jateng as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-Semarang" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Semarang as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-Yogyakarta" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Yogyakarta as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-JawaTimur" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Jatim as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-Bali" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Bali as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-NusaTenggaraBarat" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_NTB as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-Banten" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Banten as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-Maluku" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Maluku as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+		  
+		  <table id="table-NusaTenggaraTimur" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_NTT as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-KalimantanSelatan" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Maluku as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-Papua" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Papua as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-IrianJayaBarat" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_IrianJayaBarat as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-MalukuUtara" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_MalukuUtara as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  <table id="table-SulawesiTenggara" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Sulteng as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	 <table id="table-SulawesiUtara" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Sulut as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-Gorontalo" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Gorontalo as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-SulawesiTengah" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Sulteng as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  <table id="table-SulawesiSelatan" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Sulsel as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  <table id="table-SulawesiBarat" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Sulbar as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  <table id="table-KalimantanTimur" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Kaltim as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-KalimantanSelatan" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Kalsel as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-KalimantanTengah" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Kalteng as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	</div>
+	<p id="tes"> </p>
+ <script type="text/javascript">
+		
+    $(function() {
+		jQuery.noConflict();
+      $('#indonesia-map').JSMaps({
+		map: 'indonesia',
+        textAreaWidth: 0,
+	  strokeWidth: 0.5,
+	   onReady: function() {
+		 $('#indonesia-map-select').on('change', function() {
+        var tes=this.value;
+		$('#indonesia-map').trigger('stateClick', tes);
+		$('#table-'+tes.replace(/\s/g, "")).show();
+		$('#table-page').children().not('#table-'+tes.replace(/\s/g, "")).hide();
+
+
+		
+      }); 
+	   $('#reset-button').on('click', function() {
+        $('#indonesia-map').trigger('stateUnClick');
+		$('#indonesia-map-select').trigger('stateUnClick',"none");
+      });
+	},
+	  onStateClick: function(data) {
+      if (event.type == 'click') {
+	  $('#indonesia-map-select').val(data.name);
+	  $('#table-'+data.name.replace(/\s/g, "")).show();
+	  $('#table-page').children().not('#table-'+data.name.replace(/\s/g, "")).hide();
+	  }
+	  
+	  }
+	  
+	  
+	  });
+	  })(JQuery);
+    
+  </script> 
+  </div>
     </section>
+	<script>
+	$(document).ready(function(){
+		 $("#indonesia-map-select").change(function () {
+        var tes = this.value;
+        		$('#table-'+tes.replace(/\s/g, "")).show();
+		$('#table-page').children().not('#table-'+tes.replace(/\s/g, "")).hide();
+    });
+		
+	});
+	</script>
 
     <!-- About Section -->
     <section class="bg-primary text-white mb-0" id="about">
@@ -327,71 +849,11 @@
       </div>
     </div>
 
-    <!-- Portfolio Modal 4 -->
-    <div class="portfolio-modal mfp-hide" id="portfolio-modal-4">
-      <div class="portfolio-modal-dialog bg-white">
-        <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
-          <i class="fa fa-3x fa-times"></i>
-        </a>
-        <div class="container text-center">
-          <div class="row">
-            <div class="col-lg-8 mx-auto">
-              <h2 class="text-secondary text-uppercase mb-0">Project Name</h2>
-              <hr class="star-dark mb-5">
-              <img class="img-fluid mb-5" src="img/portfolio/game.png" alt="">
-              <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-              <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
-                <i class="fa fa-close"></i>
-                Close Project</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+   
 
-    <!-- Portfolio Modal 5 -->
-    <div class="portfolio-modal mfp-hide" id="portfolio-modal-5">
-      <div class="portfolio-modal-dialog bg-white">
-        <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
-          <i class="fa fa-3x fa-times"></i>
-        </a>
-        <div class="container text-center">
-          <div class="row">
-            <div class="col-lg-8 mx-auto">
-              <h2 class="text-secondary text-uppercase mb-0">Project Name</h2>
-              <hr class="star-dark mb-5">
-              <img class="img-fluid mb-5" src="img/portfolio/safe.png" alt="">
-              <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-              <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
-                <i class="fa fa-close"></i>
-                Close Project</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    
 
-    <!-- Portfolio Modal 6 -->
-    <div class="portfolio-modal mfp-hide" id="portfolio-modal-6">
-      <div class="portfolio-modal-dialog bg-white">
-        <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
-          <i class="fa fa-3x fa-times"></i>
-        </a>
-        <div class="container text-center">
-          <div class="row">
-            <div class="col-lg-8 mx-auto">
-              <h2 class="text-secondary text-uppercase mb-0">Project Name</h2>
-              <hr class="star-dark mb-5">
-              <img class="img-fluid mb-5" src="img/portfolio/submarine.png" alt="">
-              <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-              <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
-                <i class="fa fa-close"></i>
-                Close Project</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
 src="<?php echo base_url('assets/pengunjung/js/freelancer.min.js')?>"
     <!-- Bootstrap core JavaScript -->
     <script src="<?php echo base_url('assets/pengunjung/vendor/jquery/jquery.min.js')?>"></script>

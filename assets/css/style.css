@@ -7,6 +7,12 @@ background-size:contain;
 background-position:center;
 border:0;
 }
+#table-page .table{
+	width:100%;
+	text-align:center;
+	
+	
+}
 .img-contain {
   position: relative;
   text-align: center;
@@ -36,6 +42,11 @@ border:0;
 	top:10%;
 	
 }
+ .scrollable{
+   overflow-y: scroll;
+   overflow-x:hidden;
+ }
+
 .right-side{
 height:100%;
 width:100%;	
@@ -66,6 +77,7 @@ top:27%;
 .dipilih{
 		background-color:#FFC600;
 }
+
 #form-tambah,#form-fasilitator,#form-bnpb,#form-akun{
 	display:none;
 	

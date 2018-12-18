@@ -18,9 +18,12 @@
 	<script src="<?php echo base_url('assets/js/sb-admin.min.js')?>"></script>
 </head>
 <body>
-<?php $s=$data_laporan->Indikator;
+<?php 
+	$s=$data_laporan->Indikator;
 	$id_laporan=$data_laporan->ID;
-	$array=str_split($s);?>
+	$array=str_split($s);
+	$indikator=$data_indikator;
+	?>
     <nav class="navbar navbar-expand navbar-dark bg-nav">
 	
      <h1 style="color:white;">Pedestana</h1>
@@ -39,14 +42,16 @@
 		<tr>
 	<th>Indikator</th>
 	<th>Jawaban</th>
+	<?php $x=1 ?>
 	</tr>
-	<?php foreach($array as $hasil){ ?>
+	<?php foreach($indikator as $index => $code){ ?>
 	<tr>
-	<td> soal </td>
+	<td><?php echo $x ?></td>
+	<td> <?php echo $code->Deskripsi?> </td>
 	<td><?php 
-	if($hasil=="1"){
-		echo " ";
-	}else if($hasil=="2"){
+	if($array[$index]=="1"){
+		echo "Tidak ada jawaban ";
+	}else if($array[$index]=="2"){
 		echo "Ya";
 	}else{
 		
@@ -54,14 +59,14 @@
 	}
 	?></td>
 	</tr>
-	<?php }?>
+	<?php $x=$x+1; }?>
 	</table>
 	<div class="form-group">
 	<label for="Category">Kategori : </label>
 			<select name="Kategori">
-				<option value="Utama">Bagus</option>
-				<option value="Madya">Jelek</option>
-				<option value="Pratama">Jelek</option>
+				<option value="Utama">Utama</option>
+				<option value="Madya">Madya</option>
+				<option value="Pratama">Pratama</option>
 		</select>
 	</div>
 	<a  class="btn btn-md btn-success" href="<?php echo base_url() ?>index.php/BNPB">Kembali</a>

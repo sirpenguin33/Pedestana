@@ -56,6 +56,8 @@ class BNPB extends CI_Controller {
 			$data['data_Kaltim']=$this->model_desa->get_Daerah("Kalimantan Timur");
 			$data['data_Kalsel']=$this->model_desa->get_Daerah("Kalimantan Selatan");
 			$data['data_Kalteng']=$this->model_desa->get_Daerah("Kalimantan Tengah");
+			$data['data_Kalbar']=$this->model_desa->get_Daerah("Kalimantan Barat");
+
 		$this->load->view('BNPB/index',$data);
 		 
 	}
@@ -67,6 +69,7 @@ class BNPB extends CI_Controller {
 		'data_laporan' =>$this->model_laporan->edit($ID_laporan), 
 		'ID_bnpb' => $ID_bnpb,
 		'ID_desa' => $ID_desa,
+		'data_indikator' => $this->model_laporan->get_indikator(),
 		);
 		
 		
@@ -124,7 +127,6 @@ class BNPB extends CI_Controller {
 
             'Nama_bnpb'       => $this->input->post("Nama_bnpb"),
             'Tanggal_Lahir'         => $this->input->post("Tanggal_Lahir"),
-            'Umur'    => $this->input->post("Umur"),
             'Pendidikan'         => $this->input->post("Pendidikan"),
 			'No_Hp' => $this->input->post("No_Hp"),);
 

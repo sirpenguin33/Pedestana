@@ -102,8 +102,8 @@
       'stateClickAction': 'text',
       'textPosition': 'right',
       'hrefTarget': '_blank',
-      'textAreaWidth': 300,
-      'textAreaHeight': 300,
+      'textAreaWidth': 0,
+      'textAreaHeight': 0,
       'pinSize': 10,
       'displayMousePosition': false,
       'displayViewBox': false,
@@ -116,8 +116,7 @@
       'displayPreloader': true,
       'preloaderText': 'Loading map...',
       'disableTooltip': false,
-      'selectElement': true,
-      'selectElementDevices': ['mobile'],
+      'selectElement': false,
       'selectElementDefaultText': 'Please select',
       onReady: function() {},
       onStateClick: function() {},
@@ -396,7 +395,7 @@
               }
               
               // Tooltip
-              isMouseover ? showTooltip(target.name) : removeTooltip();
+              isMouseover ? showTooltip() : removeTooltip();
 
               // Trigger callback
               if ($.isFunction(callback)) {
@@ -537,7 +536,7 @@
             }
 
             // Tooltip
-            isMouseover ? showTooltip(target.name) : removeTooltip();
+            isMouseover ? showTooltip() : removeTooltip();
 
             // Trigger callback
             if ($.isFunction(callback)) {
@@ -601,13 +600,13 @@
             mapWidth = containerWidth;
             mapHeight = mapWidth / ratio;
             mapWrapper.css({
-              'width': mapWidth + 'px',
-              'height': mapHeight + textArea.height() + 'px'
+              'width': '0' + 'px',
+              'height': '0' + '0' + 'px'
             });
             textArea.css({
-              'width': mapWidth + 'px',
-              'marginTop': mapHeight + 'px',
-              'height': 'auto'
+              'width': '0' + 'px',
+              'marginTop': '0' + 'px',
+              'height': '0'
             });
           } else {
             mapWidth = containerWidth - config.textAreaWidth;

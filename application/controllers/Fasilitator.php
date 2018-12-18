@@ -89,7 +89,6 @@ class Fasilitator extends CI_Controller
 
             'Nama_fasilitator'       => $this->input->post("Nama_fasilitator"),
             'Tanggal_Lahir'         => $this->input->post("Tanggal_Lahir"),
-            'Umur'    => $this->input->post("Umur"),
             'Pendidikan'         => $this->input->post("Pendidikan"),
 			'No_Hp' => $this->input->post("No_Hp"),);
 

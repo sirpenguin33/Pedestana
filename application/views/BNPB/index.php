@@ -27,7 +27,7 @@
 	<body >
     <nav class="navbar navbar-expand navbar-dark bg-nav">
 	
-     <h1 style="color:white;">Pedestana</h1>
+	 <h1 style="color:white;">Pedestana</h1>
 	<a href="<?php echo base_url() ?>index.php/Login/logout/" class="btn btn-sm btn-success">Logout</a>
 
     </nav>
@@ -51,6 +51,7 @@
       <ul class="sidebar navbar-nav side">
         <li class="nav-item active">
         <button type="button" class="btn tombol dipilih" id="overview">Overview</button>
+		<h1 id="tes"> </h1>
 		</li>
 		
 		<li class="nav-item">
@@ -77,15 +78,44 @@
 		  <?php if($jumlah_laporan==0){?>
 		   <div class="alert alert-success" style="text-align:center">Semua Laporan telah Diverifikasi</div>
 		  <?php }else{ ?>
-		  <div class="alert alert-danger" style="text-align:center">Terdapat <strong><?php echo $jumlah_laporan?></strong> yang belum diverifikasi</div>
+		  <div class="alert alert-danger" style="text-align:center">Terdapat <strong><?php echo $jumlah_laporan?></strong> Laporan yang belum diverifikasi</div>
 		  <?php } ?>
-		  <div class="row">
-		  <div class="col-lg-6">
-		  
-		  </div>
-		   <div class="col-lg-6">
-		  
-		  </div>
+<div class="container-fluid">
+		  <table style="width:100%;" class="table">
+		  <tr style="text-align:center;border:10px;background-color:#001A57;color:white;border-color:black;" class="table" colspan=2 >
+		  <th> Data Akun</th>
+		  </tr>
+		<tr>
+		<td></td>
+		</tr>
+		  </table>
+		  <table style="width:100%;">
+		  <tr style="text-align:left;" rowspan=8>
+		  <td>Nama : </td>
+		  <td><?php echo $data_bnpb->Nama_bnpb?></td>
+		  </tr>
+		  <tr>
+		  <td></td>
+		  </tr>
+		  <tr style="text-align:left;">
+		  <td>Pendidikan :</td>
+		  <td><?php echo $data_bnpb->Pendidikan?></td>
+		  </tr>
+		  <tr>
+		  <td></td>
+		  </tr>
+		  <tr style="text-align:left;">
+		  <td>Tanggal Lahir :</td>
+		  <td><?php echo $data_bnpb->Tanggal_Lahir?></td>
+		  </tr>
+		  <tr>
+		  <td></td>
+		  </tr>
+		  <tr style="text-align:left;">
+		  <td>Job :</td>
+		  <td>BNPB</td>
+		  </tr>
+		  </table>
 		  </div>
 		</div>
 		<div id="laporan-page" style="display:none;">
@@ -139,11 +169,18 @@
 		</div>
 		
 		<div id="desa-page" class="container-fluid" style="display:none;width:100%;">
-		
+	
+	<select id="indonesia-map-select"  style="overflow-y:auto;" >
+   <option selected>Pilih Daerah</option>
+   <option value="Aceh">Aceh</option>
+   <option value="Kalimantan Timur">Kalimantan Timur</option>
+  </select>
+
 	  
 	  <div class="jsmaps-wrapper" id="indonesia-map" style="padding:10px;"></div>
-	  <div id="table-page">
-	  <table id="table-KalimantanTimur" class="table table-responsive" style="display:none;">
+	  
+	  <div id="table-page" class="container-fluid table-responsive">
+	  <table id="table-KalimantanTimur" class="table" style="display:none;">
 	  <tr>
 	  <th>Nama Desa</th>
 	  <th>Kategori</th>
@@ -157,7 +194,7 @@
 		</tr>
 	  <?php } ?>
 	  </table>
-	  	  <table id="table-KalimantanTengah" class="table table-responsive" style="display:none;">
+	  	  <table id="table-KalimantanTengah" class="table " style="display:none;">
 	  <tr>
 	  <th>Nama Desa</th>
 	  <th>Kategori</th>
@@ -171,7 +208,35 @@
 		</tr>
 	  <?php } ?>
 	  </table>
-	  <table id="table-KalimantanSelatan" class="table table-responsive" style="display:none;">
+	  <table id="table-KalimantanBarat" class="table" style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Kalbar as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-KalimantanTengah" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Kalteng as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  <table id="table-KalimantanSelatan" class="table " style="display:none;">
 	  <tr>
 	  <th>Nama Desa</th>
 	  <th>Kategori</th>
@@ -185,7 +250,7 @@
 		</tr>
 	  <?php } ?>
 	  </table>
-	  	<table id="table-Aceh" class="table table-responsive" style="display:none;">
+	  	<table id="table-Aceh" class="table " style="display:none;">
 	  <tr>
 	  <th>Nama Desa</th>
 	  <th>Kategori</th>
@@ -199,7 +264,7 @@
 		</tr>
 	  <?php } ?>
 	  </table>
-	  	  <table id="table-SumateraUtara" class="table table-responsive" style="display:none;">
+	  	  <table id="table-SumateraUtara" class="table " style="display:none;">
 	  <tr>
 	  <th>Nama Desa</th>
 	  <th>Kategori</th>
@@ -213,7 +278,7 @@
 		</tr>
 	  <?php } ?>
 	  </table>
-	  	  <table id="table-Riau" class="table table-responsive" style="display:none;">
+	  	  <table id="table-Riau" class="table " style="display:none;">
 	  <tr>
 	  <th>Nama Desa</th>
 	  <th>Kategori</th>
@@ -227,7 +292,7 @@
 		</tr>
 	  <?php } ?>
 	  </table>
-	  	  <table id="table-SumateraBarat" class="table table-responsive" style="display:none;">
+	  	  <table id="table-SumateraBarat" class="table " style="display:none;">
 	  <tr>
 	  <th>Nama Desa</th>
 	  <th>Kategori</th>
@@ -241,7 +306,7 @@
 		</tr>
 	  <?php } ?>
 	  </table>
-	  	  <table id="table-Jambi" class="table table-responsive" style="display:none;">
+	  	  <table id="table-Jambi" class="table " style="display:none;">
 	  <tr>
 	  <th>Nama Desa</th>
 	  <th>Kategori</th>
@@ -255,7 +320,7 @@
 		</tr>
 	  <?php } ?>
 	  </table>
-	  	  <table id="table-Bengkulu" class="table table-responsive" style="display:none;">
+	  	  <table id="table-Bengkulu" class="table " style="display:none;">
 	  <tr>
 	  <th>Nama Desa</th>
 	  <th>Kategori</th>
@@ -269,7 +334,7 @@
 		</tr>
 	  <?php } ?>
 	  </table>
-	  	  <table id="table-SumateraSelatan" class="table table-responsive" style="display:none;">
+	  	  <table id="table-SumateraSelatan" class="table " style="display:none;">
 	  <tr>
 	  <th>Nama Desa</th>
 	  <th>Kategori</th>
@@ -283,7 +348,7 @@
 		</tr>
 	  <?php } ?>
 	  </table>
-	  	  <table id="table-Lampung" class="table table-responsive" style="display:none;">
+	  	  <table id="table-Lampung" class="table " style="display:none;">
 	  <tr>
 	  <th>Nama Desa</th>
 	  <th>Kategori</th>
@@ -297,7 +362,7 @@
 		</tr>
 	  <?php } ?>
 	  </table>
-	  	  <table id="table-Bangka-Belitung" class="table table-responsive" style="display:none;">
+	  	  <table id="table-Bangka-Belitung" class="table " style="display:none;">
 	  <tr>
 	  <th>Nama Desa</th>
 	  <th>Kategori</th>
@@ -311,7 +376,7 @@
 		</tr>
 	  <?php } ?>
 	  </table>
-	  	  <table id="table-JawaBarat" class="table table-responsive" style="display:none;">
+	  	  <table id="table-JawaBarat" class="table " style="display:none;">
 	  <tr>
 	  <th>Nama Desa</th>
 	  <th>Kategori</th>
@@ -325,7 +390,7 @@
 		</tr>
 	  <?php } ?>
 	  </table>
-	  	  <table id="table-JawaTengah" class="table table-responsive" style="display:none;">
+	  	  <table id="table-JawaTengah" class="table " style="display:none;">
 	  <tr>
 	  <th>Nama Desa</th>
 	  <th>Kategori</th>
@@ -339,7 +404,7 @@
 		</tr>
 	  <?php } ?>
 	  </table>
-	  	  <table id="table-Semarang" class="table table-responsive" style="display:none;">
+	  	  <table id="table-Semarang" class="table " style="display:none;">
 	  <tr>
 	  <th>Nama Desa</th>
 	  <th>Kategori</th>
@@ -353,7 +418,7 @@
 		</tr>
 	  <?php } ?>
 	  </table>
-	  	  <table id="table-Yogyakarta" class="table table-responsive" style="display:none;">
+	  	  <table id="table-Yogyakarta" class="table " style="display:none;">
 	  <tr>
 	  <th>Nama Desa</th>
 	  <th>Kategori</th>
@@ -367,7 +432,7 @@
 		</tr>
 	  <?php } ?>
 	  </table>
-	  	  <table id="table-JawaTimur" class="table table-responsive" style="display:none;">
+	  	  <table id="table-JawaTimur" class="table " style="display:none;">
 	  <tr>
 	  <th>Nama Desa</th>
 	  <th>Kategori</th>
@@ -381,7 +446,7 @@
 		</tr>
 	  <?php } ?>
 	  </table>
-	  	  <table id="table-Bali" class="table table-responsive" style="display:none;">
+	  	  <table id="table-Bali" class="table " style="display:none;">
 	  <tr>
 	  <th>Nama Desa</th>
 	  <th>Kategori</th>
@@ -395,7 +460,7 @@
 		</tr>
 	  <?php } ?>
 	  </table>
-	  	  <table id="table-NusaTenggaraBarat" class="table table-responsive" style="display:none;">
+	  	  <table id="table-NusaTenggaraBarat" class="table " style="display:none;">
 	  <tr>
 	  <th>Nama Desa</th>
 	  <th>Kategori</th>
@@ -409,7 +474,7 @@
 		</tr>
 	  <?php } ?>
 	  </table>
-	  	  <table id="table-Banten" class="table table-responsive" style="display:none;">
+	  	  <table id="table-Banten" class="table " style="display:none;">
 	  <tr>
 	  <th>Nama Desa</th>
 	  <th>Kategori</th>
@@ -423,21 +488,7 @@
 		</tr>
 	  <?php } ?>
 	  </table>
-	  	  <table id="table-NusaTenggaraTimur" class="table table-responsive" style="display:none;">
-	  <tr>
-	  <th>Nama Desa</th>
-	  <th>Kategori</th>
-	  <th>Daerah</th>
-	  </tr>
-	  <?php foreach($data_NTT as $hasil){?>
-		<tr>
-		<td><?php echo $hasil->Nama_desa ?></td>
-		<td><?php echo $hasil->Kategori?></td>	
-		<td><?php echo $hasil->Daerah?></td>
-		</tr>
-	  <?php } ?>
-	  </table>
-	  	  <table id="table-KalimantanSelatan" class="table table-responsive" style="display:none;">
+	  	  <table id="table-Maluku" class="table " style="display:none;">
 	  <tr>
 	  <th>Nama Desa</th>
 	  <th>Kategori</th>
@@ -451,7 +502,36 @@
 		</tr>
 	  <?php } ?>
 	  </table>
-	  	  <table id="table-Papua" class="table table-responsive" style="display:none;">
+		  
+		  <table id="table-NusaTenggaraTimur" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_NTT as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-KalimantanSelatan" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Maluku as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-Papua" class="table " style="display:none;">
 	  <tr>
 	  <th>Nama Desa</th>
 	  <th>Kategori</th>
@@ -465,7 +545,7 @@
 		</tr>
 	  <?php } ?>
 	  </table>
-	  	  <table id="table-IrianJayaBarat" class="table table-responsive" style="display:none;">
+	  	  <table id="table-IrianJayaBarat" class="table " style="display:none;">
 	  <tr>
 	  <th>Nama Desa</th>
 	  <th>Kategori</th>
@@ -479,7 +559,7 @@
 		</tr>
 	  <?php } ?>
 	  </table>
-	  	  <table id="table-MalukuUtara" class="table table-responsive" style="display:none;">
+	  	  <table id="table-MalukuUtara" class="table " style="display:none;">
 	  <tr>
 	  <th>Nama Desa</th>
 	  <th>Kategori</th>
@@ -493,35 +573,7 @@
 		</tr>
 	  <?php } ?>
 	  </table>
-	  	 <table id="table-SulawesiUtara" class="table table-responsive" style="display:none;">
-	  <tr>
-	  <th>Nama Desa</th>
-	  <th>Kategori</th>
-	  <th>Daerah</th>
-	  </tr>
-	  <?php foreach($data_Sulut as $hasil){?>
-		<tr>
-		<td><?php echo $hasil->Nama_desa ?></td>
-		<td><?php echo $hasil->Kategori?></td>	
-		<td><?php echo $hasil->Daerah?></td>
-		</tr>
-	  <?php } ?>
-	  </table>
-	  	  <table id="table-Gorontalo" class="table table-responsive" style="display:none;">
-	  <tr>
-	  <th>Nama Desa</th>
-	  <th>Kategori</th>
-	  <th>Daerah</th>
-	  </tr>
-	  <?php foreach($data_Gorontalo as $hasil){?>
-		<tr>
-		<td><?php echo $hasil->Nama_desa ?></td>
-		<td><?php echo $hasil->Kategori?></td>	
-		<td><?php echo $hasil->Daerah?></td>
-		</tr>
-	  <?php } ?>
-	  </table>
-	  	  <table id="table-SulawesiTengah" class="table table-responsive" style="display:none;">
+	  <table id="table-SulawesiTenggara" class="table " style="display:none;">
 	  <tr>
 	  <th>Nama Desa</th>
 	  <th>Kategori</th>
@@ -535,7 +587,49 @@
 		</tr>
 	  <?php } ?>
 	  </table>
-	  <table id="table-SulawesiSelatan" class="table table-responsive" style="display:none;">
+	  	 <table id="table-SulawesiUtara" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Sulut as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-Gorontalo" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Gorontalo as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  	  <table id="table-SulawesiTengah" class="table " style="display:none;">
+	  <tr>
+	  <th>Nama Desa</th>
+	  <th>Kategori</th>
+	  <th>Daerah</th>
+	  </tr>
+	  <?php foreach($data_Sulteng as $hasil){?>
+		<tr>
+		<td><?php echo $hasil->Nama_desa ?></td>
+		<td><?php echo $hasil->Kategori?></td>	
+		<td><?php echo $hasil->Daerah?></td>
+		</tr>
+	  <?php } ?>
+	  </table>
+	  <table id="table-SulawesiSelatan" class="table " style="display:none;">
 	  <tr>
 	  <th>Nama Desa</th>
 	  <th>Kategori</th>
@@ -549,7 +643,7 @@
 		</tr>
 	  <?php } ?>
 	  </table>
-	  <table id="table-SulawesiBarat" class="table table-responsive" style="display:none;">
+	  <table id="table-SulawesiBarat" class="table " style="display:none;">
 	  <tr>
 	  <th>Nama Desa</th>
 	  <th>Kategori</th>
@@ -563,7 +657,7 @@
 		</tr>
 	  <?php } ?>
 	  </table>
-	  <table id="table-KalimantanTimur" class="table table-responsive" style="display:none;">
+	  <table id="table-KalimantanTimur" class="table " style="display:none;">
 	  <tr>
 	  <th>Nama Desa</th>
 	  <th>Kategori</th>
@@ -577,7 +671,7 @@
 		</tr>
 	  <?php } ?>
 	  </table>
-	  	  <table id="table-KalimantanSelatan" class="table table-responsive" style="display:none;">
+	  	  <table id="table-KalimantanSelatan" class="table " style="display:none;">
 	  <tr>
 	  <th>Nama Desa</th>
 	  <th>Kategori</th>
@@ -591,7 +685,7 @@
 		</tr>
 	  <?php } ?>
 	  </table>
-	  	  <table id="table-KalimantanTengah" class="table table-responsive" style="display:none;">
+	  	  <table id="table-KalimantanTengah" class="table " style="display:none;">
 	  <tr>
 	  <th>Nama Desa</th>
 	  <th>Kategori</th>
@@ -606,6 +700,7 @@
 	  <?php } ?>
 	  </table>
 	</div>
+	<p id="tes"> </p>
  <script type="text/javascript">
 		
     $(function() {
@@ -616,7 +711,13 @@
 	  strokeWidth: 0.5,
 	   onReady: function() {
 		 $('#indonesia-map-select').on('change', function() {
-        $('#indonesia-map').trigger('stateClick', this.value);
+        var tes=this.value;
+		$('#indonesia-map').trigger('stateClick', tes);
+		$('#table-'+tes.replace(/\s/g, "")).show();
+		$('#table-page').children().not('#table-'+tes.replace(/\s/g, "")).hide();
+
+
+		
       }); 
 	   $('#reset-button').on('click', function() {
         $('#indonesia-map').trigger('stateUnClick');
@@ -632,8 +733,9 @@
 	  
 	  }
 	  
+	  
 	  });
-	  });
+	  })(JQuery);
     
   </script> 
 					

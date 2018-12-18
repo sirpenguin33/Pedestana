@@ -28,20 +28,23 @@ class Laporan extends CI_Controller
 
 	public function lapor_desa(){
 		$ID=$this->uri->segment(3);
-		$id_desa=$this->uri->segment(4);
+		$ID_fasilitator=$this->uri->segment(4);
+		$ID_desa=$this->uri->segment(5);
 		
 		$data=array(
 		'ID'=> $ID,
 		'data_indikator' => $this->model_laporan->get_indikator(),
 		'data_laporan'=> $this->model_laporan->edit($ID),
-		'data_desa' => $this->model_desa->edit($id_desa)
+		'ID_fasilitator'=>$ID_fasilitator,
+		'data_desa'=>$this->model_desa->edit($ID_desa)
 		);
 		$this->load->view('Fasilitator/lapor_desa',$data);
 	}
 	public function lapor(){
         $ID=$this->input->post('ID');
+		$ID_fasilitator=$this->input->post('ID_fasilitator');
 		$jawaban="";
-		for($x=1;$x<=10;$x++){
+		for($x=1;$x<=60;$x++){
 			$jawaban=$jawaban.$this->input->post((string)$x);
 			
 		} 
@@ -56,9 +59,9 @@ class Laporan extends CI_Controller
 
         $this->model_laporan->update($data,$ID);
 
-      			$data_session['data_fasilitator']=$data_fasilitator;
-				$data_session['laporan_fasilitator']=$this->model_laporan->get_laporan($data_fasilitator->ID_fasilitator);
-				$data_session['jumlah_laporan']=$this->model_laporan->get_proses($data_fasilitator->ID_fasilitator);
+      			$data_session['data_fasilitator']=$this->model_fasilitator->get_user($ID_fasilitator)->row();
+				$data_session['laporan_fasilitator']=$this->model_laporan->get_laporan($ID_fasilitator);
+				$data_session['jumlah_laporan']=$this->model_laporan->get_proses($ID_fasilitator);
 				$this->session->set_userdata($data_session);
 
         //redirect

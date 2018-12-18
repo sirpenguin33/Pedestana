@@ -46,16 +46,11 @@
 		<label for="birthday">Tanggal Lahir : </label>
 		<input type="date" class="form-control" name="Tanggal_Lahir" value="<?php echo $data_fasilitator->Tanggal_Lahir ?>">
 		</div>
-		<div class="form-group">
-		<label for="age">Umur : </label> 
-		<input type="number" class="form-control" name="Umur" placeholder="Masukkan umur" value="<?php echo $data_fasilitator->Umur ?>">
-		</div>
+
 		<div class="form-group">
 		<label for="education">Pendidikan : </label>
 		<select name="Pendidikan" >
-				<option value="SD">SD</option>
-				<option value="SMP">SMP</option>
-				<option value="SMA">SMA</option>
+
 				<option value="D3">D3</option>
 				<option value="S1">S1</option>
 				<option value="S2">S2</option>

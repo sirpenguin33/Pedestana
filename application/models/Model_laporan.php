@@ -54,12 +54,12 @@ class model_laporan extends CI_model{
 	public function get_proses($ID_fasilitator){
 		$array=array(
 		'Status'=> "Proses Pelaporan",
-		'ID_FASILITATOR'=>$ID_FASILITATOR,
+		'ID_FASILITATOR'=>$ID_fasilitator,
 		);
 		
 		$query=$this->db->select('COUNT(Status) AS jumlah')
 					->from('laporan')
-					->where('ID_FASILITATOR',$ID_fasilitator)
+					->where($array)
 					->get();
 		return $query->row();
 		}

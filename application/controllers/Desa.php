@@ -37,7 +37,7 @@ class Desa extends CI_Controller
         $data = array(
 
             'Nama_desa'       => $this->input->post("Nama_desa"),
-            'Lokasi'         => $this->input->post("Lokasi"),
+            'Daerah'         => $this->input->post("Lokasi"),
             'Kategori'    => "Belum",
 			'ID_BNPB'    => "0",
 			'ID_FASILITATOR'    => "0",

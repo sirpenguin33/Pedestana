@@ -5,7 +5,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<script type="text/javascript" src="<?php echo base_url('assets/js/indonesia/jsmaps/jsmaps-libs.js')?>" ></script>
+	<script type="text/javascript" src="<?php echo base_url('assets/js/indonesia/jsmaps/jsmaps-panzoom.js')?>" ></script>
+	<script type="text/javascript" src="<?php echo base_url('assets/js/indonesia/jsmaps/jsmaps.min.js')?>" ></script>
+	<script type="text/javascript" src="<?php echo base_url('assets/js/indonesia/maps/indonesia.js')?>" ></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 	
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/style.css')?>" >
 	<script href="<?php echo base_url('assets/js/script.js')?>"></script>
@@ -32,7 +36,7 @@
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav side">
         <li class="nav-item active">
-        <button type="button" class="btn tombol dipilih" id="overview">Overview</button>
+        <button type="button" class="btn tombol dipilih" id="overview">Data Akun</button>
 		</li>
 		
 		<li class="nav-item">
@@ -74,23 +78,28 @@
 			 redirect('/Login');
 		  } 
 		  ?>
-		  <div class="row table-responsive">
-		  <div class="col-lg-6">
 		  <table style="width:100%;" class="table">
-		  <tr style="text-align:center;border:10px;" class="table" colspan=2 >
+		  <tr style="text-align:center;border:10px;background-color:#001A57;color:white;border-color:black;" class="table" colspan=2 >
 		  <th> Data Akun</th>
 		  </tr>
-		  <tr style="text-align:left;">
-		  <td>Username : <?php echo $username ?></td>
+		<tr>
+		<td></td>
+		</tr>
+		  </table>
+		  <table style="width:100%;">
+		  <tr style="text-align:left;" rowspan=8>
+		  <td>Username : </td>
+		  <td><?php echo $username?></td>
+		  </tr>
+		  <tr>
+		  <td></td>
 		  </tr>
 		  <tr style="text-align:left;">
-		  <td>Job : Admin</td>
+		  <td>Job :</td>
+		  <td>Admin</td>
 		  </tr>
 		  </table>
-		  
-		  </div>
-		   <div class="col-lg-6">
-		  </div>
+		
 		  
 		  
 		  </div>
@@ -100,8 +109,8 @@
 		  </div>
 		  
 		  
-		<div class="table-responsive" id="table1">
-		<table class="table-dark table-striped" style="width:100%;text-align:center;">
+		
+		<table class="table table-bordered table-responsive" id="table1" style="width:100%;text-align:center;height:50%;">
 		<thead>
 		<tr>
 		<th>No</th>
@@ -109,6 +118,7 @@
 		<th>Tanggal Lahir</th>
 		<th>Pendidikan</th>
 		<th>Nomer Telepon</th>
+		<th>Aksi</th>
 		</tr>
 		</thead>
 	     <tbody>
@@ -137,20 +147,18 @@
                 <?php } ?>
                 </tbody>
 		</table>
-		</div>
 		
 			
 	
 	
 		<div class="table-responsive" id="table2">
 	
-		<table class="table-dark table-striped" style="width:100%;text-align:center;">
+		<table class="table" style="width:100%;text-align:center;">
 		<thead>
 		<tr>
 		<th>No</th>
 		<th>Nama BNPB</th>
 		<th>Tanggal Lahir</th>
-		<th>Umur</th>
 		<th>Pendidikan</th>
 		<th>Nomer Telepon</th>
 		</tr>
@@ -168,7 +176,6 @@
                     <td><?php echo $no++ ?></td>
                     <td><?php echo $hasil->Nama_bnpb ?></td>
                     <td><?php echo $hasil->Tanggal_Lahir ?></td>
-					<td><?php echo $hasil->Umur ?></td>
 					<td><?php echo $hasil->Pendidikan ?></td>
 					<td><?php echo $hasil->No_Hp ?></td>
 					<td>
@@ -185,7 +192,7 @@
 		</div>
 
 		<div class="table-responsive" id="table3">
-		<table class="table-dark table-striped" style="width:100%;text-align:center;">
+		<table class="table" style="width:100%;text-align:center;">
 		<thead>
 		<tr>
 		<th>No</th>
@@ -266,7 +273,7 @@
 		</table>
 		</div>
 		
-		<table style="width:100%;" id="form-tambah" style="margin:0 0 2% 0;">
+		<table style="width:100%;" id="form-tambah" >
 		<tr>
 			<td><button type="button" class="btn btn-primary btn-block" id="btn-fasilitator" style="background-color:#FFC600;">Fasilitator</button></td>
 			<td><button type="button" class="btn btn-primary btn-block" id="btn-bnpb">BNPB</button></td>
@@ -274,7 +281,7 @@
 			<td><button type="button" class="btn btn-primary btn-block" id="btn-laporan">Laporan</button></td>
 		</tr>
 		</table>
-		<form action="<?php echo base_url() ?>index.php/Fasilitator/simpan" method="post" id="form-fasilitator" >
+		<form action="<?php echo base_url() ?>index.php/Fasilitator/simpan" method="post" id="form-fasilitator" style="margin-left:1%;" >
 		<div class="form-group">
 		<label for="name">Nama : </label>
 		<input type="text" class="form-control" name="Nama_fasilitator" placeholder="Masukkan nama">
@@ -284,15 +291,8 @@
 		<input type="date" class="form-control" name="Tanggal_Lahir">
 		</div>
 		<div class="form-group">
-		<label for="age">Umur : </label> 
-		<input type="number" class="form-control" name="Umur" placeholder="Masukkan umur">
-		</div>
-		<div class="form-group">
 		<label for="education">Pendidikan : </label>
 		<select name="Pendidikan" >
-				<option value="SD">SD</option>
-				<option value="SMP">SMP</option>
-				<option value="SMA">SMA</option>
 				<option value="D3">D3</option>
 				<option value="S1">S1</option>
 				<option value="S2">S2</option>
@@ -306,7 +306,7 @@
 		<button type="submit" class="btn btn-md btn-success">Simpan</button>
 		
 		</form>
-		<form action="<?php echo base_url() ?>index.php/BNPB/simpan" method="post" id="form-bnpb">
+		<form action="<?php echo base_url() ?>index.php/BNPB/simpan" method="post" id="form-bnpb" style="margin-left:1%;">
 		<div class="form-group">
 		<label for="name">Nama : </label>
 		<input type="text" class="form-control" name="Nama_bnpb" placeholder="Masukkan nama">
@@ -316,15 +316,8 @@
 		<input type="date" class="form-control" name="Tanggal_Lahir">
 		</div>
 		<div class="form-group">
-		<label for="age">Umur : </label>
-		<input type="number" class="form-control" name="Umur" placeholder="Masukkan umur">
-		</div>
-		<div class="form-group">
 		<label for="education">Pendidikan : </label> 
 		<select name="Pendidikan" >
-				<option value="SD">SD</option>
-				<option value="SMP">SMP</option>
-				<option value="SMA">SMA</option>
 				<option value="D3">D3</option>
 				<option value="S1">S1</option>
 				<option value="S2">S2</option>
@@ -339,7 +332,7 @@
 		
 		</form>
 		
-		<form action="<?php echo base_url() ?>index.php/Desa/simpan" method="post" id="form-akun">
+		<form action="<?php echo base_url() ?>index.php/Desa/simpan" method="post" id="form-akun" style="margin-left:1%;">
 		<div class="form-group">
 		<label for="name">Nama desa : </label> 
 		<input type="text" class="form-control" name="Nama_desa" placeholder="Masukkan nama">
@@ -361,7 +354,7 @@
 		
 		</form>
 		
-				<form action="<?php echo base_url() ?>index.php/Laporan/simpan" method="post" id="form-laporan" style="display:none;">
+				<form action="<?php echo base_url() ?>index.php/Laporan/simpan" method="post" id="form-laporan" style="display:none;margin-left:1%;margin-top:1%;">
 		<div class="form-group">
 		<label for="Location">Nama Desa : </label> 
 			<select name="ID_DESA" >
@@ -374,7 +367,9 @@
 		<label for="Fasilitator">Kepada Fasilitator : </label> 
 		<select name="ID_FASILITATOR" >
 		<?php foreach($data_fasilitator as $hasil){ ?>
+		<?php if($hasil->ID_fasilitator=='0'){}else{ ?>
 		<option value="<?php echo $hasil->ID_fasilitator?>"><?php echo $hasil->Nama_fasilitator?></option>
+		<?php } ?>
 		<?php } ?>
 				</select>
 		</div>
@@ -522,6 +517,12 @@
 		$("#form-fasilitator").hide();
 		$("#form-akun").hide();
 		$("#form-laporan").hide();
+		$("#btn-fasilitator").removeClass('dipilih');
+		$("#btn-fasilitator").css("background-color","");
+		$("#btn-bnpb").css("background-color","#FFC600");
+		$("#btn-laporan").css("background-color","");
+		$("#btn-akun").css("background-color","");
+		
 		});
 	
 		$("#btn-fasilitator").click(function(){
@@ -529,12 +530,22 @@
 		$("#form-fasilitator").show();
 		$("#form-akun").hide();
 		$("#form-laporan").hide();
+		$("#btn-fasilitator").removeClass('dipilih');
+		$("#btn-bnpb").css("background-color","");
+		$("#btn-fasilitator").css("background-color","#FFC600");
+		$("#btn-laporan").css("background-color","");
+		$("#btn-akun").css("background-color","");
 		});
 		$("#btn-akun").click(function(){
 		$("#form-bnpb").hide();
 		$("#form-fasilitator").hide();
 		$("#form-akun").show();
 		$("#form-laporan").hide();
+		$("#btn-fasilitator").removeClass('dipilih');
+		$("#btn-fasilitator").css("background-color","");
+		$("#btn-akun").css("background-color","#FFC600");
+		$("#btn-laporan").css("background-color","");
+		$("#btn-bnpb").css("background-color","");
 		
 	});
 		$("#btn-laporan").click(function(){
@@ -542,6 +553,11 @@
 		$("#form-fasilitator").hide();
 		$("#form-akun").hide();
 		$("#form-laporan").show();
+		$("#btn-fasilitator").removeClass('dipilih');
+		$("#btn-fasilitator").css("background-color","");
+		$("#btn-laporan").css("background-color","#FFC600");
+		$("#btn-bnpb").css("background-color","");
+		$("#btn-akun").css("background-color","");
 		
 	});
 	
@@ -567,10 +583,6 @@
 
     </div>
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-      <i class="fas fa-angle-up"></i>
-    </a>
 	
 
 

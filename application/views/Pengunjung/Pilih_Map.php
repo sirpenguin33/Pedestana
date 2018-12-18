@@ -43,7 +43,10 @@
 	   onReady: function() {
 		 $('#indonesia-map-select').on('change', function() {
         $('#indonesia-map').trigger('stateClick', this.value);
-      }); 
+		$('#table-'+this.value.replace(/\s/g, "")).show();
+		$('#table-page').children().not('#table-'+this.value.replace(/\s/g, "")).hide();
+
+	  }); 
 	   $('#reset-button').on('click', function() {
         $('#indonesia-map').trigger('stateUnClick');
 		$('#indonesia-map-select').trigger('stateUnClick',"none");

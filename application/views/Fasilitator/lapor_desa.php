@@ -38,6 +38,8 @@
 		  <h1>Laporan <?php echo $data_desa->Nama_desa ?></h1>
 		  <?php echo form_open('Laporan/lapor')?>
 		<input type="text" name="ID" value="<?php echo $ID ?>" style="display:none;"></input>
+		<input type="text" name="ID_fasilitator" value="<?php echo $ID_fasilitator ?>" style=""></input>
+
 		<table class="table table-bordered table-responsive" style="height:50%;">	
 		<thead>
 			<tr>

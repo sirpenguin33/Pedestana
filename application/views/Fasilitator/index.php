@@ -2,8 +2,6 @@
 	<head>
 	<title>Pedestana</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 	
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/style.css')?>" >
@@ -35,7 +33,7 @@
         <button type="button" class="btn tombol dipilih" id="overview">Overview</button>
 		</li>
         <li class="nav-item">
-        <button type="button" class="btn tombol" id="histori">Laporan</button>
+        <button type="button" class="btn tombol" id="laporan">Laporan</button>
         </li>
 
       </ul>
@@ -52,28 +50,68 @@
 			 redirect('/Login');
 		  } 
 		  ?>
-		  
-		 
       <div id="content-wrapper">
         <div class="container-fluid">
 
           <!-- Breadcrumbs-->
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <a href="#">Fasilitator</a>
+              <a href="<?php echo base_url() ?>index.php/Fasilitator/">Fasilitator</a>
             </li>
             <li class="breadcrumb-item keterangan">Overview</li>
           </ol>
 		  <div id="overview-page">
+		  <?php if($jumlah_laporan=='0'){?>
+		   <div class="alert alert-success" style="text-align:center">Tidak Ada Laporan Desa</div>
+		  <?php }else{ ?>
+		  <div class="alert alert-danger" style="text-align:center">Terdapat <strong><?php echo $jumlah_laporan?></strong> desa yang belum dilaporkan</div>
+		  <?php } ?>
+		  <div class="container-fluid">
+		  <table style="width:100%;" class="table">
+		  <tr style="text-align:center;border:10px;background-color:#001A57;color:white;border-color:black;" class="table" colspan=2 >
+		  <th> Data Akun</th>
+		  </tr>
+		<tr>
+		<td></td>
+		</tr>
+		  </table>
+		  <table style="width:100%;">
+		  <tr style="text-align:left;" rowspan=8>
+		  <td>Nama : </td>
+		  <td><?php echo $data_fasilitator->Nama_fasilitator?></td>
+		  </tr>
+		  <tr>
+		  <td></td>
+		  </tr>
+		  <tr style="text-align:left;">
+		  <td>Pendidikan :</td>
+		  <td><?php echo $data_fasilitator->Pendidikan?></td>
+		  </tr>
+		  <tr>
+		  <td></td>
+		  </tr>
+		  <tr style="text-align:left;">
+		  <td>Tanggal Lahir :</td>
+		  <td><?php echo $data_fasilitator->Tanggal_Lahir?></td>
+		  </tr>
+		  <tr>
+		  <td></td>
+		  </tr>
+		  <tr style="text-align:left;">
+		  <td>Job :</td>
+		  <td>Fasilitator</td>
+		  </tr>
+		  </table>
 		  </div>
-		  
+		</div>
 		  <div id="histori-page" class="table-responsive" style="display:none;">
-		<table class="table-dark table-striped" style="width:100%;text-align:center;">
+		<table class="table" style="width:100%;text-align:center;">
 		<thead>
 		<tr>
 		<th>No</th>
 		<th>Nama Desa</th>
 		<th>Status</th>
+		<th>Aksi</th>
 		</tr>
 		</thead>
 	     <tbody>
@@ -86,13 +124,13 @@
                   <tr>
                     <td><?php echo $no++ ?></td>
                     <td><?php echo $hasil->Nama_desa ?></td>
-                    <td><?php echo $hasil->Status ?></td>
-					<?php if($hasil->Status=='Proses Pelaporan'){?>
-					<td>
-					
-                        <a href="<?php echo base_url() ?>index.php/Laporan/lapor_desa/<?php echo $hasil->ID?>/<?php echo $hasil->ID_DESA?>" class="btn btn-sm btn-success">Lapor</a>
-						</td>
+					<?php if($hasil->Status=="Verified"){ ?>
+					<td class="alert alert-success" style="text-align:center;"><?php echo $hasil->Status ?></td>
+					<?php } else if($hasil->Status=="Waiting"){ ?>
+					<td class="alert alert-info" style="text-align:center;"><?php echo $hasil->Status ?></td>
 					<?php } else {?>
+					<td class="alert alert-danger" style="text-align:center;"><?php echo $hasil->Status ?></td>
+					<td><a href="<?php echo base_url() ?>index.php/Laporan/lapor_desa/<?php echo $hasil->ID ?>/<?php echo $data_fasilitator->ID_fasilitator?>/<?php echo $hasil->ID_DESA?>" class="btn btn-sm btn-success">Lapor</a></td>
 					<?php } ?>
 					
                   </tr>
@@ -141,7 +179,7 @@
 		
 		
 		
-		</div>
+		
 	</div>
 		
 
@@ -149,40 +187,29 @@
 		
 		<script>
 		$(document).ready(function(){
-    $("#tambah").click(function(){
-        $("#tambah-laporan").show();
-		$("#overview-page").show();
-		$("#histori-page").hide();
-		$("#tambah").css("background-color","#FFC600");
-		$("#histori").css("background-color","");
-		$("#overview").css("background-color","");
-		$("#overview").removeClass('dipilih');
-	
-		
-    });
 	
      $("#overview").click(function(){
 		$("#tambah-laporan").hide();
 		$("#overview-page").show();
 		$("#histori-page").hide();
 		$("#overview").css("background-color","#FFC600");
-		$("#histori").css("background-color","");
+		$("#laporan").css("background-color","");
 		$("#tambah").css("background-color","");
+		$('.keterangan').text('Data Akun');
 		
 		
     });
-	    
-		$("#histori").click(function(){
+	     $("#laporan").click(function(){
 		$("#tambah-laporan").hide();
 		$("#overview-page").hide();
 		$("#histori-page").show();
-		$("#histori").css("background-color","#FFC600");
 		$("#overview").css("background-color","");
-		$("#tambah").css("background-color","");
+		$("#laporan").css("background-color","#FFC600");
 		$("#overview").removeClass('dipilih');
-		
+		$('.keterangan').text('Riwayat Laporan');
 		
     });
+	    
 	
 	 
 	
