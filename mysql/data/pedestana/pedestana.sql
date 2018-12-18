@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2018 at 05:24 AM
--- Server version: 10.1.35-MariaDB
--- PHP Version: 7.2.9
+-- Waktu pembuatan: 18 Des 2018 pada 06.23
+-- Versi server: 10.1.35-MariaDB
+-- Versi PHP: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,91 +25,86 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bnpb`
+-- Struktur dari tabel `bnpb`
 --
 
 CREATE TABLE `bnpb` (
   `ID_bnpb` int(100) NOT NULL,
   `Nama_bnpb` varchar(50) DEFAULT NULL,
   `Tanggal_Lahir` date DEFAULT NULL,
-  `Umur` int(100) DEFAULT NULL,
   `Pendidikan` varchar(50) DEFAULT NULL,
   `No_Hp` int(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `bnpb`
+-- Dumping data untuk tabel `bnpb`
 --
 
-INSERT INTO `bnpb` (`ID_bnpb`, `Nama_bnpb`, `Tanggal_Lahir`, `Umur`, `Pendidikan`, `No_Hp`) VALUES
-(0, 'Belum', '1997-02-27', 20, 'SMA', 787878),
-(1, 'Axel Christiant', '2000-12-27', 100, 'SD', 33333333),
-(2, 'Budi', '1997-11-27', 20, 'S2', 777777),
-(3, 'Bambang', '1990-12-27', 19, 'S3', 33333333),
-(4, 'hahah', '6222-02-26', 80, 'SD', 213),
-(6, 'tes', '1998-12-27', 8, 'SD', 27),
-(7, 'oke', '0006-02-17', 22, 'SD', 33);
+INSERT INTO `bnpb` (`ID_bnpb`, `Nama_bnpb`, `Tanggal_Lahir`, `Pendidikan`, `No_Hp`) VALUES
+(0, 'Belum', '1997-02-27', 'SMA', 787878),
+(1, 'Axel Christiant', '2000-12-27', 'SD', 33333333),
+(2, 'Budi', '1997-11-27', 'S2', 777777),
+(3, 'Bambang', '1990-12-27', 'S3', 33333333),
+(4, 'hahaha', '6222-02-26', 'SD', 213),
+(6, 'tes', '1998-12-27', 'SD', 27),
+(7, 'oke', '0006-02-17', 'SD', 33);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `desa`
+-- Struktur dari tabel `desa`
 --
 
 CREATE TABLE `desa` (
   `ID_desa` int(11) NOT NULL,
   `Nama_desa` varchar(50) DEFAULT NULL,
-  `Lokasi` varchar(50) DEFAULT NULL,
+  `Daerah` varchar(50) DEFAULT NULL,
   `Kategori` varchar(50) DEFAULT NULL,
   `ID_BNPB` int(100) DEFAULT NULL,
   `ID_FASILITATOR` int(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `desa`
+-- Dumping data untuk tabel `desa`
 --
 
-INSERT INTO `desa` (`ID_desa`, `Nama_desa`, `Lokasi`, `Kategori`, `ID_BNPB`, `ID_FASILITATOR`) VALUES
-(2, 'Desa Sukrawetan', 'SD', 'Bagus', 2, 2),
-(3, 'Desa manalagi', 'SD', 'Belum', 3, 3),
+INSERT INTO `desa` (`ID_desa`, `Nama_desa`, `Daerah`, `Kategori`, `ID_BNPB`, `ID_FASILITATOR`) VALUES
 (4, 'Desa Sukrawetan', 'SMA', 'Belum', 0, 9),
-(5, 'desa baciro', 'SD', 'Bagus', 0, 0);
+(5, 'desa baciro', 'SD', 'Utama', 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `fasilitator`
+-- Struktur dari tabel `fasilitator`
 --
 
 CREATE TABLE `fasilitator` (
   `ID_fasilitator` int(11) NOT NULL,
   `Nama_fasilitator` varchar(50) DEFAULT NULL,
   `Tanggal_Lahir` date DEFAULT NULL,
-  `Umur` int(100) DEFAULT NULL,
   `Pendidikan` varchar(50) DEFAULT NULL,
   `No_Hp` int(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `fasilitator`
+-- Dumping data untuk tabel `fasilitator`
 --
 
-INSERT INTO `fasilitator` (`ID_fasilitator`, `Nama_fasilitator`, `Tanggal_Lahir`, `Umur`, `Pendidikan`, `No_Hp`) VALUES
-(0, 'Belum', '0007-07-07', 7, 'SD', 72),
-(1, 'bambang', '2000-12-27', 30, 'D3', 33333335),
-(2, 'James', '1997-11-27', 20, 'S2', 777777),
-(3, 'Bebe', '1990-12-27', 193, 'SD', 333333332),
-(5, 'Bambang', '2007-12-15', 20, 'SMA', 71878),
-(6, 'tes', '1945-08-17', 100, 'SD', 212),
-(7, 'bambang', '1945-08-17', 70, 'SMA', 2662626),
-(8, 'bagus', '1945-08-17', 0, 'SMA', 787878),
-(9, 'tes', '7888-12-27', 6, 'SD', 788),
-(10, 'bagus', '1990-09-27', 18, 'S1', 21312);
+INSERT INTO `fasilitator` (`ID_fasilitator`, `Nama_fasilitator`, `Tanggal_Lahir`, `Pendidikan`, `No_Hp`) VALUES
+(0, 'Belum', '0007-07-07', 'SD', 72),
+(1, 'bambang', '2000-12-27', 'D3', 33333335),
+(2, 'James', '1997-11-27', 'S2', 777777),
+(3, 'Bebe', '1990-12-27', 'SD', 333333332),
+(5, 'Bambang', '2007-12-15', 'SMA', 71878),
+(8, 'bagus', '1945-08-17', 'SMA', 787878),
+(9, 'tes', '7888-12-27', 'SD', 788),
+(10, 'matamu', '1990-09-27', 'S1', 21312),
+(11, 'susanto', '1998-11-16', 'S2', 812344321);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `indikator`
+-- Struktur dari tabel `indikator`
 --
 
 CREATE TABLE `indikator` (
@@ -118,7 +113,7 @@ CREATE TABLE `indikator` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `indikator`
+-- Dumping data untuk tabel `indikator`
 --
 
 INSERT INTO `indikator` (`No`, `Deskripsi`) VALUES
@@ -127,11 +122,11 @@ INSERT INTO `indikator` (`No`, `Deskripsi`) VALUES
 (3, 'Apakah kebijakan PRB di tingkat desa atau kelurahan telah dilegalkan dalam bentuk Perdes atau perangkat hukum serupa di kelurahan? (Lanjutkan ke pertanyaan selanjutnya)'),
 (4, ' Apakah telah ada upaya-upaya awal untuk menyusun dokumen perencanaan penanggulangan bencana\r\n						seperti Rencana Penanggulangan Bencana, Rencana Aksi PRB atau Rencana Kontinjensi? (Bila ‘Tidak’ lanjutkan ke pertanyaan no. 7, bila ‘Ya’ lanjutkan ke pertanyaan selanjutnya)'),
 (5, 'Apakah dokumen perencanaan penanggulangan bencana seperti Rencana Penanggulangan Bencana,\r\n						Rencana Aksi PRB atau Rencana Kontinjensi telah tersusun? \r\n						(Bila ‘Tidak’ lanjutkan ke pertanyaan no. 7, bila ‘Ya’ lanjutkan ke pertanyaan selanjutnya)'),
-(6, 'Apakah dokumen perencanaan penanggulangan bencana seperti Rencana Penanggulangan Bencana dan Rencana Aksi PRB yang tersusun telah dipadukan ke dalam Rencana Pembangunan Desa atau Kelurahan?\r\n						(Lanjutkan ke pertanyaan selanjutnya)'),
-(7, 'Apakah telah ada upaya-upaya awal untuk membentuk forum PRB?\r\n\r\n(Bila ‘Tidak’ lanjutkan ke pertanyaan no. 10, bila ‘Ya’ lanjutkan ke pertanyaan selanjutnya)'),
-(8, 'Apakah forum PRB yang beranggotakan wakil-wakil dari masyarakat dan pemerintah, termasuk kelompok perempuan dan kelompok rentan telah terbentuk dan mulai berfungsi walau belum terlalu aktif?\r\n\r\n(Bila ‘Tidak’ lanjutkan ke pertanyaan no. 10, bila ‘Ya’ lanjutkan ke pertanyaan selanjutnya)'),
-(9, 'Apakah forum PRB yang terbentuk telah berfungsi aktif dengan program-program pengurangan risiko yang terencana dan diimplementasikan dengan baik?\r\n\r\n(Lanjutkan ke pertanyaan selanjutnya)'),
-(10, 'Apakah telah ada upaya-upaya awal untuk membentuk tim relawan/siaga PB Desa/Kelurahan yang terutama akan terlibat dalam tanggap darurat bencana, PRB dan pendidikan kebencanaan?\r\n\r\n\r\n(Bila ‘Tidak’ lanjutkan ke pertanyaan no. 13, bila ‘Ya’ lanjutkan ke pertanyaan selanjutnya)'),
+(6, 'Apakah dokumen perencanaan penanggulangan bencana seperti Rencana Penanggulangan Bencana\r\n						dan Rencana Aksi PRB yang tersusun telah dipadukan ke dalam Rencana Pembangunan Desa atau\r\n						Kelurahan? \r\n						(Lanjutkan ke pertanyaan selanjutnya)'),
+(7, 'Apakah telah ada upaya-upaya awal untuk membentuk forum PRB? \r\n						(Bila ‘Tidak’ lanjutkan ke pertanyaan no. 10, bila ‘Ya’ lanjutkan ke pertanyaan selanjutnya)'),
+(8, 'Apakah forum PRB yang beranggotakan wakil-wakil dari masyarakat dan pemerintah, termasuk kelompok perempuan dan kelompok rentan telah terbentuk dan mulai berfungsi walau belum terlalu aktif? \r\n						(Bila ‘Tidak’ lanjutkan ke pertanyaan no. 10, bila ‘Ya’ lanjutkan ke pertanyaan selanjutnya)'),
+(9, 'Apakah forum PRB yang terbentuk telah berfungsi aktif dengan program-program pengurangan risiko yang terencana dan diimplementasikan dengan baik? \r\n						(Lanjutkan ke pertanyaan selanjutnya)'),
+(10, 'Apakah telah ada upaya-upaya awal untuk membentuk tim relawan/siaga PB Desa/Kelurahan yang terutama akan terlibat dalam tanggap darurat bencana, PRB dan pendidikan kebencanaan? \r\n						(Bila ‘Tidak’ lanjutkan ke pertanyaan no. 13, bila ‘Ya’ lanjutkan ke pertanyaan selanjutnya)'),
 (11, 'Apakah tim relawan/siaga PB Desa/Kelurahan telah terbentuk dan memiliki kelengkapan personil dan peralatan yang memadai untuk melaksanakan tugasnya?\r\n\r\n(Bila ‘Tidak’ lanjutkan ke pertanyaan no. 13, bila ‘Ya’ lanjutkan ke pertanyaan selanjutnya)'),
 (12, 'Apakah tim relawan/siaga PB Desa/Kelurahan telah secara rutin melakukan kegiatan pelatihan, praktik simulasi, dan geladi respons tanggap darurat bagi para anggotanya dan masyarakat, melalui kegiatan-kegiatan yang terencana dan terprogram dengan baik?\r\n\r\n(Lanjutkan ke pertanyaan selanjutnya)'),
 (13, 'Dalam upaya pengurangan risiko bencana, apakah sudah ada pembicaraan untuk menjalin kerjasama dengan desa/kelurahan lain, kecamatan, kabupaten, pihak swasta, organisasi sosial dll?\r\n\r\n(Bila ‘Tidak’ lanjutkan ke pertanyaan no. 16, bila ‘Ya’ lanjutkan ke pertanyaan selanjutnya)'),
@@ -186,12 +181,12 @@ INSERT INTO `indikator` (`No`, `Deskripsi`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `laporan`
+-- Struktur dari tabel `laporan`
 --
 
 CREATE TABLE `laporan` (
   `ID` int(11) NOT NULL,
-  `Indikator` varchar(50) DEFAULT NULL,
+  `Indikator` varchar(100) DEFAULT NULL,
   `ID_FASILITATOR` int(100) DEFAULT NULL,
   `ID_BNPB` int(100) DEFAULT NULL,
   `Status` varchar(100) NOT NULL,
@@ -199,20 +194,23 @@ CREATE TABLE `laporan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `laporan`
+-- Dumping data untuk tabel `laporan`
 --
 
 INSERT INTO `laporan` (`ID`, `Indikator`, `ID_FASILITATOR`, `ID_BNPB`, `Status`, `ID_DESA`) VALUES
-(1, '21111111111111111111111111111111111111111111111111', 5, 7, 'Verified', 3),
-(2, '11111', 8, 7, 'Verified', 2),
-(3, '11111', 8, 7, 'Verified', 2),
 (5, '22121', 8, 7, 'Verified', 5),
-(6, '21211', 8, 7, 'Verified', 5);
+(6, '21211', 8, 7, 'Verified', 5),
+(8, '', 1, 0, 'Proses Pelaporan', 5),
+(10, '3223232323', 10, 7, 'Verified', 5),
+(11, '1111111111', 11, 0, 'Waiting', 6),
+(13, '11111111111111111111111111111111111111111111111111', 11, 0, 'Waiting', 6),
+(14, '11111111111111111111111111111111111111111111111111', 11, 0, 'Waiting', 6),
+(16, '111111111111111111111111111111111111111111111111111111111111', 11, 0, 'Waiting', 4);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `login`
+-- Struktur dari tabel `login`
 --
 
 CREATE TABLE `login` (
@@ -225,7 +223,7 @@ CREATE TABLE `login` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `login`
+-- Dumping data untuk tabel `login`
 --
 
 INSERT INTO `login` (`id`, `username`, `password`, `job`, `ID_fasilitator`, `ID_bnpb`) VALUES
@@ -239,20 +237,22 @@ INSERT INTO `login` (`id`, `username`, `password`, `job`, `ID_fasilitator`, `ID_
 (8, 'tes@bnpb', '7d3321956445b711dfd223656704e9fc', 'bnpb', 0, 0),
 (9, 'ya@fasilitator', '0de61e6b6e6df728c456b59604c89029', 'fasilitator', 10, 0),
 (10, 'oke@bnpb', '7d3321956445b711dfd223656704e9fc', 'bnpb', 0, 7),
-(11, 'bagus@fasilitator', '0de61e6b6e6df728c456b59604c89029', 'fasilitator', 10, 0);
+(11, 'matamu@fasilitator', '0de61e6b6e6df728c456b59604c89029', 'fasilitator', 10, 0),
+(12, 'Joko@bnpb', '7d3321956445b711dfd223656704e9fc', 'bnpb', 0, 8),
+(13, 'susanto@fasilitator', '0de61e6b6e6df728c456b59604c89029', 'fasilitator', 11, 0);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `bnpb`
+-- Indeks untuk tabel `bnpb`
 --
 ALTER TABLE `bnpb`
   ADD PRIMARY KEY (`ID_bnpb`);
 
 --
--- Indexes for table `desa`
+-- Indeks untuk tabel `desa`
 --
 ALTER TABLE `desa`
   ADD PRIMARY KEY (`ID_desa`),
@@ -260,19 +260,19 @@ ALTER TABLE `desa`
   ADD KEY `ID_BNPB` (`ID_BNPB`);
 
 --
--- Indexes for table `fasilitator`
+-- Indeks untuk tabel `fasilitator`
 --
 ALTER TABLE `fasilitator`
   ADD PRIMARY KEY (`ID_fasilitator`);
 
 --
--- Indexes for table `indikator`
+-- Indeks untuk tabel `indikator`
 --
 ALTER TABLE `indikator`
   ADD UNIQUE KEY `No` (`No`);
 
 --
--- Indexes for table `laporan`
+-- Indeks untuk tabel `laporan`
 --
 ALTER TABLE `laporan`
   ADD PRIMARY KEY (`ID`),
@@ -280,58 +280,58 @@ ALTER TABLE `laporan`
   ADD KEY `ID_BNPB` (`ID_BNPB`);
 
 --
--- Indexes for table `login`
+-- Indeks untuk tabel `login`
 --
 ALTER TABLE `login`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `bnpb`
+-- AUTO_INCREMENT untuk tabel `bnpb`
 --
 ALTER TABLE `bnpb`
   MODIFY `ID_bnpb` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `desa`
+-- AUTO_INCREMENT untuk tabel `desa`
 --
 ALTER TABLE `desa`
   MODIFY `ID_desa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `fasilitator`
+-- AUTO_INCREMENT untuk tabel `fasilitator`
 --
 ALTER TABLE `fasilitator`
-  MODIFY `ID_fasilitator` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `ID_fasilitator` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `laporan`
+-- AUTO_INCREMENT untuk tabel `laporan`
 --
 ALTER TABLE `laporan`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `login`
+-- AUTO_INCREMENT untuk tabel `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `desa`
+-- Ketidakleluasaan untuk tabel `desa`
 --
 ALTER TABLE `desa`
   ADD CONSTRAINT `desa_ibfk_1` FOREIGN KEY (`ID_FASILITATOR`) REFERENCES `fasilitator` (`ID_fasilitator`),
   ADD CONSTRAINT `desa_ibfk_2` FOREIGN KEY (`ID_BNPB`) REFERENCES `bnpb` (`ID_bnpb`);
 
 --
--- Constraints for table `laporan`
+-- Ketidakleluasaan untuk tabel `laporan`
 --
 ALTER TABLE `laporan`
   ADD CONSTRAINT `laporan_ibfk_1` FOREIGN KEY (`ID_FASILITATOR`) REFERENCES `fasilitator` (`ID_fasilitator`),
