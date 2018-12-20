@@ -6,7 +6,7 @@
     <meta name="description" content="Portal Desa Tangguh Bencana">
     <meta name="keywords" content="Pedestana">
     <meta name="author" content="Yudha">
-    <title>Pedestana | Welcome</title>
+    <title>Pedestana | Welcome1</title>
      <link href="<?php echo base_url('assets/welcome/style.css')?>" rel="stylesheet">
   </head>
   <body>
