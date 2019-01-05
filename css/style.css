@@ -1,0 +1,126 @@
+.left-side{
+	height:100%;
+	background-color:#001A57;
+	text-align:center;
+	background-repeat:no-repeat;
+background-size:contain;
+background-position:center;
+border:0;
+}
+#table-page .table{
+	width:100%;
+	text-align:center;
+	
+	
+}
+.img-contain {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  height: 0;
+  padding-bottom: 75%;
+ 
+  margin-bottom: 20px;
+}
+
+.img-login {
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  vertical-align: middle;
+}
+
+.img-shiv {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  font-size: 0;
+}
+.left-side h1{
+	color:white;
+	position:relative;
+	top:10%;
+	
+}
+ .scrollable{
+   overflow-y: scroll;
+   overflow-x:hidden;
+ }
+
+.right-side{
+height:100%;
+width:100%;	
+}
+.form-login{
+position:relative;
+top:27%;
+}
+#tambah-laporan{
+	display:none;
+	
+}
+#tambah-laporan table{
+	height:70%;
+}
+.tombol{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+	color:white;
+	margin:12% 0 5% 0;
+	color:white;
+	font-weight:bold;
+	width:100%;}
+.dipilih{
+		background-color:#FFC600;
+}
+
+#form-tambah,#form-fasilitator,#form-bnpb,#form-akun{
+	display:none;
+	
+}
+
+.tombol:hover{
+	background-color:#FFC600;
+}
+.side{
+	background-color:white;
+}
+
+	
+.nav-bg{
+	background-color:#001A57;
+}
+
+.bg-nav{
+	background-color:#001A57;
+	color:white;
+}
+
+
+.bg-nav > a{
+	position:absolute;
+	right:3%;
+}
+.bg-nav > h3{
+}
+.button-tambah{
+	margin:0 0 1% 0;
+}
+#form-fasilitator{
+	display:none;
+}
+#table1{
+	display:none;
+}
+#table2{
+	display:none;
+}
+#table3{
+	display:none;
+}
+
+
